@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 正则表达式</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript 正则表达式</h1></div>
+    <div>
+      <h3>1. 正则表达式介绍</h3>
+      <span>
+        <p>正则表达式是构成搜索模式的字符序列 /pattern/modifiers;</p>
+        <p>正则表达式可以用于执行所有类型的文本搜索和文本替换操作</p>
+        <pre>
+          语法 /pattern/modifiers;
+          例子 /china/i
+          china 是模型 （搜索中使用）
+          i 是修饰符（搜索内容对大小写不敏感）
+        </pre>
+      </span>
+    </div>
+    <div>
+      <h3>2. 字符串方法使用正则</h3>
+      <span>
+        <p>search() 加正则</p>
+        <button onclick="demo()">点我试试</button>
+        <p id="search_reg"></p>
+        <p>replace() 加正则</p>
+        <button onclick="demo1()">点我试试</button>
+        <p id="replace_reg"></p>
+      </span>
+    </div>
+    <div>
+      <h3>3. 正则表达式修饰符</h3>
+      <span>
+        <p>i 执行对大小写不敏感的匹配</p>
+        <button onclick="demo2()">点我试试</button>
+        <p id="i_reg"></p>
+        <p>g 执行全局匹配（查找所有匹配，不会在第一个位置停止）</p>
+        <button onclick="demo3()">点我试试</button>
+        <p id="g_reg"></p>
+        <p>m 执行多行匹配</p>
+        <button onclick="demo4()">点我试试</button>
+        <p id="m_reg"></p>
+      </span>
+    </div>
+    <div>
+      <h3>4. 正则表达式模式</h3>
+      <span>
+        <p>[abc] 查找方括号之间的任何字符</p>
+        <button onclick="demo5()">点我试试</button>
+        <p id="reg_demo"></p>
+        <p>[0-9] 查找任何从0-9的数字</p>
+        <button onclick="demo6()">点我试试</button>
+        <p id="reg_demo1"></p>
+        <p>(x|y) 查找由｜分隔的x 或者y的匹配</p>
+        <button onclick="demo7()">点我试试</button>
+        <p id="reg_demo2"></p>
+        <p>\d 查找数字</p>
+        <button onclick="demo8()">点我试试</button>
+        <p id="reg_demo3"></p>
+        <p>\s 查找空白字符</p>
+        <button onclick="demo9()">点我试试</button>
+        <p id="reg_demo4"></p>
+        <p>\b 匹配单词边界</p>
+        <button onclick="demo10()">点我试试</button>
+        <p id="reg_demo5"></p>
+        <p>\u 查找16进制数 xxxx 规定的Unicode 字符</p>
+        <button onclick="demo11()">点我试试</button>
+        <p id="reg_demo6"></p>
+        <p>n+ 匹配任何至少包含至少一个n的字符串</p>
+        <button onclick="demo12()">点我试试</button>
+        <p id="reg_demo7"></p>
+        <p>n* 匹配任何包含零个或多个n的字符串</p>
+        <button onclick="demo13()">点我试试</button>
+        <p id="reg_demo8"></p>
+        <p>n? 匹配任何包含零个或一个n的字符串</p>
+        <button onclick="demo14()">点我试试</button>
+        <p id="reg_demo9"></p>
+      </span>
+    </div>
+    <div>
+      <h3>5. 正则表达式方法</h3>
+      <span>
+        <p>text() 通过模式来搜索字符串，返回结果是true 或 false</p>
+        <p id="text_demo">以下语句是否包含字符e :The best things in life are free!</p>
+        <button onclick="demo15()">点我试试</button>
+        <p id="reg_method"></p>
+        <p>exec() 通过指定模式搜索字符串，返回已找到的文本</p>
+        <p id="text_demo1">以下语句找到且返回字符e :The best things in life are free!</p>
+        <button onclick="demo16()">点我试试</button>
+        <p id="reg_method1"></p>
+      </span>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+<script src="../../JsCodeBase/regEx.js"></script>
+</html>

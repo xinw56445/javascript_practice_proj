@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Javascript ES5对象方法</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript ES5对象方法</h1></div>
+  <div>
+    <h3>管理对象</h3>
+    <span>
+      以现有的对象为原型创建对象 <br>
+      Object.create() <br>
+      <br>
+      添加或更改对象属性 <br>
+      Object.defineProperty(object, property, descriptor) <br>
+      Object.defineProperties(object, descriptor) <br>
+      <br>
+      访问属性 <br>
+      Object.getOwnPropertyDescriptor(object, property) <br>
+      <br>
+      以数组返回所有属性 <br>
+      Object.getOwnPropertyNames(object, property) <br>
+      <br>
+      访问原型 <br>
+      Object.getPrototypeOf(object) <br>
+      <br>
+      以数组返回可枚举属性 <br>
+      Object.keys(object)
+    </span>
+  </div>
+  <div>
+    <h3>保护对象</h3>
+    <span>
+      // 防止对象添加属性 <br>
+      Object.preventExtensions(object) <br>
+      <br>
+      // 如果属性可以添加到对象，则返回true <br>
+      Object.isExtensible(object) <br>
+      <br>
+      // 防止对象更改属性（非值）<br>
+      Object.seal(Object) <br>
+      <br>
+      // 如果对象被密封，则返回true <br>
+      Object.isSealed(object) <br>
+      <br>
+      // 防止对象进行任何更改 <br>
+      Object.freeze(object) <br>
+      <br>
+      // 如果对象被冻结，则返回 true <br>
+      Object.isFrozen(object)
+    </span>
+  </div>
+  <div>
+    <h3>更改属性值</h3>
+    <span>
+      <p>Object.defineProperty(object, property, {value : value})</p>
+      <p id="demo"></p>
+      <p>Object.defineProperties(object, {property1: {value: value}, property2: {value: value}})</p>
+      <p id="demo1"></p>
+      <p>添加Getter 和 Setter</p>
+      <p id="demo0"></p>
+    </span>
+  </div>
+  <div>
+    <h3>更改元数据</h3>
+    <span>
+      <p>添加或更改对象属性方法允许更改属性元数据</p>
+      <p>writable: true/false  属性值可更改</p>
+      <p>enumerable: true/false 属性可枚举</p>
+      <p>configurable: true/false 属性可重新配置</p>
+      <p id="demo2"></p>
+    </span>
+  </div>
+  <div>
+    <h3>列出所有属性</h3>
+    <span>
+      <p>列出person 对象的所有属性</p>
+      <p id="demo3"></p>
+      <p>访问属性</p>
+      <p id="demo4"></p>
+      <p>列举可枚举的属性</p>
+      <p id="demo5"></p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    const person = {
+        firstName: "Bill",
+        lastName: "Gates",
+        language: "EN"
+    };
+    // 修改属性language
+    Object.defineProperty(person, "language", {value: "CN"});
+    document.getElementById("demo").innerHTML = person.language;
+    // 添加Getter 和 Setter
+    Object.defineProperty(person, "fullName", {
+        get: function () {
+            return this.firstName + " " + this.lastName;
+        }
+    });
+    document.getElementById("demo0").innerHTML = person.fullName;
+    // 修改多个属性
+    Object.defineProperties(person, {
+        language: {value: "UN"},
+        lastName: {value: "Bob"},
+    });
+    document.getElementById("demo1").innerHTML = person.language + " " + person.lastName;
+    // 修改属性元数据
+    let obj = {};
+    Object.defineProperties(obj, {
+        a: {value: 1, enumerable: false},
+        b: {value: 2, enumerable: true},
+        c: {value: 3, enumerable: false}
+    })
+    
+    obj.d = 4;//等同于//Object.defineProperty(obj, 'd', {//    configurable: true,//    enumerable: true,//    writable: true,//    value: 4//})for(var key in obj) {    console.log(key);      // 打印一次b, 一次d, a和c属性enumerable为false，不可被枚举} var arr = Object.keys(obj);console.log(arr);  // ['b', 'd']
+    let text = "";
+    for (const objElement in obj) {
+        text += obj[objElement] + " ";
+    }
+    document.getElementById("demo2").innerHTML = text;
+    // 列出person对象的所有属性
+    document.getElementById("demo3").innerHTML =
+        Object.getOwnPropertyNames(person);
+    // 访问属性
+    languageName = Object.getOwnPropertyDescriptor(person, "language").value;
+    document.getElementById("demo4").innerHTML = languageName;
+    // 列举可枚举属性
+    Object.defineProperties(person, {
+        language: {enumerable: false}
+    })
+    document.getElementById("demo5").innerHTML = Object.keys(person);
+</script>
+</html>

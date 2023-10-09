@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../11_js_jquery_test/node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>jQuery 设置内容和属性</h1>
+        <p>实例</p>
+        <ul>
+            <li>text() 设置或返回所选元素的文本内容</li>
+            <li>html() 设置或返回所选元素的内容（包括 HTML 标记）</li>
+            <li>val() 设置或返回表单字段的值</li>
+        </ul>
+        <pre>
+            <code>
+                // 设置p 标签的文本
+                $("p").text("Hello World!");
+            </code>
+        </pre>
+        <div>
+            <h2>text()、html()、val()的回调函数</h2>
+            <p>这三个方法同样拥有回调函数，回调函数有两个参数：被选中元素列表中当前元素的下标，原始值，以函数新值返回用户定义的字符串</p>
+            <button id="btn">点此添加文本</button>
+            <p id="p1">这是一个<b>粗体</b></p>
+        </div>
+        <div>
+            <h2>设置属性</h2>
+            <p>attr() 方法设置或返回属性值</p>
+            <button id="btn2">点此设置属性</button>
+            <input type="text" name="username" value="Jack">
+        </div>
+    </div>
+</body>
+<script>
+    // 设置p 标签的文本
+    $(function () {
+        $("#btn").on("click", function () {
+            $("#p1").text(function (index, oldText, newText) {
+                return oldText + "(index): " + index + ' ' + "<b>Hello World</b> (index): " + index;
+            });
+        });
+    });
+
+    // 设置属性
+    $(function () {
+        $("[name='username']").attr({
+            "name": "name",
+            "value": "Jack",
+            "id": "input",
+        });
+    });
+
+    // attr() 的回调函数
+    $(function () {
+        $("#btn2").on("click", function () {
+            $("input").attr("name", function (index, oldName, newName) {
+                let nameValue = oldName + " : " + $("[name='username']").val() + " " + "Chen";
+                $("[name='username']").val(nameValue);
+                return $("[name='username']").val();
+            });
+        });    
+    });
+</script>
+
+</html>

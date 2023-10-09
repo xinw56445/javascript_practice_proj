@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>jQuery 语法</h1>
+        <p>通过 jQuery 可以选取 HTML 元素，并对其执行操作</p>
+        <div>
+            <h2>基础语法： $(selector).action()</h2>
+            <p>$: 定义jQuery</p>
+            <p>selector: 选择器</p>
+            <p>action: 动作</p>
+            <p>$(selector): 选择器匹配到的元素集合</p>
+            <p>实例：</p>
+            <ul>
+                <li>$(this).hide() - 隐藏当前元素</li>
+                <li>$("p").hide() - 隐藏所有 <p> 元素</li>
+                <li>$("p.test").hide() - 隐藏所有 class="test" 的 <p> 元素</li>
+                <li>$("#test").hide() - 隐藏 id="test" 的元素</li>
+            </ul>
+        </div>
+        <div>
+            <h2>文档就绪事件</h2>
+            <p>$(document).ready(function(){}) - 文档就绪事件</p>
+            <p>实例：</p>
+            <p id="p01">点击这里会隐藏</p>
+            <ul>
+                <li>$(document).ready(function(){ 
+                    $("p").hide();
+                    })</li>
+                <li>
+                    $(function(){
+                        $("#p01").click(function(){
+                            $(this).hide();
+                            })
+                        })
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        let p = $("#p01");
+        p.click(function(){
+            // 隐藏标签
+            p.hide();
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<h1>Javascript语句的构成</h1>
+<p>值，运算符，表达式，关键词和注释</p>
+<p id="demo">a = 5，b = 6，求ab的和</p>
+<!-- break	        终止 switch 或循环。
+        continue	    跳出循环并在顶端开始。
+        debugger	    停止执行 JavaScript，并调用调试函数（如果可用）。
+        do ... while	执行语句块，并在条件为真时重复代码块。
+        for	            标记需被执行的语句块，只要条件为真。
+        function	    声明函数。
+        if ... else     标记需被执行的语句块，根据某个条件。
+        return	        退出函数。
+        switch	        标记需被执行的语句块，根据不同的情况。
+        try ... catch	对语句块实现错误处理。
+        var	            声明变量。 -->
+<script>
+    var a = 5, b = 6; //var 是声明变量
+    function myFunction() {  //声明函数的格式，myFunction()函数名
+        // 每个可执行的语句后面加分号
+        c = a + b;
+        // a = 5; b = 6; c = a + b; 这种等同于上面的写法
+        document.getElementById('demo').innerHTML = c
+    }
+
+</script>
+<body>
+    <button type="button", onclick="myFunction()">点我显示计算结果</button>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>JavaScript HTML DOM改变HTML</h1>
+        </div>
+        <div class="row">
+            <h3>改变HTML 输出流</h3>
+            <p>document.write() 可用于直接向HTML 输出流写内容</p>
+            <code>
+                document.write(Date());  // 这个方法会覆盖之前的html输出
+            </code>
+        </div>
+        <div class="row">
+            <h3 id="demo">改变HTML 内容</h3>
+            <p>使用innerHTML 属性可以改变</p>
+            <code>
+                document.getElementById("demo").innerHTML = "Hello World";
+                // 获取 id 为‘demo’ 的HTML元素，并且将其内容改变为‘Hello World’
+            </code>
+        </div>
+        <div class="row">
+            <h3>改变HTML 属性</h3>
+            <p>使用setAttribute() 可以改变</p>
+            <img id="image" src="demo1.gif" alt="">
+            <code>
+                document.getElementById("image").setAttribute("src", "demo2.jpg");  // 或者
+                document.getElementById("image").src = "demo2.gif";
+            </code>
+        </div>
+    </div>
+</body>
+
+</html>

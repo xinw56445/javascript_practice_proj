@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h1>JavaScript 函数</h1>
+    <p>
+        Javascript 函数是被设定为执行特定任务的代码块。<br>
+        JavaScript 函数会在某代码调用它时被执行
+    </p>
+    <h3>1. JavaScript函数语法</h3>
+    <span>
+        <pre>
+            JavaScript 函数通过 function 关键字进行定义，其后是函数名和括号。
+            函数名可包含，字母，数字，下划线和美元符号
+            圆括号包含由逗号分隔的参数
+        </pre>
+        <ul>
+            <h4><b>函数的调用</b></h4>
+            <p>函数中的代码将在其他代码调用该函数的时执行</p>
+            <li>事件发生时</li>
+            <li>JavaScript 代码调用时</li>
+            <li>函数自调</li>
+
+            <h4><b>函数返回</b></h4>
+            <p>
+                当Javascript 到达 return 语句，函数将停止运行。<br>
+                如果函数被某条语句调用，Javascript 将在语句调用之后返回 执行代码<br>
+                函数通常会计算出返回值，这个返回值将会返回给调用者
+            </p>
+        </ul>
+    </span>
+
+    <p id="demo"></p>
+    <h3>2. 用作变量值的函数</h3>
+    <p>函数的使用方法与变量一致，在所有类型的公式，赋值和计算中</p>
+    <p id="demo1"></p>
+    <script>
+        {
+            function myFunction(p1, p2) {
+                return p1 * p2;    // 该函数返回p1 和 p2的乘积
+            }
+            document.getElementById('demo').innerHTML = '例： p1 = 7, p2 = 8,则p1 * p2 = ' + myFunction(7, 8);
+        }
+
+        {
+            document.getElementById('demo1').innerHTML = '温度是：'+toCelsius(86) + ' 摄氏度。';
+
+            function toCelsius(fahrenheit) {
+                return (5 / 9) * (fahrenheit - 32);
+            }
+        }
+    </script>
+</body>
+
+</html>

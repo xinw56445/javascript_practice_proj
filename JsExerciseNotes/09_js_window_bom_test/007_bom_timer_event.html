@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>JavaScript 计时事件</h1>
+            <p>JavaScript 可以在一个设定的时间间隔之后执行代码，而不是在函数调用后立即执行，这样的方式称为计时事件</p>
+            <script>
+                var H = '....';
+                var H = H.split('');
+                var M = '.....';
+                var M = M.split('');
+                var S = '......';
+                var S = S.split('');
+                var Ypos = 0;
+                var Xpos = 0;
+                var Ybase = 8;
+                var Xbase = 8;
+                var dots = 12;
+        
+                function clock() {
+                    var time = new Date();
+                    var secs = time.getSeconds();
+                    var sec = -1.57 + Math.PI * secs / 30;
+                    var mins = time.getMinutes();
+                    var min = -1.57 + Math.PI * mins / 30;
+                    var hr = time.getHours();
+                    var hrs = -1.57 + Math.PI * hr / 6 + Math.PI * parseInt(time.getMinutes()) / 360;
+                    for (i = 0; i < dots; ++i) {
+                        document.getElementById("dig" + (i + 1)).style.top = 0 - 15 + 40 * Math.sin(-0.49 + dots + i / 1.9).toString() + "px";
+                        document.getElementById("dig" + (i + 1)).style.left = 0 - 14 + 40 * Math.cos(-0.49 + dots + i / 1.9).toString() + "px";
+                    }
+                    for (i = 0; i < S.length; i++) {
+                        document.getElementById("sec" + (i + 1)).style.top = Ypos + i * Ybase * Math.sin(sec).toString() + "px";
+                        document.getElementById("sec" + (i + 1)).style.left = Xpos + i * Xbase * Math.cos(sec).toString() + "px";
+                    }
+                    for (i = 0; i < M.length; i++) {
+                        document.getElementById("min" + (i + 1)).style.top = Ypos + i * Ybase * Math.sin(min).toString() + "px";
+                        document.getElementById("min" + (i + 1)).style.left = Xpos + i * Xbase * Math.cos(min).toString() + "px";
+                    }
+                    for (i = 0; i < H.length; i++) {
+                        document.getElementById("hour" + (i + 1)).style.top = Ypos + i * Ybase * Math.sin(hrs).toString() + "px";
+                        document.getElementById("hour" + (i + 1)).style.left = Xpos + i * Xbase * Math.cos(hrs).toString() + "px";
+                    }
+                    setTimeout('clock()', 50);
+                }
+                window.onload = clock;
+        
+            </script>
+            <style type="text/css">
+                div.example {
+                    background-color: antiquewhite;
+                }
+        
+                div.timepiece {
+                    background-color: rgb(0, 255, 0);
+                    border: 1px;
+                }
+        
+                div.dig,
+                div.hour,
+                div.min,
+                div.sec {
+                    position: absolute;
+                }
+        
+                div.hour,
+                div.min,
+                div.sec {
+                    width: 2px;
+                    height: 2px;
+                    font-size: 2px;
+                }
+        
+                div.dig {
+                    width: 30px;
+                    height: 30px;
+                    font-family: arial, verdana, sans-serif;
+                    font-size: 10px;
+                    color: #000000;
+                    text-align: center;
+                    padding-top: 10px
+                }
+        
+                div.min {
+                    background: #0000FF;
+                }
+        
+                div.hour {
+                    background: #000000;
+                }
+        
+                div.sec {
+                    background: #FF0000;
+                }
+            </style>
+            <div class="example">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="timepiece">
+                                <div style="width:120px;height:100px;position:relative;left:58px;top:50px;">
+                                    <div id="dig1" class="dig">1</div>
+                                    <div id="dig2" class="dig">2</div>
+                                    <div id="dig3" class="dig">3</div>
+                                    <div id="dig4" class="dig">4</div>
+                                    <div id="dig5" class="dig">5</div>
+                                    <div id="dig6" class="dig">6</div>
+                                    <div id="dig7" class="dig">7</div>
+                                    <div id="dig8" class="dig">8</div>
+                                    <div id="dig9" class="dig">9</div>
+                                    <div id="dig10" class="dig">10</div>
+                                    <div id="dig11" class="dig">11</div>
+                                    <div id="dig12" class="dig">12</div>
+        
+                                    <div id="hour1" class="hour"></div>
+                                    <div id="hour2" class="hour"></div>
+                                    <div id="hour3" class="hour"></div>
+                                    <div id="hour4" class="hour"></div>
+        
+                                    <div id="min1" class="min"></div>
+                                    <div id="min2" class="min"></div>
+                                    <div id="min3" class="min"></div>
+                                    <div id="min4" class="min"></div>
+                                    <div id="min5" class="min"></div>
+        
+                                    <div id="sec1" class="sec"></div>
+                                    <div id="sec2" class="sec"></div>
+                                    <div id="sec3" class="sec"></div>
+                                    <div id="sec4" class="sec"></div>
+                                    <div id="sec5" class="sec"></div>
+                                    <div id="sec6" class="sec"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="tutintro">JavaScript 一个设定的时间间隔之后来执行代码</p>
+                                <p class="tutintro">我们称之为计时事件</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h2>setInterval() 方法</h2>
+            <p>setInterval() 方法设置一个定时器，在定时到期以后不断执行注册的回调函数。</p>
+            <p>语法：setInterval(function, delay, [arg1, arg2,...])</p>
+            <p>参数：</p>
+            <p>function：必需。回调函数</p>
+            <p>delay：必需。定时器的时间间隔，单位为毫秒</p>
+            <p>arg1, arg2,...：可选。回调函数的参数列表</p>
+            <p>返回值：返回一个表示定时器的编号的整数值</p>
+            <p>实例：</p>
+            <p>我们实现一个即时显示时间的方法</p>
+            <p id="timer" style="background-color: antiquewhite;"></p>
+        </div>
+        <div>
+            <h3>clearInterval() 方法</h3>
+            <p>clearInterval() 方法取消由 setInterval() 方法设置的定时器。</p>
+            <p>语法：window.clearInterval(intervalVariable)</p>
+            <p>要想取消定时器，你必须将setInterval() 设置为全局方法</p>
+            <button id="stopBtn">时间停止</button>
+        </div>
+        <div>
+            <h3>setTimeout() 方法</h3>
+            <p>setTimeout() 方法设置一个定时器，在定时到期以后只执行一次注册的回调函数。</p>
+            <p>语法：setTimeout(function, delay, arg1, arg2)</p>
+            <p>参数：</p>
+            <p>function：必需。执行函数</p>
+            <p>delay：必需。定时器的时间间隔，单位为毫秒</p>
+            <p>arg1, arg2,...：可选。执行函数的参数</p>
+            <p>返回值：返回一个在一定时间后执行的函数结果</p>
+            <p id="timer1"><a href="">戳这里</a></p>
+        </div>
+        <div>
+            <h3>clearTimeout() 方法</h3>
+            <p>clearTimeout() 方法取消由 setTimeout() 方法设置的定时器。</p>
+            <button id="stopBtn1">点击停止</button>
+        </div>
+    </div>
+</body>
+<script>
+    function showTime() {
+        var now = new Date();
+        var times = now.toLocaleTimeString();
+        document.getElementById('timer').innerHTML = times;
+    }
+    var thisVar = window.setInterval(function() {showTime()}, 1000);
+    
+    document.getElementById('stopBtn').onclick =  function stopFunction() {
+        window.clearInterval(thisVar);
+    }
+
+    var thisVar1;
+    function showTime1() {
+        thisVar1 = setTimeout(() => alert('定时器执行完毕'), 3000);
+    }
+    document.getElementById('timer1').onclick = showTime1();
+    
+    document.getElementById('stopBtn1').onclick = function stopFun() {
+        window.clearTimeout(thisVar1);
+    }
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 模块</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 模块</h1></div>
+  <div>
+    <h3>1. 导出</h3>
+    <span>
+        <p>命名导出</p>
+        <p id="demo"></p>
+        <p>默认导出</p>
+        <p id="demo2"></p>
+      </span>
+  </div>
+  <div>
+    <h3>2. 导入</h3>
+    <span>
+        <p>导入模块依赖于script 标签的type="module"</p>
+        <p id="demo1"></p>
+      </span>
+  </div>
+  <div></div>
+</div>
+</body>
+<script type="module">
+    import {canvas, name, age, demo1} from "../../JsCodeBase/module_demo.js";
+    import message from "../../JsCodeBase/module_demo.js";
+    
+    document.getElementById('demo').innerHTML = name + " " + age;
+    document.getElementById('demo1').innerHTML = demo1();
+    canvas('demo2').innerHTML = message();
+    
+</script>
+</html>

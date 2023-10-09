@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h1>Javascript的块作用域</h1>
+    <p id="demo">通过 var 关键字声明的变量没有块作用域</p>
+    <script>
+        var x = 10;
+        // Here x is 10，相同作用域或者区块，使用 let 重新声明一个 var 变量是不允许的
+        {
+            var x = 2;
+            // Here x is 2
+        }
+        // Here x is 2
+        document.getElementById("demo").innerHTML = typeof x + ' ' + x;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>AngularJS 指令</h1>
+        <p>AngularJS 通过被称为指令的新属性来扩展HTML</p>
+        <p>AngularJS 通过内置的指令来为应用添加功能</p>
+    </div>
+    <div ng-app="myApp">
+        <h2>指令</h2>
+        <p>AngularJS 指令是扩展HTML 的属性，带有前缀ng-</p>
+        <p>指令的作用是添加功能</p>
+        <p>例如：</p>
+        <ol>
+            <li>ng-app：指令初始化一个AngularJS 应用程序</li>
+            <li>ng-init： 指令初始化应用程序数据</li>
+            <li>ng-controller：指令初始化一个AngularJS 控制器</li>
+            <li>ng-model：指令初始化一个AngularJS 模型，把元素值绑定到应用程序</li>
+        </ol>
+        <p>实例：</p>
+        <p ng-init="firstName='Jhon'"></p>
+        <p>请重新输入名称：</p>
+        <p>Name： <input type="text" ng-model="firstName"></p>
+        <p>你输入的名称是：{{firstName}}</p>
+
+        <h2>数据绑定</h2>
+        <p>数据绑定：{{firstName}}表达式就是一个数据绑定的表达式</p>
+        <p>{{firstName}} 是通过ng-model=‘firstName’进行同步的</p>
+        <p>实例：</p>
+        <p ng-init="quantity=0;price=0"></p>
+        <p>数量：<input type="number" ng-model="quantity"></p>
+        <p>价格：<input type="number" ng-model="price"></p>
+        <p>总价：{{quantity*price}}</p>
+
+        <h2>重复HTML 元素</h2>
+        <p>重复HTML 元素：ng-repeat</p>
+        <p>实例：</p>
+        <p ng-init="names=['Jhon1','Jhon2','Jhon3']"></p>
+        <p ng-repeat="name in names">{{name}}</p>
+        <p>{{names}}</p>
+        <p>作用在对象数组上的实例：</p>
+        <p ng-init="names1=[{name: 'Jhon', country: 'UN'},{name: 'Nick', country: 'CN'}]"></p>
+        <p ng-repeat="name in names1">{{name.name + ' ' + name.country}}</p>
+
+        <h2>创建自定义指令</h2>
+        <p>创建自定义指令：.directive函数来添加自定义指令</p>
+        <p>创建自定义指令的时候，HTML 元素上要添加自定义的指令名</p>
+        <p>创建自定义指令使用驼峰命名法，但使用的时候需要以- 分隔</p>
+        <demo-directive></demo-directive>
+        <p>不仅可以使用上述自定义标签来调用指令，也可以使用以下方式：</p>
+        <ul>
+            <li>属性 &lt;p demo-directive&gt;&lt;/p&gt;</li>
+            <li>类名 &lt;div class='demo-directive'&gt;&lt;/div&gt;</li>
+            <li>注释 &lt;!-- directive: demo-directive --&gt;</li>
+            
+        </ul>
+        <p>限制使用：restrict</p>
+        <ul>
+            <li>E ：作为元素名使用</li>
+            <li>A ：作为属性使用</li>
+            <li>C ：作为类名使用</li>
+            <li>M ：作为注释使用</li>
+            <li>D ：作为指令名使用</li>
+        </ul>
+        <p>restrict 默认值为EA，即可以通过元素名和属性名来调用</p>
+    </div>
+</body>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.directive('demoDirective', function () {
+        return {
+            restrict: 'E',  // 设置作为元素名使用
+            template: '<p>这是一个自定义指令</p>'
+            //templateUrl: './demo.html'
+        };
+    });    
+</script>
+</html>

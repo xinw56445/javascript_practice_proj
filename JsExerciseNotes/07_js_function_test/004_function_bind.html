@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 函数绑定</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 函数绑定 </h1></div>
+  <div>
+    <h3>1. 函数借用</h3>
+    <span>
+      <p>bind() 方法一个对象可以从另一个对象借用方法</p>
+      <p id="demo"></p>
+    </span>
+  </div>
+  <div>
+    <h3>2. 保留this</h3>
+    <span>
+      <p>有时候必须使用bind() 方法来防止丢失this</p>
+      <p id="demo1"></p>
+      <p>当函数做回调时，this会丢失</p>
+      <p id="demo2"></p>
+      <p>使用bind() 对函数绑定可避免</p>
+      <p id="demo3"></p>
+    </span>
+  </div>
+  <div>
+    <h3>3. 什么是this</h3>
+    <span>
+      <p>this 关键字引用对象</p>
+      <ul>
+        <li>在对象方法中，this引用该对象</li>
+        <li>单独使用时，this引用全局对象</li>
+        <li>在函数中，this引用全局对象</li>
+        <li>在函数中，严格模式下，this是undefined</li>
+        <li>在事件中，this引用接受事件的元素</li>
+        <li>call()、apply() 和 bind() 等方法可以将 this 引用到任何对象。</li>
+      </ul>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    const person =  {
+        firstName: "Bill",
+        lastName: "Gates",
+        fullName: function () {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+    
+    const member = {
+        firstName: "Helen",
+        lastName: "Keller"
+    }
+    // 从member 对象借用属性给person对象的fullName()方法
+    let fullName = person.fullName.bind(member);
+    document.getElementById("demo").innerHTML = fullName();
+    
+    const person1 = {
+        firstName: "Bill",
+        lastName: "Gates",
+        display: function () {
+            let x = document.getElementById("demo1")
+            x.innerHTML = this.firstName + " " + this.lastName;  // 在display 方法中，this指的是person1对象
+        }
+    }
+    person1.display();
+    
+    // 函数延时调用
+    const person2 = {
+        firstName: "Bill",
+        lastName: "Gates",
+        display: function () {
+            let x = document.getElementById("demo2")
+            x.innerHTML = this.firstName + " " + this.lastName;  // 在display 方法中，this指的是person1对象
+        }
+    }
+    setTimeout(person2.display, 3000) // 会提示undefined
+    
+    // 通过bind() 可避免this 丢失
+    const person3 = {
+        firstName: "Bill",
+        lastName: "Gates",
+        display: function () {
+            let x = document.getElementById("demo3")
+            x.innerHTML = this.firstName + " " + this.lastName;  // 在display 方法中，this指的是person1对象
+        }
+    }
+    let display = person3.display.bind(person3);
+    setTimeout(display, 3000)
+</script>
+</html>

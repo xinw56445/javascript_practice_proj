@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 严格模式</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript 严格模式</h1></div>
+    <div>
+      <h3>1. "use strict" 指令</h3>
+      <span>
+        <p>"use strict"; 的作用是指示 JavaScript 代码应该以“严格模式”执行。</p>
+        <p>按F12 在调试面板查看错误提示</p>
+        <button onclick="demo()">试一试</button>
+        <p id="use_strict_demo"></p>
+      </span>
+    </div>
+    <div>
+      <h3>2. 严格模式作用域</h3>
+      <span>
+        <p>在函数中声明严格模式，拥有局部作用域（只有函数中的代码以严格模式执行）</p>
+        <button onclick="demo1()">试一试</button>
+        <p id="use_strict_demo1"></p>
+      </span>
+    </div>
+    <div>
+      <h3>3. 严格模式的不允许事项</h3>
+      <span>
+        <p>在不声明变量的情况下使用变量是不允许的</p>
+        <button onclick="demo2()">试一试</button>
+        <p id="use_strict_demo2"></p>
+        <p>在不声明对象的情况下使用对象也是不允许的</p>
+        <button onclick="demo3()">试一试</button>
+        <p id="use_strict_demo3"></p>
+        <p>删除变量（或对象）是不允许的</p>
+        <button onclick="demo4()">试一试</button>
+        <p id="use_strict_demo4"></p>
+        <p>删除函数是不允许的</p>
+        <button onclick="demo5()">试一试</button>
+        <p id="use_strict_demo5"></p>
+        <p>重复参数名也是不允许的</p>
+        <button onclick="demo6()">试一试</button>
+        <p id="use_strict_demo6"></p>
+        <p>八进制数值文本也是不允许的</p>
+        <button onclick="demo7()">试一试</button>
+        <p id="use_strict_demo7"></p>
+        <p>转义字符是不允许的</p>
+        <button onclick="demo8()">试一试</button>
+        <p id="use_strict_demo8"></p>
+        <p>写入只读属性是不允许的</p>
+        <button onclick="demo9()">试一试</button>
+        <p id="use_strict_demo9"></p>
+        <p>写入只能获取的是不允许的</p>
+        <button onclick="demo10()">试一试</button>
+        <p id="use_strict_demo10"></p>
+        <p>删除不可删除的的属性是不允许的</p>
+        <button onclick="demo11()">试一试</button>
+        <p id="use_strict_demo11"></p>
+        <p>字符串 "eval" 不可用作变量</p>
+        <button onclick="demo12()">试一试</button>
+        <p id="use_strict_demo12"></p>
+        <p>字符串 "arguments" 不可用作变量</p>
+        <button onclick="demo13()">试一试</button>
+        <p id="use_strict_demo13"></p>
+        <p>with 语句是不允许的</p>
+        <button onclick="demo14()">试一试</button>
+        <p id="use_strict_demo14"></p>
+        <p>不允许 eval() 在其被调用的作用域中创建变量</p>
+        <button onclick="demo15()">试一试</button>
+        <p id="use_strict_demo15"></p>
+      </span>
+    </div>
+    <div>
+      <h3>4. 严格模式不允许使用为未来预留的关键字</h3>
+      <span>
+        <pre>
+          implements
+          interface
+          let
+          package
+          private
+          protected
+          public
+          static
+          yield
+        </pre>
+      </span>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+<script src="../../JsCodeBase/use_strict.js"></script>
+</html>

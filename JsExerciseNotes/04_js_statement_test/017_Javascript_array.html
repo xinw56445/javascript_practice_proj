@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 数组</title>
+    <!-- css引入方式 -->
+    <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+
+    <style>
+        /* css引入方式*/
+        /* @import url("../../CSSCodeBase/array.css");*/
+    </style>
+</head>
+
+<body>
+<h1 style="text-align: center;">JavaScript 数组</h1>
+<h3>1. JavaScript 数组用于在单一变量中存在多个值</h3>
+<div>
+    <ul>
+        <li>数组是一种特殊的变量，它能够一次存放一个以上的值</li>
+        <li>创建数组</li>
+        <p>例: 声明一个‘汽车’数组</p>
+        <p id="arr"></p>
+
+        <li>使用 JavaScript 关键字 new</li>
+        <p>这个例子和上面的例子效果完全一样，处于可读性，选择上面的创建方式</p>
+        <p id="arr1"></p>
+    </ul>
+</div>
+
+<h3>2. 数组元素</h3>
+<div>
+    <ul>
+        <li>访问数组元素</li>
+        <p>通过使用索引号来引用某个数组元素, 例: 数组 cars 的第一个元素</p>
+        <p id="arr2"></p>
+
+        <li>改变数组元素</li>
+        <p>例: 修改 cars 第一个元素的值</p>
+        <p id="arr3"></p>
+    </ul>
+</div>
+
+<h3>3. 数组是对象</h3>
+<div>
+    <ul>
+        <li>数组是一种特殊类型的对象，在 JavaScript 中数组的类型为 object</li>
+        <p>数组和对象，例: person 数组和 person 对象访问方式不一样</p>
+        <p id="arr4"></p>
+        <p id="arr5"></p>
+        <li>数组可以存放不同类型的变量，可以保存对象，函数，数组等</li>
+    </ul>
+</div>
+
+<h3>4. 数组属性和方法</h3>
+<div>
+    <ul>
+        <li>length 属性</li>
+        <span>
+                <p>例: fruits 的长度、第一个元素、最后一个元素分别是</p>
+                <p id="arr_attribute"></p>
+            </span>
+
+        <li>数组的遍历</li>
+        <span>
+                <p> for 循环安全遍历</p>
+                <p id="arr_attribute1"></p>
+                <p> Array.foreach() 函数</p>
+                <p id="arr_attribute2"></p>
+            </span>
+
+        <li>length 添加数组元素</li>
+        <span>
+                <p>例: fruits = ["Banana", "Orange", "Apple", "Mango"]</p>
+                <button onclick="demo6()"> 使用 length 属性添加</button>
+                <p id="arr_attribute3"></p>
+                <p>添加元素超过列表最大索引则中间的元素为undefined</p>
+            </span>
+
+        <li> 关联数组</li>
+        <span>
+                <p>JavaScript 中不支持命名索引的数组，只能使用数组索引</p>
+                <p> 数字索引</p>
+                <p id="arr_demo"></p>
+                <p> 命名索引</p>
+                <p id="arr_demo1"></p>
+            </span>
+
+        <li> 数组和对象的区别</li>
+        <span>
+                <p>数组是一种特殊类型的对象</p>
+                <p>在 JavaScript 中数组使用数字索引， 对象使用命名索引</p>
+            </span>
+
+        <li> 如何识别数组</li>
+        <span>
+                <p>定义数组 fruits[]</p>
+                <table>
+                    <tr>
+                        <td><button onclick="demo8()">Array.isArra()</button></td>
+                        <td id="arr_method1"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="demo9()">自定义isArray()</button></td>
+                        <td id="arr_demo2"></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="demo10()">instanceof 属性</button></td>
+                        <td id="arr_attribute4"></td>
+                    </tr>
+                </table>
+            </span>
+
+        <li> 数组转字符串 toString()</li>
+        <span>
+                <p>to toString() 把数组转换为数组值的字符串</p>
+                <button onclick="demo11()"> 试一试 </button>
+                <p id="arr_method2"></p>
+            </span>
+
+        <li> 将数组元素结合为一个字符串 join()</li>
+        <span>
+                <p> 它的行为类似于toString() 不同的是可以规定分隔符</p>
+                <button onclick="demo12()"> 试一试</button>
+                <p id="arr_method3"></p>
+            </span>
+
+        <li> 数组最后增加元素 push()</li>
+        <span>
+                <p>push() 方法（在数组结尾处）向数组添加一个新的元素</p>
+                <button onclick="demo5()"> push() 方法</button>
+                <p id="arr_method"></p>
+            </span>
+
+        <li> 删除元素 pop()</li>
+        <span>
+                <p> pop() 方法从数组中删除最后一个元素</p>
+                <button onclick="demo13()">试一试</button>
+                <p id="arr_method4"></p>
+                <p> delete 运算符 删除元素</p>
+                <button onclick="demo16()">试一试</button>
+                <p id="arr_method7"></p>
+            </span>
+
+        <li> 位移元素 shift()</li>
+        <span>
+                <p> shift() 方法会删除首个数组元素，并把所有其他元素“位移”到更低的索引</p>
+                <button onclick="demo14()">试一试</button>
+                <p id="arr_method5"></p>
+            </span>
+
+        <li> 数组开头添加元素 unshift()</li>
+        <span>
+                <p>unshift() 方法（在开头）向数组添加新元素，并“反向位移”旧元素</p>
+                <button onclick="demo15()">试一试</button>
+                <p id="arr_method6"></p>
+            </span>
+
+        <li> 修改数组元素</li>
+        <span>
+                <p>通过使用它们的索引号来访问数组元素进行修改</p>
+            </span>
+
+        <li> 数组元素的拼接 splice()</li>
+        <span>
+                <p>splice() 方法可用于向数组添加新项</p>
+                <p> 原数组: ["Banana", "Orange", "Apple", "Mango"]</p>
+                <form action="">
+                    <input type="text" style="height:20px;width:120px;" id="uname" placeholder="添加新元素的索引"/><br>
+                    <input type="text" style="height:20px;width:120px;" id="del_num" placeholder="删除元素的数量"/>
+                </form>
+                <button onclick="input_method()">OK</button>
+                <button onclick="demo17()">试一试</button>
+                <p id="arr_method8"></p>
+                <p> ---------------------------------------------</p>
+                <p>使用splice() 来删除指定位置的元素</p>
+                <p>例: 删除 fruits 第二个元素</p>
+                <button onclick="demo18()">试一试</button>
+                <p id="arr_method9"></p>
+            </span>
+
+        <li> 数组合并 concat()</li>
+        <span>
+                <p>concat() 方法通过合并（连接）现有数组来创建一个新数组</p>
+                <p>多个数组连接</p>
+                <p>例: 假设有三个数组 arr1 arr2 arr3</p>
+                <button onclick="demo19()">试一试</button>
+                <p id="arr_method10"></p>
+                <p>---------------------------------------------</p>
+                <p>concat() 方法也可以将值作为参数</p>
+                <p>例: 将 数组["a", "b"] 直接传入 concat（）</p>
+                <p id="arr_method11"></p>
+            </span>
+
+        <li> 数组裁剪 slice()</li>
+        <span>
+                <p>slice() 用数组的某个片段切出新数组。它不会从源数组中删除任何元素。</p>
+                <p>例: 截取 fruits 中索引1~3 之间的元素返回</p>
+                <button onclick="demo20()">试一试</button>
+                <p id="arr_method12"></p>
+            </span>
+    </ul>
+</div>
+
+<h3>5. 数组排序</h3>
+<div>
+    <ul>
+        <li>sort() 方法以字母顺序对数组进行排序</li>
+        <span>
+                <p>例: 对fruite 进行升序排序</p>
+                <button onclick="demo21()">升序排序</button>
+                <p id="arr_method13"></p>
+            </span>
+
+        <li>reverse() 方法反转数组中的元素</li>
+        <span>
+                <p>一般情况下数组先升序，再进行反转实现降序操作</p>
+                <button onclick="demo22()">反转数组</button>
+                <p id="arr_method14"></p>
+            </span>
+
+        <li>sort() 方法对数字数组进行排序</li>
+        <span>
+<!--                <p>例: 对数组 points 进行升序排序</p>-->
+            <!--                <button onclick="demo23()">升序排序</button>-->
+            <!--                <p id="arr_method15"></p>-->
+                
+                <p>例: 对数组 points 进行降序排序</p>
+                <button onclick="demo24()">降序排序</button>
+                <p id="arr_method16"></p>
+            </span>
+
+        <li> 比值函数</li>
+        <span>
+                <p>当 sort() 函数比较两个值时，会将值发送到比较函数，并根据所返回的值（负、零或正值）对这些值进行排序。</p>
+                <button onclick="demo23()">试一试</button>
+                <p id="arr_method15"></p>
+                <p>注意直接调用 sort()方法对数字数组进行排序 则会直接对比首个数值</p>
+                <button onclick="demo25()">试一试</button>
+                <p id="arr_method17"></p>
+            </span>
+
+        <li> 随机顺序排序数组</li>
+        <span>
+                <p>使用 Math.rondom() 随机排列</p>
+                <button onclick="demo26()">试一试</button>
+                <p id="arr_method18"></p>
+            </span>
+
+        <li> 获取数值数组中的最高、最低值</li>
+        <span>
+                <p>一般对数组升序、降序排序后通过arr[0]访问数组元素的最高或最低值</p>
+                <p>数学方法 Math.max() 查看 points 的最高值</p>
+                <button onclick="demo27()">查看</button>
+                <p id="arr_method19"></p>
+                <p>数学方法 Math.min() 查看 points 的最低值</p>
+                <button onclick="demo28()">查看</button>
+                <p id="arr_method20"></p>
+                <p>自定义方法找最大值</p>
+                <button onclick="demo29()">查看</button>
+                <p id="arr_method21"></p>
+            </span>
+
+        <li> 对象数组排序</li>
+        <span>
+                <p>通过比较函数来比较属性(数值属性对比)</p>
+                <p id="arr_method22"></p>
+                <button onclick="demo30()">试一试</button>
+                <p>比较字符串属性</p>
+                <button onclick="demo31()">试一试</button>
+                <p id="arr_method23"></p>
+            </span>
+
+        <li> 冒泡排序</li>
+        <span>
+                <p>points 升序排序</p>
+                <p id="arr_method24"></p>
+                <p>points 降序排序</p>
+                <p id="arr_method25"></p>
+            </span>
+    </ul>
+</div>
+
+<h3>6. 数组迭代</h3>
+<div>
+    <ul>
+        <p>数组迭代方法对每个数组项进行操作</p>
+        <li>Array.forEach()</li>
+        <span>
+            <p>forEach() 方法为每个数组元素调用一次函数（回调函数）</p>
+            <button onclick="demo32()">试试看</button>
+            <p id="arr_method26"></p>
+        </span>
+
+        <li>Array.map()</li>
+        <span>
+            <p>map() 方法通过对每个数组元素执行函数来创建新数组</p>
+            <button onclick="demo33()">试试看</button>
+            <p id="arr_method27"></p>
+        </span>
+
+        <li>Array.filter()</li>
+        <span>
+            <p>filter() 方法创建一个包含通过测试的数组元素的新数组</p>
+            <button onclick="demo34()">试试看</button>
+            <p id="arr_method28"></p>
+        </span>
+
+        <li>Array.reduce()</li>
+        <span>
+            <p>reduce() 方法在每个数组元素上运行函数，以生成单个值(方法在数组中从左到右工作)</p>
+            <button onclick="demo35()">试试看</button>
+            <p id="arr_method29"></p>
+        </span>
+
+        <li>Array.reduceRight()</li>
+        <span>
+            <p>reduceRight() 方法在每个数组元素上运行函数，以生成单个值(方法在数组中从右到左工作)</p>
+            <button onclick="demo36()">试试看</button>
+            <p id="arr_method30"></p>
+        </span>
+
+        <li>Array.every()</li>
+        <span>
+            <p>every() 方法检查 所有 数组值 是否 通过测试</p>
+            <button onclick="demo37()">试试看</button>
+            <p id="arr_method31"></p>
+        </span>
+
+        <li>Array.some()</li>
+        <span>
+            <p>every() 方法检查 部分 数组值 是否 通过测试</p>
+            <button onclick="demo38()">试试看</button>
+            <p id="arr_method32"></p>
+        </span>
+
+        <li>Array.indexOf()</li>
+        <span>
+            <p>indexOf() 方法在数组中从前往后搜索元素值并返回其索引</p>
+            <button onclick="demo39()">试试看</button>
+            <p id="arr_method33"></p>
+        </span>
+
+        <li>Array.lastIndexOf()</li>
+        <span>
+            <p>lastIndexOf() 方法在数组中从后往前搜索元素值并返回其索引</p>
+            <button onclick="demo40()">试试看</button>
+            <p id="arr_method34"></p>
+        </span>
+
+        <li>Array.find()</li>
+        <span>
+            <p>find() 方法返回通过测试函数的第一个数组元素的值</p>
+            <button onclick="demo41()">试试看</button>
+            <p id="arr_method35"></p>
+        </span>
+
+        <li>Array.findIndex()</li>
+        <span>
+            <p>findIndex() 方法返回通过测试函数的第一个数组元素的索引</p>
+            <button onclick="demo42()">试试看</button>
+            <p id="arr_method36"></p>
+        </span>
+    </ul>
+</div>
+
+<h3>7. 数组 Const</h3>
+<div>
+    <ul>
+        <li>Const 声明数组</li>
+        <span>
+            <p>用 Const 声明的数组不能重新赋值</p>
+            <button onclick="demo43()">查看数组 colors</button>
+            <p id="arr_obj"></p>
+        </span>
+
+        <li>数组不是常量</li>
+        <span>
+            <p>Const 不定义常量数组，定义的是对数组的常量的引用，可以改常量数组的元素</p>
+            <p id="arr_obj01"></p>
+            <button onclick="demo44()">修改数组 colors</button>
+            <p id="arr_obj02"></p>
+        </span>
+
+        <li>Const 声明时必须赋值</li>
+        <span>
+            <p>用 const 声明的数组必须在声明时进行初始化。</p>
+            <p>const colors = ["red", "blue", "black", "white", "Orange"];</p>
+        </span>
+
+        <li>Const 块作用域</li>
+        <span>
+            <p>用 const 在块中声明的数组与在块外声明的数组不同</p>
+            <pre>
+                const cars = ["Saab", "Volvo", "BMW"];
+                // 此处 cars[0] 为 "Saab"
+                {
+                    const cars = ["Toyota", "Volvo", "BMW"];
+                    // 此处 cars[0] 为 "Toyota"
+                }
+                // 此处 cars[0] 为 "Saab"
+            </pre>
+        </span>
+
+        <li>Const 不允许同作用域重新声明数组</li>
+        <span>
+            <p>不允许在同一作用域或同一块中将数组重新声明或重新赋值给 const</p>
+            <pre>
+                var cars = ["Volvo", "BMW"];         // 允许
+                const cars = ["Volvo", "BMW"];       // 不允许
+                {
+                    var cars = ["Volvo", "BMW"];         // 允许
+                    const cars = ["Volvo", "BMW"];       // 不允许
+                }
+            </pre>
+
+            <p>不允许在同一作用域或同一块中重新声明或重新赋值现有的 const 数组</p>
+            <pre>
+                const cars = ["Volvo", "BMW"];       // 允许
+                const cars = ["Volvo", "BMW"];       // 不允许
+                var cars = ["Volvo", "BMW"];         // 不允许
+                cars = ["Volvo", "BMW"];             // 不允许
+
+                {
+                  const cars = ["Volvo", "BMW"];     // 允许
+                  const cars = ["Volvo", "BMW"];     // 不允许
+                  var cars = ["Volvo", "BMW"];       // 不允许
+                  cars = ["Volvo", "BMW"];           // 不允许
+                }
+            </pre>
+
+            <p>允许在另一个作用域或另一个块中使用 const 重新声明数组</p>
+            <pre>
+                const cars = ["Volvo", "BMW"];       // 允许
+                {
+                  const cars = ["Volvo", "BMW"];     // 允许
+                }
+                {
+                  const cars = ["Volvo", "BMW"];     // 允许
+                }
+            </pre>
+        </span>
+    </ul>
+</div>
+</body>
+<script src="../../JsCodeBase/array.js"></script>
+<!--<script type="module">-->
+<!--  import demo from "../../JsCodeBase/array.js"-->
+<!--  document.getElementById('arr').innerHTML = demo()-->
+<!--</script>-->
+</html>

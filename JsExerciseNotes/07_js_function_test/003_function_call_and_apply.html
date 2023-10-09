@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 函数调用</h1></div>
+  <div>
+    <h3>1。 以函数的形式调用函数</h3>
+    <span>
+      <p>函数不属于任何对象。但是在 JavaScript 中，始终存在一种默认的全局对象。</p>
+      <pre>
+        function myFunction(a, b) {
+            return a * b;
+        }
+        myFunction(10, 2);
+      </pre>
+      <p>在浏览器中，这个页面对象就是浏览器窗口。上面的函数自动成为一个窗口函数。</p>
+      <pre>
+        function myFunction(a, b) {
+            return a * b;
+        }
+        window.myFunction(10, 2);
+        
+      </pre>
+      <p>全局变量、方法或函数很容易在全局对象中产生命名冲突和漏洞</p>
+    </span>
+  </div>
+  <div>
+    <h3>2. this 关键字</h3>
+    <span>
+      <p>this 指的是拥有当前代码的对象</p>
+      <p>this的值，在函数中使用时，也是拥有该函数的对象</p>
+      <pre>
+        var x = myFunction();            // x 将成为 window 对象
+
+        function myFunction() {
+           return this;
+        }
+      </pre>
+      <p>调用该函数会返回这个window对象</p>
+      <p>以变量的形式调用这个函数会导致程序崩溃</p>
+    </span>
+  </div>
+  <div>
+    <h3>3. 作为方法来调用函数</h3>
+    <span>
+      <p>创建一个对象方法</p>
+      <pre>
+        var myObject = {
+            firstName:"Bill",
+            lastName: "Gates",
+            fullName: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+        myObject.fullName();         // 将返回 "Bill Gates"
+      </pre>
+      <p>fullName 方法是一个函数，该函数属于对象，myObject 是函数的拥有者</p>
+    </span>
+  </div>
+  <div>
+    <h3>4. 通过函数构造器来调用函数</h3>
+    <span>
+      <p>如果函数调用的是new关键字，则是一个构造器函数的调用</p>
+      <pre>
+        // 这是函数构造器：
+        function myFunction(arg1, arg2) {
+            this.firstName = arg1;
+            this.lastName  = arg2;
+        }
+        
+        // 创建了一个新对象：
+        var x = new myFunction("Bill", "Gates");
+        x.firstName;                             // 会返回 "Bill"
+      </pre>
+      <p>构造器调用会创建新对象。新对象会从其构造器继承属性和方法。</p>
+      <p>构造器内的 this 关键词没有值。</p>
+      <p>this 的值会成为调用函数时创建的新对象。</p>
+    </span>
+  </div>
+  <div>
+    <h3>5. call() 方法</h3>
+    <span>
+      <p>call() 方法可以用来调用所有者对象作为参数的方法</p>
+
+      <p>通过call() 你可以使用另外一个对象的方法以及属性</p>
+      <p id="demo"></p>
+      <p>如果call() 的属性方法有参数,在使用的时候传参数</p>
+      <p id="demo1"></p>
+    </span>
+  </div>
+  <div>
+    <h3>6. apply() 方法</h3>
+    <span>
+      <p>apply() 方法也可以用来调用所有者对象作为参数的方法</p>
+      <p id="demo2"></p>
+    </span>
+  </div>
+  <div>
+    <h3>7. call() 和 apply() 之间的区别</h3>
+    <span>
+      <p>call() 方法分别接受参数</p>
+      <p>apply() 方法接受数组形式的参数</p>
+      <p>带参数的apply() 方法</p>
+      <p id="demo3"></p>
+    </span>
+  </div>
+  <div>
+    <h3>8. 在数组上模拟 max 方法</h3>
+    <span>
+      <p>可以使用Math.max()方法找到数字列表的最大值</p>
+      <p>但是数组没有max() 方法，因此可以使用apply() 方法加数组对象上去</p>
+      <p id="demo4"></p>
+      <p>严格模式下，如果 apply() 方法的第一个参数不是对象，则它将成为被调用函数的所有者（对象）。在“非严格”模式下，它成为全局对象。</p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    const person = {
+        fullName: function () {
+            return this.lastName + " " + this.firstName;
+        }
+    };
+
+    const person1 = {
+        lastName: "Bill",
+        firstName: "Gates"
+    };
+
+    const person2 = {
+        fullName: function (city) {
+            return this.lastName + " " + this.firstName + ",come from " + city;
+        }
+    };
+    document.getElementById("demo").innerHTML = person.fullName.call(person1);
+    // 带参数的call(object, parameter1, parameter2...)
+    document.getElementById("demo1").innerHTML = person2.fullName.call(person1, "US");
+    // apply(object, [parameter1, parameter2...]) 方法用法和call() 大致一致
+    document.getElementById("demo2").innerHTML = person.fullName.apply(person1);
+    //
+    document.getElementById("demo3").innerHTML = person2.fullName.apply(person1, ["JP"]);
+
+    // Math.max() 方法应用apply()
+    let m, n, o;
+    m = Math.max(8, 5, 7, 9);  // 只能传数字
+    n = Math.max.apply("", [8, 5, 7, 9]); // 第一个参数无关
+    document.getElementById("demo4").innerHTML = m + " " + n;
+</script>
+</html>

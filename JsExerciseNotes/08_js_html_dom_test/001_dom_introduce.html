@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript HTML DOM</title>
+    <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+    <div>
+        <div><h1>JavaScript HTML DOM</h1></div>
+        <div>
+            <h3>HTML DOM</h3>
+            <p>当页面被加载时，浏览器会创建页面的文档对象模型（Document Object Model）</p>
+            <p>JavaScript 能够改变页面中所有HTML 元素，属性以及CSS样式</p>
+            <p>JavaScript 可以对页面中所有的事件做出反应</p>
+        </div>
+        <div>
+            <h3>查找HTML 元素</h3>
+            <ul>
+                <li>通过id 找到html元素</li>
+                <li>通过标签名 找到html 元素</li>
+                <li>通过类名 找到html元素</li>
+            </ul>
+            <p>通过 id 查找HTML元素</p>
+            <code> var x = document.getElementById("demo");</code>
+            <p>通过标签名 查找HTML元素</p>
+            <code>
+                <!-- 查询 id为demo的元素中所有<p>标签 -->
+                var x = document.getElementsById("demo"); <br>
+                var y = x.document.getElementsByTagName("p");
+            </code>
+            <p>通过类名 查找HTML元素</p>
+            <code> var x = document.getElementsByClassName("demo");</code>
+        </div>
+    </div>
+</body>
+</html>

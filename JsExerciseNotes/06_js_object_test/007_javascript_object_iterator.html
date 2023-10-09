@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Javascript 对象迭代</title>
+</head>
+<body>
+<div>
+  <div>
+    <h1>Javascript 对象迭代</h1>
+  </div>
+  <div>
+    <h3>1. 迭代器</h3>
+    <span>
+      <p>当一个对象实现了next方法，就成为了一个迭代器</p>
+      <p id="demo"></p>
+      <p>自制的迭代器不支持for...of...语句</p>
+      
+    </span>
+  </div>
+  <div>
+    <h3>2. 可迭代对象是具有 Symbol.iterator 属性的对象</h3>
+    <span>
+      <p>Symbol.iterator 是一个返回next() 函数的函数</p>
+      <p>创建可迭代对象之后，可以使用for...of...遍历可迭代对象</p>
+      <p id="demo1"></p>
+    </span>
+  </div>
+  <div>
+    <h3>3. Symbol.iterator方法会被for of 自动调用</h3>
+    <span>
+      <p>如果不希望被自动调用</p>
+      <p id="demo2"></p>
+    </span>
+  </div>
+  <div></div>
+</div>
+</body>
+<script>
+    function myNumber() {
+        /**
+         *
+         * @param value: 迭代器返回的值
+         * @param done; 如果迭代器已经完成了，则返回true，迭代返回了一个新值则返回false
+         * @return {{next: (function(): {value: number, done: boolean})}}
+         */
+        let n = 0;
+        return {
+            next: function () {
+                n += 10;
+                return {value: n, done: false}
+            }
+        }
+    }
+    // 创建迭代器对象
+    const num = new myNumber();
+    num.next();
+    num.next();
+    document.getElementById("demo").innerHTML = num.next().value;
+    // 创建对象
+    let myNumber1 = {};
+    // 使其可迭代
+    myNumber1[Symbol.iterator] = function () {
+        /**
+         *
+         * @param value: 迭代器返回的值
+         * @param done; 如果迭代已经完成了，则返回true，迭代返回了一个新值则返回false
+         * @return {{next: (function(): {value: number, done: boolean})}}
+         */
+        let n = 0;
+        done = false;
+        return {
+            next() {
+                n += 10;
+                if (n===100) {done = true}
+                return {value: n, done: done};
+            }
+        };
+    }
+    let text = "";
+    for (const i of myNumber1) {
+        text += i + " ";
+    }
+    document.getElementById("demo1").innerHTML = text;
+    // 如果不希望Symbol.iterator被for of 自动调用
+    text = "";
+    let iterator = myNumber1[Symbol.iterator]();
+    while (true) {
+        const result = iterator.next();
+        if (result.done) break;
+        text += result.value + " ";
+    }
+    document.getElementById("demo2").innerHTML = text;
+</script>
+</html>

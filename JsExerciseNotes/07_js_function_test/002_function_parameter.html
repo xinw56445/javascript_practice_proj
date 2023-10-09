@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 函数参数</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 函数参数</h1></div>
+  <div>
+    <h3>1。参数规则</h3>
+    <span>
+      <p>函数定义不会为参数（parameter）规定数据类型</p>
+      <p>函数不会对所传的参数（argument）实行类型检测</p>
+      <p>函数不会检查所接收参数的数量</p>
+      <p>参数默认</p>
+      <pre>
+        function myFunction(x, y) {
+            if (y === undefined) {  // 如果调用参数的时候省略了参数，则设置为undefined
+                y = 0;
+            }
+        }
+      </pre>
+    </span>
+  </div>
+  <div>
+    <h3>2。arguments 对象</h3>
+    <span>
+      <p>如果函数调用的参数太多（超过声明），则可以使用 arguments 对象来达到这些参数</p>
+      <p>arguments 对象包含函数调用时使用的参数数组</p>
+      <p id="demo"></p>
+    </span>
+  </div>
+  <div>
+    <h3>3。参数通过值传递</h3>
+    <span>
+      <p>函数调用中的参数（parameter）是函数的参数（argument）</p>
+      <p>参数 通过值传递，函数只知道值，而不是参数的位置</p>
+      <p>如果函数改变了参数的值，它不会改变参数的原始值</p>
+      <p>参数的改变在函数外是不可见的</p>
+    </span>
+  </div>
+  <div>
+    <h3>4。对象是由引用传递的</h3>
+    <span>
+      <p>对象引用的是值</p>
+      <p>函数改变了对象属性，他也改变了原始值</p>
+      <p>对象属性的改变在函数之外是可见的</p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    function findMax() {
+        let i, max;
+        max = -Infinity;
+        for (i = 0; i < arguments.length; i++) {
+            if (arguments[i] > max) {
+                max = arguments[i];
+                console.log(max);
+            }
+        }
+        return max;
+    }
+    document.getElementById("demo").innerHTML = findMax(3, 9, 7);
+</script>
+</html>

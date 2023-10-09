@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h1>JavaScript Window Navigator</h1>
+            <p>The navigator object contains information about the browser.</p>
+        </div>
+        <div>
+            <h3>Window Navigator</h3>
+            <p>navigator.appCodeName  浏览器代号</p>
+            <p>navigator.appName  浏览器名称</p>
+            <p>navigator.appVersion  浏览器版本</p>
+            <p>navigator.cookieEnabled  浏览器是否开启cookie</p>
+            <p>navigator.language  浏览器语言</p>
+            <p>navigator.onLine  浏览器是否连接到网络</p>
+            <p>navigator.platform  浏览器运行平台</p>
+            <p>navigator.userAgent  浏览器用户代理</p>
+            <span>
+                特别注意：
+                navigator 对象的信息具有误导性，不应该用于检测浏览器版本，
+                    navigator 数据可被用户更改
+                    一些浏览器对测试站点会识别错误
+                    浏览器无法报告晚于浏览器发布的新操作系统
+            </span>
+        </div>
+        <div>
+            <h3>浏览器检测</h3>
+            <p>由于navigator 可以误导浏览器检测，使用对象检测可用来嗅探不同的浏览器</p>
+            <p>由于不同的浏览器支持不同的对象，可以使用对象来检测浏览器</p>
+            <p>例如只有Opera 浏览器支持属性"window.opera",可以根据if (window.opera) {...}识别出 Opera</p>
+        </div>
+    </div>
+</body>
+</html>

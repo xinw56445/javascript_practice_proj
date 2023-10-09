@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>void</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>JavaScript void</h1>
+        </div>
+        <div>
+            <h3>void 关键字</h3>
+            <p>void 关键字用于指定计算一个表达式但是不返回值</p>
+            <pre>
+                // 语法
+                void func();
+                javascript:void func()
+                // 或者
+                void (func())
+                javascript:void (func())
+            </pre>
+        </div>
+        <div>
+            <h3>void 关键字的用法</h3>
+            <p>1. 创建一个超链接，但是点击以后不会发生任何事情</p>
+            <a href="javascript:void(0)">点击什么都不会发生</a>
+            <p>void计算为0，javascript 不会有任何效果</p>
+            <p>2. 创建一个超链接，点击以后显示警告信息</p>
+            <a href="javascript:void(alert('Waring!!!'))">点击</a>
+            <p>3. 以下实例中a将返回undefined，因为a的值为undefined</p>
+            <pre> 
+                <code>
+                    (function test(){
+                        let a, b, c;
+                        a = void(b = 5, c = 7);
+                        document.getElementById('demo').innerHTML = a + " " + b + " " + c;
+                    })();
+                </code>
+            </pre>
+            <p id="demo"></p>
+        </div>
+        <div>
+            <h3>href='#'与href=' javascrip:void(0)的区别'</h3>
+            <p>1. href='#‘</p>
+            <p>#‘包含了一个位置信息，默认的锚是#top也就是网页的上端</p>
+            <p>2. href='javascript:void(0)'</p>
+            <p>javascript:void(0)仅仅表示一个死链接</p>
+        </div>
+    </div>
+</body>
+<script>
+    (function test(){
+        let a, b, c;
+        a = void(b = 5, c = 7);
+        document.getElementById('demo').innerHTML = a + " " + b + " " + c;
+    })();
+</script>
+
+</html>

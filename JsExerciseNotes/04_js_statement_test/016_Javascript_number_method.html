@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 数字</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            /* 文本水平居中 */
+            text-align: center;
+        }
+
+        h3, h4 {
+            margin-left: 10px;
+            /* 左边距*/
+            padding-top: 10px;
+        }
+
+        li {
+            padding-top: 10px;
+        }
+
+        li,
+        p {
+            font-size: 16px;
+            margin-left: 30px;
+            /* 外左边距*/
+            padding-left: 0px;
+        }
+
+        div,
+        ul {
+            font-size: 16px;
+            width: auto;
+            height: auto;
+            margin: 10px auto;
+            margin-left: 10px;
+            /* 左边距*/
+        }
+
+        table {
+            /*居中对齐*/
+            text-align: center;
+            border-collapse: collapse;
+            margin-left: 10px;
+        }
+
+        table,
+        tr,
+        td,
+        th {
+            border: 1px solid #ccc;
+            padding: 10px 10px 10px 10px
+        }
+
+        #t1 tr:nth-child(even) {
+            color: #000;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: burlywood;
+            width: 300px;
+        }
+
+        td {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript 数字</h1>
+    <h3>1. JavaScript 数值书写可以带小数点或不带</h3>
+    <p id="demo"></p>
+    <h3>2. JavaScript 数值始终是64位的浮点数</h3>
+    <p id="demo1"></p><br>
+    <h3>3. 数值精度</h3>
+    <div>
+        <ul>
+            <li>整数（不使用指数或科学计数法）会被精确到 15 位。</li>
+            <p id="demo2"></p>
+            <li>小数的最大数是 17 位，但是浮点的算数并不总是 100% 精准：</li>
+            <p id="demo3"></p>
+        </ul>
+    </div>
+    <h3>4. 数字和字符串相加</h3>
+    <div>
+        <ul>
+            <li>对两个数相加，结果将是一个数</li>
+            <p id="demo4"></p>
+            <li>对两个字符串相加，结果将是一个字符串的级联</li>
+            <p id="demo5"></p>
+            <li>一个字符串和一个数字相加，或是数字和字符串相加，都是字符串级联</li>
+            <p id="demo6"></p>
+            <p id="demo7"></p>
+            <p id="demo8"></p>
+        </ul>
+    </div>
+    <h3>5. 数字字符串</h3>
+    <div>
+        <ul>
+            <li>javascript尝试将字符串转为数字</li>
+            <p id="demo9"></p>
+            <p id="demo10"></p>
+        </ul>
+    </div>
+    <h3>6. NaN 非数值</h3>
+    <div>
+        <ul>
+            <li>NaN 属于 JavaScript 保留词，指示某个数不是合法数。
+                尝试用一个非数字字符串进行除法会得到 NaN（Not a Number）：
+            </li>
+            <p id="demo11"></p>
+            <li>只有字符串包含纯数值才可以进行</li>
+            <p id="demo12"></p>
+            <li> NaN 如果在数学运算中使用了 NaN 则结果也是NaN</li>
+            <p id="demo13"></p>
+            <p id="demo14"></p>
+        </ul>
+    </div>
+    <h3>7. Infinity</h3>
+    <div>
+        <ul>
+            <li>Infinity （或 -Infinity）是 JavaScript 在计算数时超出最大可能数范围时返回的值。</li>
+            <p id="demo15"></p>
+            <li>除以 0（零）也会生成 Infinity</li>
+            <p id="demo16"></p>
+        </ul>
+    </div>
+    <h3>8. 十六进制</h3>
+    <div>
+        <ul>
+            <li>JavaScript 会把前缀为 0X 的数值上了解析为十六进制。</li>
+            <p id="demo17"></p>
+            <li>toString()方法</li>
+            <p id="demo18"></p>
+        </ul>
+    </div>
+    <h3>9. 数值可以是对象</h3>
+    <div>
+        <ul>
+            <li>
+                <p id="demo19"></p>
+            </li>
+        </ul>
+    </div>
+    <h3>10. Number方法和属性</h3>
+    <div>
+        <ul>
+            <li>toString()方法</li>
+            <p id="method"></p>
+            <p id="method1"></p>
+        </ul>
+        <ul>
+            <li>toExponential()方法</li>
+            <p id="method2"></p>
+        </ul>
+        <ul>
+            <li>toFixed() 方法</li>
+            <p id="method3"></p>
+        </ul>
+        <ul>
+            <li>toPrecision() 方法</li>
+            <p id="method4"></p>
+        </ul>
+        <ul>
+            <li>valueOf() 方法</li>
+            <p id="method5"></p>
+        </ul>
+
+    </div>
+    <h3>11. 把变量转化为数值</h3>
+    <div>
+        <h4>这三种 JavaScript 方法可用于将变量转换为数字：</h4>
+        <ul>
+            <li>Number() 方法</li>
+            <li>parseInt() 方法</li>
+            <li>parseFloat() 方法</li>
+        </ul>
+        <p>这些方法并非数字方法，而是全局 JavaScript 方法</p>
+
+        <h4>全局方法</h4>
+        <p>JavaScript 全局方法可用于所有 JavaScript 数据类型</p>
+        <ul>
+            <li>Number() 方法</li>
+            <p id="method6"></p>
+            <li>parseInt() 方法</li>
+            <p id="method7"></p>
+            <li>parseFloat() 方法</li>
+            <p id="method8"></p>
+        </ul>
+    </div>
+    <h3>12. 数值属性</h3>
+    <div>
+        <table id="t1">
+            <tr>
+                <th>属性</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>MAX_VALUE</td>
+                <td>返回 Javascript 中可能的最大数</td>
+            </tr>
+            <tr>
+                <td>MIN_VALUE</td>
+                <td>返回 JavaScript 中可能的最小数。</td>
+            </tr>
+            <tr>
+                <td>NEGATIVE_INFINITY</td>
+                <td>表示负的无穷大（溢出返回）。</td>
+            </tr>
+            <tr>
+                <td>NaN</td>
+                <td>表示非数字值（"Not-a-Number"）。</td>
+            </tr>
+            <tr>
+                <td>POSITIVE_INFINITY</td>
+                <td>表示无穷大（溢出返回）。</td>
+            </tr>
+        </table>
+        <h4>最大值、最小值、正有限性、非正有限性</h4>
+        <ul>
+            <li>JavaScript MIN_VALUE 和 MAX_VALUE</li>
+            <p id="attr"></p>
+            <li>JavaScript POSITIVE_INFINITY</li>
+            <p id="attr1"></p>
+            <li>JavaScript NEGATIVE_INFINITY</li>
+            <p id="attr2"></p>
+            <li>JavaScript NaN - 非数字</li>
+            <p id="attr3"></p>
+            <p>数字属性不可用于变量</p>
+        </ul>
+    </div>
+
+    <!-- <script src="/Users/bytedance/Desktop/programme/proj_javascript_practice/JsCodeBase/numberMethods.js"></script> -->
+
+</body>
+<script src="../../JsCodeBase/numberMethods.js"></script>
+
+</html>

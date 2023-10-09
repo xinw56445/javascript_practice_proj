@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 函数定义</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 函数定义</h1></div>
+  <div>
+    <h3>1。函数声明</h3>
+    <span>
+      <p>function 关键词定义函数</p>
+      <pre>
+        function name() {
+            // 代码块
+        }
+      </pre>
+    </span>
+  </div>
+  <div>
+    <h3>2。函数表达式</h3>
+    <span>
+      <p>函数表达式可以在变量中保存</p>
+      <pre>
+        const x = function() {};
+        // 或者
+        const y = () => {};
+      </pre>
+      <p> 变量中保存函数表达式之后，变量可运作函数</p>
+      <p> 匿名函数只需要变量名即可调用</p>
+    </span>
+  </div>
+  <div>
+    <h3>3。Function() 构造器</h3>
+    <span>
+      <p>函数也可以通过 Function() 的内建函数构造器来定义</p>
+      <pre>
+        let myFunction = new Function("a", "b", "return a * b");
+      </pre>
+      <p>实际应用中无需使用函数构造器</p>
+      <pre>
+        let myFunction = new Function(a, b) {return a * b;);
+      </pre>
+    </span>
+  </div>
+  <div>
+    <h3>4。Hoisting</h3>
+    <p>函数是可以在声明之前被调用的， 无论是变量声明的函数还是函数直接定义的</p>
+    <p>箭头函数未被提升。它们必须在使用前进行定义</p>
+    <pre>
+      myFunction(3, 4)  // 允许函数声明之前被调用
+      function myFunction(a, b) {
+          return a * b;
+      }
+    </pre>
+  </div>
+  <div>
+    <h3>5. 自调函数</h3>
+    <span>
+      <p>自调函数是函数表达式在不主动调用的情况下自动执行的(变量声明函数无法自调用)</p>
+      <pre>
+        (function (n) {
+            return n * n;
+        })(2);
+      </pre>
+    </span>
+  </div>
+  <div>
+    <h3>6. 函数可作用值</h3>
+    <span>
+      <p>函数既可用作值也可用作表达式</p>
+      <pre>
+        function myFunction(a, b) {
+            return a * b;
+        }
+        // 可运作表达式
+        var x = myFunction(4, 3) * 2;
+      </pre>
+    </span>
+  </div>
+  <div>
+    <h3>7。函数是对象</h3>
+    <span>
+      <p>函数的typeof 是"function"，但也具有属性和方法</p>
+      <p>arguments.length 会返回函数被调用是收到的参数数目</p>
+      <p id="demo"></p>
+      <p>也可以toString()的方法返回函数</p>
+      <p>定义为对象属性的函数，被称为对象的方法。</p>
+      <p>为创建新对象而设计的函数，被称为对象构造函数（对象构造器）</p>
+    </span>
+  </div>
+  <div>
+    <h3>8. 箭头函数</h3>
+    <span>
+      <p>不需要 function 关键字、return 关键字和花括号</p>
+      <pre>
+        // ES5
+        var x = function(x, y) {
+          return x * y;
+        }
+        
+        // ES6
+        const x = (x, y) => x * y;
+      </pre>
+      <p>箭头函数没有自己的 this。它们不适合定义对象方法</p>
+      <p>使用 const 比使用 var 更安全，因为函数表达式始终是常量值</p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    function myFunction(a, b) {
+        return arguments.length;
+    }
+    
+    document.getElementById("demo").innerHTML = myFunction(3, 4);
+</script>
+</html>

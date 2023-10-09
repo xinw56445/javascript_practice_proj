@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>jQuery 遍历</h1>
+        <p>遍历指的是在元素树中上下移动查找元素，这种移动被称为DOM 数的遍历</p>
+        <p>如下：</p>
+        <pre>
+            <code>
+                &lt;div id="test"&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;1&lt;/li&gt;
+                        &lt;li&gt;2&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            </code>
+        </pre>
+        <ul>
+            <li>div是ul的父节点</li>
+            <li>ul是li的父节点</li>
+            <li>li是ul的子节点</li>
+            <li>li是div的后代元素</li>
+            <li>div是li的根节点</li>
+        </ul>
+        <p><b>向上遍历DOM 树</b></p>
+        <ul>
+            <li>parent()：获取父节点</li>
+            <li>parents()：获取所有祖先节点</li>
+            <li>parentsUntil()：获取所有祖先节点，直到匹配选择器</li>
+        </ul>
+        <p>示例：</p>
+        <div>
+            <div id="test">
+                <ul id="ul0">
+                    <li id="li0">1</li>
+                    <li id="li1">2</li>
+                    <li id="li2">3</li>
+                    <li id="li3">4</li>
+                    <li id="li4">5</li>
+                </ul>
+            </div>
+        </div>
+
+        <p><b>向下遍历DOM 树</b></p>
+        <ul>
+            <li>children()：获取所有子节点</li>
+            <li>find()：获取所有后代节点</li>
+            <li>next()：获取后一个兄弟节点</li>
+            <li>nextAll()：获取所有后一个兄弟节点</li>
+            <li>nextUntil()：获取所有后一个兄弟节点，直到匹配选择器</li>
+            <li>prev()：获取前一个兄弟节点</li>
+            <li>prevAll()：获取所有前一个兄弟节点</li>
+            <li>prevUntil()：获取所有前一个兄弟节点，直到匹配选择器</li>
+        </ul>
+
+        <p><b>水平遍历DOM 树</b></p>
+        <ul>
+            <li>siblings()：获取所有兄弟节点</li>
+            <li>nextAll()：获取所有后一个兄弟节点</li>
+            <li>prevAll()：获取所有前一个兄弟节点</li>
+        </ul>
+
+        <h2>过滤</h2>
+        <p>过滤指的是对DOM 树进行过滤，只保留符合条件的元素</p>
+        <ul>
+            <li>first(): 返回被选元素的首个元素</li>
+            <li>last(): 返回被选元素的最后一个元素</li>
+            <li>eq(): 返回被选元素中带有指定索引的元素</li>
+            <li>filter()：过滤所有符合条件的元素</li>
+            <li>not()：过滤所有不符合条件的元素</li>
+        </ul>
+        <p>示例：</p>
+        <div id="test0">
+            <ul id="ul0">
+                <li id="li00">
+                    <span>这是第一个</span>
+                </li>
+                <li id="li11">
+                    <p>这是第二个</p>
+                </li>
+                <li id="li22">
+                    <p class="test1">这是第三个</p>
+                </li>
+                <li>
+                    <p class="test1">这是第四个</p>
+                </li>
+                <li>
+                    <p class="test1">这是第五个</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+    // 向上遍历DOM 树
+    // parent()：获取父节点
+    // parents()：获取所有祖先节点
+    // parentsUntil()：获取所有祖先节点，直到匹配选择器
+    // 向下bī遍历DOM 树
+    // children()：获取所有子节点
+    // find()：获取所有后代节点
+    // next()：获取后一个兄弟节点
+    // nextAll()：获取所有后一个兄弟节点
+    // nextUntil()：获取所有后一个兄弟节点，直到匹配选择器
+    // prev()：获取前一个兄弟节点
+    // prevAll()：获取所有前一个兄弟节点
+    // prevUntil()：获取所有前一个兄弟节点，直到匹配选择器
+    // 水平遍历DOM 树
+    // sibings()：获取所有兄弟节点
+    // nextAll()：获取所有后一个兄弟节点
+    // prevAll()：获取所有前一个兄弟节点
+    $(function(){
+        // 获取li0的父节点
+        var parent = $('#li0').parent();
+        console.log(parent.length);
+        parent.css('border', '1px solid red');
+        // 获取li0的所有祖先节点
+        var parents = $('#li0').parents();
+        console.log(parents.length);
+        parents.css('border', '1px solid green');
+        // 获取li0的所有祖先节点，直到匹配选择器
+        var parentsUntil = $('#li0').parentsUntil('#test');
+        console.log(parentsUntil.length);
+        parentsUntil.css('border', '1px solid blue');
+
+        // 获取id=test 的div 所有字节点
+        var children = $('#test').children();
+        console.log(children.length);
+        children.css('border', '1px solid pink');
+        // 获取id=test 的div 所有后代节点
+        var find = $('#test').find('li');
+        console.log(find.length);
+        // 获取li0的后一个兄弟节点
+        var next = $('#li0').next();
+        console.log(next.length);
+        next.css('border', '1px solid purple');
+        // 获取li0的所有后一个兄弟节点
+        var nextAll = $('#li0').nextAll();
+        console.log(nextAll.length);
+        nextAll.css('border', '1px solid orange');
+        // 获取li0的所有后一个兄弟节点，直到匹配选择器
+        var nextUntil = $('#li0').nextUntil('#li3');
+        console.log(nextUntil.length);
+        nextUntil.css('border', '1px solid yellow');
+        // 获取li0的前一个兄弟节点
+        var prev = $('#li0').prev();
+        console.log(prev.length);
+        prev.css('border', '1px solid cyan');
+        // 获取li0的所有前一个兄弟节点
+        var prevAll = $('#li0').prevAll();
+        console.log(prevAll.length);
+        prevAll.css('border', '1px solid magenta');
+        // 获取li0的所有前一个兄弟节点，直到匹配选择器
+        var prevUntil = $('#li0').prevUntil('#li3');
+        console.log(prevUntil.length);
+        prevUntil.css('border', '1px solid olive');
+
+        // 获取li0的所有同胞元素。
+        var siblings = $('#li0').siblings();
+        console.log(siblings.length);
+        siblings.css('border', '1px solid indigo');
+        // 获取li0的所有后一个兄弟节点
+        var nextAll = $('#li0').nextAll();
+        console.log(nextAll.length);
+        nextAll.css('border', '1px solid orange');
+    });
+
+    $(function(){
+        // first(): 获取第一个元素
+        var first = $('#test0 p').first();
+        console.log(first.text());
+        // last(): 获取最后一个元素
+        var last = $('#test0 p').last();
+        console.log(last.text());
+        // eq()：返回被选元素中带有指定索引的元素(jQuery对象)
+        var eq = $('#li00').eq(1);
+        console.log(eq.text());
+        // get()：获取被选元素中带有指定索引的元素
+        var get = $('#li00').get(0); // 单独的$('#li00') 返回[object, object]，和document.getElementById('li00')返回的结果不同，如需相同按照实例写法
+        get.style.border = '1px solid red'; // 此刻get 就是html元素，如果不加.get(0),其本身就是
+
+        // $($(get).children()[0]).css('color', 'red');
+        // index()：获取被选元素在其同级元素中的索引
+        var index = $('#li00').index();
+        console.log(index);
+        // filter()：返回匹配选择器的元素集合
+        var filter = $('p').filter('.test1');
+        console.log(filter.length);
+        // not()：返回不匹配选择器的元素集合
+        var not = $('p').not('.test1');
+        console.log(not.length);
+    });
+</script>
+</html>

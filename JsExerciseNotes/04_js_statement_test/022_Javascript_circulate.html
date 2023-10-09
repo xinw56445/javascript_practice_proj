@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 循环</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 循环</h1></div>
+  <div>
+    <h3>1. for 多次遍历代码块</h3>
+    <span>
+      <pre>
+        for (语句 1; 语句 2; 语句 3) {
+            要执行的代码块
+        }
+      </pre>
+      <div class="for_method">
+        <p>语句1 在循环代码块开始之前执行</p>
+        <p>语句2 定义循环代码块执行的条件</p>
+        <p>语句3 在循环代码块每次被执行后执行</p>
+      </div>
+      <p>语句1 中可以初始化多个值</p>
+      <button onclick="demo()">点我试试</button>
+      <p id="for_demo"></p>
+      <p>语句1 可以使用省略写法</p>
+      <button onclick="demo1()">点我试试</button>
+      <p id="for_demo1"></p>
+      <p>语句2 是可选的，如省略，则必须在循环内break，否则就是死循环</p>
+      <button onclick="demo2()">点我试试</button>
+      <p id="for_demo2"></p>
+      <p>语句3 是可选的，可做其他事，可以直接在循环中体现</p>
+      <button onclick="demo3()">点我试试</button>
+      <p id="for_demo3"></p>
+    </span>
+  </div>
+  <div>
+    <h3>2. for in 遍历对象属性</h3>
+    <span>
+      <pre>
+        for (key in object) {
+            要执行的代码块
+        }
+      </pre>
+      <p>对象属性遍历</p>
+      <button onclick="demo4()">点我试试</button>
+      <p id="for_in_demo"></p>
+      <p>数组遍历</p>
+      <button onclick="demo5()">点我试试</button>
+      <p id="for_in_demo1"></p>
+      <p>forEach() 顺序遍历数组</p>
+      <button onclick="demo6()">点我试试</button>
+      <p id="forEach_demo"></p>
+    </span>
+  </div>
+  <div>
+    <h3>3. for of 遍历可迭代对象的值</h3>
+    <span>
+      <pre>
+        for (variable of iterable) {
+          // code block to be executed
+        }
+      </pre>
+      <div class="for_method">
+        <p>variable- 对于每一次迭代，下一个属性的值都会分配给变量</p>
+        <p>iterable- 具有可迭代属性的对象</p>
+      </div>
+      <p>遍历数组</p>
+      <button onclick="demo7()">点我试试</button>
+      <p id="for_of_demo"></p>
+      <p>遍历字符串</p>
+      <button onclick="demo8()">点我试试</button>
+      <p id="for_of_demo1"></p>
+    </span>
+  </div>
+  <div>
+    <h3>4. while 条件为Ture 时一直循环代码</h3>
+    <span>
+      <pre>
+        while (condition) {
+            // 执行的代码块
+        }
+      </pre>
+      <p>循环输出变量</p>
+      <button onclick="demo9()">点我试试</button>
+      <p id="while_demo"></p>
+    </span>
+  </div>
+  <div>
+    <h3>5. do while 至少先执行一次代码再去判断条件</h3>
+    <span>
+      <pre>
+        do {
+            执行代码块
+        } while (条件)
+      </pre>
+      <p>循环输出变量</p>
+      <button onclick="demo10()">点我试试</button>
+      <p id="do_while_demo"></p>
+    </span>
+  </div>
+  <div>
+    <h3>6. for 和 while 对比</h3>
+    <span>
+      <p>for 和 while 循环相当类似，语句1 ，2都可以省略</p>
+      <p id="for_show"></p>
+      <p id="while_show"></p>
+    </span>
+  </div>
+  <div>
+    <h3>7. break 和continue</h3>
+    <span>
+      <p>break 语句跳出循环</p>
+      <button onclick="demo13()">点我试试</button>
+      <p id="break_demo"></p>
+      <p>continue 语句终断本次循环执行下一次循环</p>
+      <button onclick="demo14()">点我试试</button>
+      <p id="continue_demo"></p>
+    </span>
+  </div>
+  <div>
+    <h3></h3>
+  </div>
+</div>
+</body>
+<script src="../../JsCodeBase/circulate.js"></script>
+</html>

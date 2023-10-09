@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入jQuery尽量不使用官网引用地址 官网："https://code.jquery.com“-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script> 
+<body>
+    <div>
+        <h1>JavaScript 测试 - jQuery</h1>
+        <div>
+            <h3>jQuery 引入方式</h3>
+            <p>这是引用官方CDN上的Jquery库文件。这种方式可以保证库文件始终为最新版本，也可以保证提高网站的访问速度，因为CDN有多个节点，可以根据用户的位置提供缓存，从而提高访问速度。</p>
+            <!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script> -->
+            <p>这是引用本地或者服务器上的Jquery库文件，这也比较常用。如果使用本地的文件，需要先从官网下载Jquery，并将文件保存在和HTML文件同一文件夹中。</p>
+            <!-- <script src="jquery.js"></script> -->
+            <p>这种方式是引入了一个封装了jquery.js的库文件，在项目中我们经常会用到自己封装的库文件，使用这种方式比较方便调用。</p>
+            <!-- <script src="lib/jquery.js"></script> -->
+        </div>
+        <div>
+            <h3>jQuery 描述</h3>
+            <p>jQuery是一款轻量级的JS库，它提供了一套简洁的、兼容的、面向对象的JavaScript
+                API，可以简化JS代码的编写，减少代码量，提高开发效率，并兼容各种浏览器。jQuery
+                还提供了一套丰富的事件处理、动画、Ajax等功能，可以让网页开发更加快捷。</p>
+            <p>主要的jQuery函数 $() 函数，如果向该函数传递DOM 对象，他会返回jQuery对象，带有向其添加jQuery 功能</p>
+            <p>jQuery 允许您通过CSS 选择器来选取元素</p>
+            <p>在javaScript 中，您可以分配一个函数以处理窗口加载事件 </p>
+            <p id="p01"></p>
+            <p>jQuery 方式：</p>
+            <p id="p02"></p>
+        </div>
+        <div>
+            <h3>测试 jQuery</h3>
+            <p>jQuery 允许链式语法、</p>
+            <p id="p03"></p>
+        </div>
+    </div>
+</body>
+<script>
+    // js 方法
+    window.onload = function demo() {
+        let obj = document.getElementById('p01');
+        obj.innerHTML = 'Hello World';
+    }
+    // jQuery 方式
+    $(function(){
+        $("#p02").html("Hello jQuery");
+    })
+    // jQurey 允许链式语法
+    $(function(){
+        $("#p03").html("Hello jQuery").css("color","red").css("font-size","20px");
+    })
+</script>
+</html>

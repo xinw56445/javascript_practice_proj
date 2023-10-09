@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 对象属性</title>
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript 对象属性</h1></div>
+    <div>
+      <h3>1. Javascript 属性</h3>
+      <span>
+        <p>访问对象属性语法</p>
+        <pre>
+          objectName.property      // person.age
+          objectName["property"]   // person["age"}
+          objectName[expression]   // x = "age"; person[x]
+          for in 循环遍历访问        // for (x in person) {txt += person[x];}
+        </pre>
+        <p>添加对象属性</p>
+        <pre>
+          可以通过赋值向已存在的对象添加新属性  // person.xxx = "";
+          不可以使用保留词作为属性名，方法名称都不可以
+        </pre>
+        <p>删除属性</p>
+        <pre>
+          delete 关键词从对象中删除属性   // delete person.age;
+          delete 关键词会同时删除属性的值和属性本身。
+        </pre>
+      </span>
+    </div>
+    <div>
+      <h1>2. 属性值</h1>
+      <span>
+        <p>所有属性都有名称，此外他们还有值</p>
+        <p>值是属性的特征之一，其他特征包括：可列举，可配置，可写</p>
+        <p></p>
+      </span>
+    </div>
+    <div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Javascript Cookie</h1>
+        <p>Cookie 用于储存 web页面的用户信息</p>
+        <div>
+            <h3>什么是Cookie</h3>
+            <p>Cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发
+                送请求时被携带并被服务端读取。Cookie 数据会在同源的请求中携带（即使是跨域
+                请求），有时可能包括敏感信息，如用户身份、购物车、游戏分数或其它需要记录的信息。
+                Cookie 存储在用户本地，不依赖于服务端，不用担心跨域访问的问题。
+            </p>
+            <p>Cookie 主要用于以下三个方面：</p>
+            <ul>
+                <li>会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）</li>
+                <li>个性化内容推荐（如用户自定义设置、主题等）</li>
+                <li>身份认证（如记录用户是否登录过网站）</li>
+            </ul>
+            <p>Cookie 以名/值对储存数据</p>
+            <p>例：userName= John Doe</p>
+            <p>当浏览器从服务器上请求web 页面时，属于该页面的Cookie 会被添加到该请求中，服务端通过这种方式来获取用户信息</p>
+        </div>
+        <div>
+            <h3>使用Javascript 创建Cookie</h3>
+            <p>JavaScript 可以使用 document.cookie 属性来创建 、读取、及删除 cookie。</p>
+            <p>document.cookie 属性是一个可读写的字符串，保存了当前页面的所有 cookie。</p>
+            <p>设置 cookie 的语法如下：</p>
+            <p>document.cookie="username=John Doe";</p>
+            <p>为 cookie 设置一个过期的时间，默认情况下 cookie在浏览器关闭时清除</p>
+            <p>document.cookie="username=John Doe;expires=Thu, 18 Dec 2013 12:00:00 GMT";</p>
+            <p>设置 cookie 的路径，可以将 cookie 限制在特定的路径下, 默认情况下 cookie属于当前页面</p>
+            <p>document.cookie="username=John Doe;path=/";</p>
+        </div>
+        <div>
+            <h3>读取Cookie</h3>
+            <p>读取 cookie 的语法如下：</p>
+            <p>var x = document.cookie</p>
+            <p>x 保存了当前页面的所有 cookie。</p>
+            <p> document.cookie 将以字符串的方式返回所有的 cookie，类型格式： cookie1=value; cookie2=value; cookie3=value;</p>
+        </div>
+        <div>
+            <h3>删除Cookie</h3>
+            <p>将过期时间设置为以前时间即可完成删除操作（不必指定cookie的值）</p>
+            <p>document.cookie="username=;expires=Thu, 18 Dec 1970 00:00:00 GMT";</p>
+        </div>
+        <div>
+            <h3>Cookie 字符串</h3>
+            <p>document.cookie 属性看起来像一个普通的文本字符串，实际上并非这样，即时在cookie 写入一个完整的字符串，重新读取cookie 信息的时， Cookie
+                信息是以名/值对的形式展示的。设置的新的cookie，旧的cookie不会被覆盖，新的cookie将会添加到旧的cookie 当中
+            </p>
+            <button onclick="alert(document.cookie)">显示所有Cookie</button>
+            <button onclick="document.cookie='username = Jhon'">创建Cookie1</button>
+            <button onclick="document.cookie='password = 1234'">创建Cookie2</button>
+            <button onclick="document.cookie='username =; expires=Thu, 18 Dec 1970 00:00:00 GMT'">删除Cookie1</button>
+            <button onclick="document.cookie='password =; expires=Thu, 18 Dec 1970 00:00:00 GMT'">删除Cookie2</button>
+        </div>
+        <div>
+            <h3>JavaScript Cookie 实例</h3>
+            <p>本实例演示了如何使用 JavaScript 创建、读取、及删除 cookie。</p>
+            <button onclick="checkCookie()">开始测试</button>
+            <button onclick="delCookie()">删除Cookie</button>
+            <script>
+                // 1. 设置cookie 值的函数
+                // 首先创建一个函数用于储存访问者的名字，包含cookie名，cookie值以及过期时间
+                function setCookie(cname, cvalue, exdays) {
+                    var d = new Date();
+                    // 计算cookie的过期时间
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                    // 调用document.cookie属性，设置cookie
+                    document.cookie = cname + "=" + cvalue + ";expires=" + d.toGMTString();
+                }
+                // 2. 获取cookie 值的函数
+                function getCookie(cname) {
+                    // 调用document.cookie属性，获取cookie
+                    var name = cname + "=";
+                    var ca = document.cookie.split(';');
+                    // 遍历cookie数组
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i].trim();
+                        // 判断cookie是否包含指定名称
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                }
+                // 3. 检测cookie 值的函数           
+                function checkCookie() {
+                    var user = getCookie("username");
+                    if (user != "") {
+                        alert("Welcome again " + user);
+                    } else {
+                        user = prompt("Please enter your name:", "");
+                        if (user != "" && user != null) {
+                            // 设置cookie
+                            setCookie("username", user, 365);
+                        }
+                    }
+                }
+                // 4. 删除cookie 值的函数
+                function delCookie() {
+                    // 拿到所有cookie
+                    var arr = document.cookie;
+                    var reg = /[;]/g;
+                    var str = arr.toString().trim().replace(reg, "\n");
+                    // 获取prompt的值
+                    var name = prompt("Please select the name to delete: \n" + str, "");
+                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+                }
+            </script>
+        </div>
+    </div>
+
+</body>
+
+</html>

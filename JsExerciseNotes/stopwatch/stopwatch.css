@@ -1,0 +1,66 @@
+/*表盘*/
+.watch {
+    width: 280px;
+    height: 280px;
+    background-color: rgb(244, 101, 5);
+    box-shadow: 10px 10px 5px #888888;
+    border-radius: 230px;
+    margin-top: 60px;
+    margin-left: 60px;
+    padding: 80px;
+}
+
+/*显示器黑框*/
+.show-borders {
+    width: 260px;
+    height: 100px;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    background-color: black;
+}
+
+/* 数显屏*/
+.time-display {
+    width: 240px;
+    height: 80px;
+    margin: 9px;
+    background-color: aliceblue;
+}
+
+/*缓存时间*/
+.last-timer{
+    padding-top: 1px;
+    padding-left: 15px;
+}
+
+/*时分秒*/
+#hour, 
+#minute,
+#second {
+    font-size: 40px;
+    padding-left: 13px;
+}
+
+/*毫秒*/
+#millisecond {
+    padding-top: 15px;
+    padding-left: 5px;
+}
+
+/*按钮区*/
+.btn {
+    width: 290px;
+    height: 100px;
+    border-radius: 30px;
+    background-color: antiquewhite;
+    margin-top: 70px;
+}
+/* 单个按钮*/
+button {
+    width: 90px;
+    height: 90px;
+    box-shadow: 10px 10px 5px #888888;
+    border-radius: 50px;
+    margin-top: 5px;
+}

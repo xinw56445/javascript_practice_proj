@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+    <div>
+        <div><h1>JavaScript HTML DOM 改变CSS</h1></div>
+        <div>
+            <h3>改变 HTML 样式</h3>
+            <p id="demo">使用这样的方法 style.property=value 可以改变HTML 样式</p>
+            <code>
+                var demo = document.getElementById("demo");<br>
+                demo.style.color = "red";<br>
+                demo.style.fontSize = "30px";<br>
+                demo.style.fontWeight = "bold";
+            </code>
+        </div>
+        <div>
+            <h3>使用事件</h3>
+            <code>
+                var demo = document.getElementById("demo");<br>
+                demo.onclick = function(){
+                    alert("你点击了我");
+                }
+            </code>
+            <p id="demo1">点我看看呐</p>
+            <script>
+                var demo = document.getElementById("demo1");
+                demo.style.color = "red";
+                demo.style.fontSize = "20px";
+                demo.style.fontWeight = "bold";
+                demo.style.width = "200px";
+                demo.onclick = function(){
+                    alert("你点击了我");
+                }
+                /*
+                demo.onmousemove = function(){
+                    alert("你移动了我");
+                }
+                */
+            </script>
+        </div>
+    </div>
+</body>
+</html>

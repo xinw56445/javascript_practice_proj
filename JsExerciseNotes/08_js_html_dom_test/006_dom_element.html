@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div><h1>JavaScript HTML DOM 元素（节点）</h1></div>
+    </div>
+    <div id="create_elem">
+        <h3>创建新的HTML 元素（节点）</h3>
+        <p>HTML DOM 元素（节点）是 HTML 文档的基础。每个 HTML 元素都是一个节点，包括 HTML 元素本身、</p>
+        <p>appendChild() 方法用于添加新元素到尾部。</p>
+        <p>要创建一个新的HTML 元素（节点）首先先创建一个新的html 元素，然后使用appendChild()添加</p>
+        <script>
+            let newp = document.createElement("p");
+            let note = document.createTextNode("This is a new paragraph.");  // 为p元素创建文本节点
+            newp.appendChild(note); // 将文本节点添加到p
+            let element = document.getElementById("create_elem");
+            element.appendChild(newp); // 将 p元素添加到div元素
+        </script>
+        <p>insertBefore() 方法添加新元素到开头</p>
+        <script>
+            // 向p元素前插入一个新元素
+            // let newp = document.createElement("p");
+            // let note = document.createTextNode("This is a new paragraph.");  // 为p元素创建文本节点
+            // newp.appendChild(note); // 将文本节点添加到p
+            // let element = document.getElementById("create_elem");
+            // element.insertBefore(newp, element.childNodes[0]); // 将 p元素添加到div元素
+        </script>
+    </div>
+    <div id="remove_elem1">
+        <h3>移除已存在的元素</h3>
+        <p>removeChild() 方法用于移除已存在的元素</p>
+        <p>要移除一个元素，需要知道该元素的父元素</p>
+        <p id="p1">""移除内容""</p>
+        <script>
+            // 移除p元素
+            let parent1 = document.getElementById("remove_elem1");
+            // let children1 = document.getElementById("p1");
+            // parent1.removeChild(children1);
+        </script>
+    </div>
+    <div id="replace_elem">
+        <h3>替换HTML 元素 - replaceChild()</h3>
+        <p>replaceChild() 方法用于替换已存在的元素</p>
+        <p id="p2">""替换内容""</p>
+        <script>
+            // 创建新的 p元素
+            let para = document.createElement("p");
+            let node = document.createTextNode("This is a new text node.");
+            para.appendChild(node);
+            // 将新的 p元素替换到已存在的 p元素中
+            let parent2 = document.getElementById("replace_elem");
+            let children2 = document.getElementById("p2");
+            parent2.replaceChild(para, children2);
+        </script>
+    </div>
+</body>
+</html>

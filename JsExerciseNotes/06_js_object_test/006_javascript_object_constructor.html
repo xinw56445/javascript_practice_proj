@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 对象构造器</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 对象构造器</h1></div>
+  <div>
+    <h3>1. 对象类型</h3>
+    <span>
+        <p>创建一种"对象类型"的方法，是使用对象构造器函数</p>
+        <p>通过 new 关键词调用构造器函数可以创建相同类型的对象</p>
+        <p id="demo"></p>
+      </span>
+  </div>
+  <div>
+    <h3>2. 构造器函数添加属性</h3>
+    <span>
+      <p>无法通过Person.nationality向构造器对象添加属性，方法等</p>
+      <p id="demo1"></p>
+      <p>想要在构造器函数添加属性，方法等，像firstName那样直接写到构造器函数中去</p>
+    </span>
+  </div>
+  <div>
+    <h3>3. 对象原型</h3>
+    <span>
+      <p>所有对象皆继承自Object，Object.prototype 位于原型继承链的顶端</p>
+      <p>使用prototype 为对象构造器添加属性</p>
+      <p id="demo2"></p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    // 用大写首字母对构造器函数命名是个好习惯。
+    function Person(firstName, lastName, age, eyeColor) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.eyeColor = eyeColor;
+        this.fullName = () => {
+            return this.firstName + " " + this.lastName;
+        };
+        this.changeName = name => {
+            this.lastName = name;
+        };
+    }
+    // 使用 new 关键字调用构造器函数,Person为myBrother的构造函数
+    let myBrother = new Person("Bill", "Gates", 23, "Blue");
+    let myFriend = new Person("Steve", "Jobs", 26, "Blue");
+    document.getElementById("demo").innerHTML =
+        "My brother is " + myBrother.fullName() + ", He's " + myBrother.age +
+        " years old. " + myFriend.fullName() + " is my father, he have a pair of " +
+        myFriend.eyeColor + " eyes.";
+
+    // 为新对象添加属性 但不可以通过以下方法在构造器函数添加属性
+    myFriend.nationality = "America";
+    document.getElementById("demo1").innerHTML = myFriend.nationality + "<br>" + myFriend.constructor;
+    // 如果需要为对象构造器添加属性、方法, 使用对象构造器.prototype.对象名(或方法名)
+    Person.prototype.nationality = "America";
+    let person1 = new Person();
+    document.getElementById("demo2").innerHTML = person1.nationality;
+</script>
+</html>

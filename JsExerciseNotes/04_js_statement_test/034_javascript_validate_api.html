@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 验证API</title>
+
+    <style>
+        table{
+            width: 600px;
+            table-layout: fixed;
+            border: 1px solid #ccc;
+            border-collapse: collapse; 
+        }
+
+        table td {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        table th {
+            
+            height: 25px;
+        }
+
+        #head1, #head2 {
+            background-color: darkslategrey; 
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>JavaScript 验证API</h1>
+        </div>
+        <div>
+            <h3>约束验证DOM方法</h3>
+            <span>
+                <p>checkValidity() 如果input 元素中的数据是合法的返回true， 否则返回 false</p>
+                <input id="id1" type="number" min="1" max="100" placeholder="数字" required>
+                <button onclick="demo()">验证</button>
+
+                <p>setCustomValidity() 设置 input 元素的validationMessage 属性，用于自定义错误提示信息的方法</p>
+                <input id="id2" type="number" min="1" max="100" placeholder="数字" required>
+                <button onclick="demo1()">验证</button>
+            </span>
+        </div>
+        <div>
+            <h3>约束验证DOM 属性</h3>
+            <span>
+                <table>
+                    <tr id="head1">
+                        <th style="width: 25%;">属性</th>
+                        <th>描述</th>
+                    </tr>
+                    <tr>
+                        <td>validity</td>
+                        <td>布尔属性值，返回input 输入值是否合法</td>
+                    </tr>
+                    <tr>
+                        <td>validationMessage</td>
+                        <td>浏览器错误提示信息</td>
+                    </tr>
+                    <tr>
+                        <td>willValidate</td>
+                        <td>指定input是否需要验证</td>
+                    </tr>
+                </table>
+            </span>
+        </div>
+        <div>
+            <h3>Validity 属性</h3>
+            <table>
+                <tr id="head2">
+                    <th style="width: 25%;">属性</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>customError</td>
+                    <td>设置为true，如果设置了自定义的validity 信息</td>
+                </tr>
+                <tr>
+                    <td>patternMismatch</td>
+                    <td>设置为true，如果元素的值不匹配它的模式属性</td>
+                </tr>
+                <tr>
+                    <td>rangeOverflow</td>
+                    <td>设置为true，如果元素的值大于设置的最大值</td>
+                </tr>
+                <tr>
+                    <td>rangeUnderflow</td>
+                    <td>设置为true，如果元素的值小于设置的最小值</td>
+                </tr>
+                <tr>
+                    <td>stepMismatch</td>
+                    <td>设置为true，如果元素的值不按照规定的step属性设置</td>
+                </tr>
+                <tr>
+                    <td>tooLong</td>
+                    <td>设置为true，如果元素的值超过了maxLength属性设置的长度</td>
+                </tr>
+                <tr>
+                    <td>typeMismatch</td>
+                    <td>设置为true，如果元素的值不是预期相匹配的值</td>
+                </tr>
+                <tr>
+                    <td>valueMissing</td>
+                    <td>设置为true，如果元素的（required）属性没有值</td>
+                </tr>
+                <tr>
+                    <td>valid</td>
+                    <td>设置为true，如果元素的值是合法的</td>
+                </tr>
+            </table>
+            <p>验证输入值是否大于设置最大值</p>
+            <input id="id3" type="number" max="100" placeholder="数字">
+            <button onclick="demo2()">验证</button>
+
+            <p>验证输入值是否小于设置最小值</p>
+            <input id="id4" type="text" min="10" required>
+            <button onclick="demo3()">验证</button>
+        </div>
+    </div>
+</body>
+
+<script src="../../JsCodeBase/validate_api.js"></script>
+</html>

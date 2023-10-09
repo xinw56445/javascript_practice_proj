@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript逻辑</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript逻辑</h1></div>
+    <div>
+      <h3>1. 布尔值</h3>
+      <span>
+        <p>Boolean()函数 返回Ture和False</p>
+        <button onclick="demo()">试一试</button>
+        <p id="logic_method"></p>
+      </span>
+    </div>
+    <div>
+      <h3>2. 布尔值判定规则</h3>
+      <span>
+        <p>所有具有'真实'值的即为Ture</p>
+        <p>所有不具有'真实'值的即为False</p>
+        <pre>
+          0 和 -0
+          "" 空值
+          undefined
+          null
+          false
+          NaN
+        </pre>
+      </span>
+    </div>
+    <div>
+      <h3>3. 声明布尔对象</h3>
+      <span>
+        <p>通常布尔是由字面量创建的原始值</p>
+        <p>布尔值也可以通过关键字new作为对象来定义</p>
+        <button onclick="demo1()">查看类型</button>
+        <p id="logic_method1"></p>
+        <p>一般不要创建布尔对象，会拖慢执行速度，new关键字会使代码复杂化，产生意想不到的结果</p>
+      </span>
+    </div>
+    <div>
+      <h3>4. 比较运算符</h3>
+      <span>
+        <pre>
+          <     小于
+          >     大于
+          <=    小于等于
+          >=    大于等于
+          ==    等于
+          ===   值且类型相等
+          !=    不等于
+          !==   值或类型不相等
+        </pre>
+      </span>
+    </div>
+    <div>
+      <h3>5. 逻辑运算符</h3>
+      <span>
+        <pre>
+          &&    与
+          ||    或
+          !     非
+        </pre>
+      </span>
+    </div>
+    <div>
+      <h3>6. 条件运算符</h3>
+      <span>
+        <p>语法：result = (condition) ? value1:value2</p>
+        <p>输入年龄查看结果:</p>
+        <input id="age" value="输入年龄">
+        <button onclick="demo2()">确定</button>
+        <p id="logic_method2"></p>
+      </span>
+    </div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+<script src="../../JsCodeBase/logic.js"></script>
+</html>

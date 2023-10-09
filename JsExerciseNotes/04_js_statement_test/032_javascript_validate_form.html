@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+    <title>JavaScript 表单验证</title>
+    <style type="text/css">
+        .validate-form tr td {
+            width: 6em;
+            overflow: hidden;
+            line-height: 20px;
+        }
+
+        .w3 {
+            letter-spacing: 0.5em; 
+        }
+
+        .w2 {
+            letter-spacing: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>JavaScript 表单验证</h1>
+        </div>
+        <div>
+            <h3>1. 表单验证</h3>
+            <p>HTML 表单验证可以通过 JavaScript 来完成。</p>
+            <form name="myForm" action="../../JsCodeBase/from.json" onsubmit="return validateForm()" method="post">
+                Name: <input type="text" name="fname" value="">
+                <input type="submit" value="提交">
+            </form>
+        </div>
+        <div>
+            <h3>2. 表单自动验证</h3>
+            <p>如果表单字段 (fname) 的值为空, required 属性会阻止表单提交：</p>
+            <form action="" method="post">
+                <input type="text" name="name" required="required">
+                <input type="submit" value="提交">
+            </form>
+        </div>
+        <div>
+            <h3>3. 数据验证</h3>
+            <p>数据验证用于确保用户输入的数据是有效的</p>
+            <span>
+                <ul>
+                    <li>必须字段是否有输入</li>
+                    <li>用户是否输入了合法的数据</li>
+                    <li>在数字字段是否输入了文本</li>
+                </ul>
+            </span>
+        </div>
+        <div>
+            <h3>4. HTML 约束验证</h3>
+            <p>约束验证是表单被提交时浏览器用来实现验证的一种算法</p>
+            <span>
+                <p>约束验证验证html 属性</p>
+                <p>约束验证css伪类选择器</p>
+                <p>DOM 属性和方法</p>
+            </span>
+        </div>
+        <div>
+            <h3>5. 表单验证</h3>
+            <span>
+                <p>在数据被送往服务器前对HTML 表单中的输入数据进行校验</p>
+                <ul>
+                    <li>验证表单的数据是否为空</li>
+                    <li>验证输入的是否是一个正确的email 地址</li>
+                    <li>验证日期是否输入正确</li>
+                    <li>验证表单输入是否为数字型</li>
+                </ul>
+                <form name="inputValidate" onsubmit="return validateFormDemo()" method="post">
+                    <table class="validate-form">
+                        <tr>
+                            <td class="w3">用户名</td>
+                            <td><input type="text" name="userName"></td>
+                            <td><input type="submit" value="提交"></td>
+                        </tr>
+                        <tr>
+                            <td class="w2">密码</td>
+                            <td><input type="password" name="passWorld"></td>
+                            <td><input type="submit" value="提交"></td>
+                        </tr>
+                        <tr>
+                            <td class="w2">日期</td>
+                            <td><input type="text" name="dateTime"></td>
+                            <td><input type="submit" value="提交"></td>
+                        </tr>
+                        <tr>
+                            <td class="w2">邮箱</td>
+                            <td><input type="text" name="email"></td>
+                            <td><input type="submit" value="提交"></td>
+                        </tr>
+                    </table>
+                </form>
+            </span>
+        </div>
+    </div>
+
+</body>
+
+<script src="../../JsCodeBase/forms.js"></script>
+
+</html>

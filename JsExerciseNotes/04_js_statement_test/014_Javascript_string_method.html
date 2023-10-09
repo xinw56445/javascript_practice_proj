@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 字符串方法</title>
+</head>
+
+<body>
+    <h1>字符串方法和属性</h1>
+        <h3>1. 字符串长度 length方法返回字符串的长度</h3>
+        <p>例： 声明变量x的值为 The full name of China is the People's Republic of China.， 则：</p>
+        <p id="demo"></p><br>
+        <h3>2. 查找字符串中的字符串 indexOf方法返回字符串指定文本首次出现的索引（位置）</h3>
+        <p id="demo1"></p><br>
+        <h3>3. lastIndexOf 方法返回字符串指定文本最后一次出现的索引位置, 未找到文本均返回-1</h3>
+        <p id="demo2"></p><br>
+        <h3>4. 检索字符串中的字符串 search() 方法搜索特定值的字符串，并返回匹配的位置</h3>
+        <p id="demo3"></p><br>
+        <h3>5. 提取部分字符串</h3>
+        <ul>
+            <li> slice(start, end)</li>
+            <li> substring(start, end)</li>
+            <li> substr(start, length)</li>
+        </ul>
+        <p>slice() 提取字符串的某个部分并在新字符串中返回被提取的部分</p>
+        <p id="demo4"></p><br>
+        <p>substring() 用法类似于 slice() 但是不支持负索引。</p>
+        <p id="demo5"></p><br>
+        <p>substr() 用法类似于 slice() param：start：起始索引，length：提取字符的长度</p>
+        <p id="demo6"></p><br>
+        <h3>6. 替换字符串内容 replace()， 只能替换首个匹配</h3>
+        <p id="demo7"></p><br>
+        <p> replace() 不区分大小写，正则写法</p>
+        <p id="demo8"></p><br>
+        <p id="demo9"></p><br>
+        <h3>7. 字符串转换为大写小写 toUpperCase() 和 toLowerCase()</h3>
+        <p id="demo10"></p><br>
+        <p id="demo11"></p><br>
+        <h3>8. 连接多个字符串 concat() </h3>
+        <p id="demo12"></p><br>
+        <h3>9. 删除空白符 trim() </h3>
+        <p id="demo13"></p><br>
+        <h3>10. 提取字符串字符 charAt()</h3>
+        <p id="demo14"></p><br>
+        <h3>11. 返回字符串指定索引的字符的 unicode 编码 charCodeAt() </h3>
+        <p id="demo15"></p><br>
+        <h3>12. 字符串的拆分 split()</h3>
+        <p id="demo16"></p><br>
+        <h3>13. match() 方法根据正则表达式在字符串中搜索匹配项，并作为Array对象返回</h3>
+        <p id="demo17"></p>
+        <li>不区分大小写进行搜索 //gi</li>
+        <p id="demo18"></p><br>
+        <h3>14. includes() 如果包含字符串的字符值，返回true</h3>
+        <p id="demo19"></p><br>
+        <h3>15. startsWith() 字符串以指定字符开头 返回true</h3>
+        <p id="demo20"></p><br>
+        <h3>16. endsWith() 字符串以指定字符结尾 返回true</h3>
+        <p id="demo21"></p><br>
+        <script src="../../JsCodeBase/stringMethod.js"></script>
+</body>
+
+</html>

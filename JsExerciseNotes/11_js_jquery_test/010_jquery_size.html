@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>jQuery 尺寸</h1>
+        <h2>jQuery 提供多个处理尺寸的方法</h2>
+        <ul>
+            <li>width() 获取元素的宽度</li>
+            <li>height() 获取元素的高度</li>
+            <li>innerWidth() 获取元素的内边距宽度</li>
+            <li>innerHeight() 获取元素的内边距高度</li>
+            <li>outerWidth() 获取元素的外边距宽度</li>
+            <li>outerHeight() 获取元素的外边距高度</li>
+        </ul>
+        <p><b>jquery width() 和 height() 方法</b></p>
+        <p>width() 方法返回元素的宽度，height() 方法返回元素的高度。</p>   
+        <p>语法：</p>
+        <ul>
+            <li>$(selector).width()</li>
+            <li>$(selector).height()</li>
+        </ul>
+        <p>示例：</p>
+        <div id="box1" style="width: 200px; height: 100px; border: 1px solid #000000; margin: 5px;">
+            <div id="box2" style="width: 150px; height: 80px; border: 1px solid #000000; margin: 10px 20px;">
+                <p id="p1" style="padding: 10px 15px;">这是一段文字</p>
+            </div>
+        </div>
+        <pre>
+            <code>
+                &lt;div id="box1" style="width: 200px; height: 100px; border: 1&gt;&lt;/div&gt;
+                &lt;script&gt;
+                    var box1 = $('#box1');
+                    console.log(box1.width()); // 200
+                    console.log(box1.height()); // 100
+                &lt;/script&gt;
+            </code>
+        </pre>
+
+        <p><b>jquery innerWidth() 和 innerHeight() 方法</b></p>
+        <p>innerWidth() 方法返回元素的内边距宽度，innerHeight() 方法返回元素的内边距高度。</p>
+        <p>语法：</p>
+        <ul>
+            <li>$(selector).innerWidth()</li>
+            <li>$(selector).innerHeight()</li>
+        </ul>
+        <p>示例：</p>
+        <pre>
+            <code>
+                &lt;div id="box1" style="width: 200px; height: 100px; border: 1
+                px solid #000000; margin: 5px;"&gt;
+                &lt;div id="box2" style="width: 150px; height: 80px; border: 1px
+                solid #000000; margin: 10px 20px;"&gt;&lt;/div&gt;
+                &lt;script&gt;
+                    var box2 = $('#box2');
+                    console.log(box1.innerWidth()); // 150
+                    console.log(box1.innerHeight()); // 80
+                &lt;/script&gt;
+            </code>
+        </pre>
+
+        <p><b>jquery outerWidth() 和 outerHeight() 方法</b></p>
+        <p>outerWidth() 方法返回元素的外边距宽度，outerHeight() 方法返回元素的外边距高度。</p>
+        <p>语法：</p>
+        <ul>
+            <li>$(selector).outerWidth()</li>
+        </ul>
+        <p>示例：</p>
+        <pre>
+            <code>
+                &lt;div id="box1" style="width: 200px; height: 100px; border: 1
+                px solid #000000; margin: 5px;"&gt;
+                &lt;div id="box2" style="width: 150px; height: 80px; border: 1px
+                solid #000000; margin: 10px 20px;"&gt;&lt;p&gt;这是一段文字&lt;/p&gt;&lt;/div&gt;
+                &lt;script&gt;
+                var box2 = $('#box2');
+                console.log(box1.outerWidth()); // 150
+                console.log(box1.outerHeight()); // 42.5
+                &lt;/script&gt;
+            </code>
+        </pre>
+    </div>
+</body>
+<script>
+    $(function(){
+        var box1 = $('#box1');
+        // 元素的宽高
+        console.log(box1.width()); // 200
+        console.log(box1.height()); // 100
+
+        var box2 = $('#box2');
+        // 元素的内边距
+        console.log(box2.innerWidth()); // 150
+        console.log(box2.innerHeight()); // 80
+        console.log($('#p1').innerWidth()); // 150
+        console.log($('#p1').innerHeight()); // 42.5
+        // 元素的外边距
+        console.log($('#p1').outerWidth()); // 150
+        console.log($('#p1').outerHeight()); // 42.5
+    });
+</script>
+</html>

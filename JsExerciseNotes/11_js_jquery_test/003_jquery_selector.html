@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>jQuery 选择器</h1>
+        <p>jQuery 选择器允许对 HTML 元素或者单个元素进行操作</p>
+        <p>jQuery 选择器基于元素的id class type attribute attr_value 等查找</p>
+        <p>jQuery 中所有的选择器都以美元符号开头 $()</p>
+        <div>
+            <h2>元素 选择器</h2>
+            <p>jQuery 元素选择器基于HTML 元素进行定义</p>
+            <p>例如：</p>
+            <p>$(“p”) 选择所有p元素</p>
+            <p>$(“div p”) 选择所有div元素下的所有p元素</p>
+            <p>$(“div > p”) 选择所有div元素下的所有p元素</p>
+            <p>$(“div + p”) 选择所有div元素下的所有p元素，且p元素必须紧跟在div元素之后
+                </p>
+                <p>$(“div ~ p”) 选择所有div元素下的所有p元素，且p元素必须紧跟在div元素之后
+                    </p>
+        </div>
+        <div>
+            <h2>id 选择器</h2>
+            <p>jquery id选择器通过 HTML 元素定义的id 属性指定元素</p>
+            <p>例如：</p>
+            <p>$(“#test”) 选择所有id为test的元素</p>
+        </div>
+        <div>
+            <h2>class 选择器</h2>
+            <p>jQuery class选择器 可以通过指定class 查找元素</p>
+            <p>例如：</p>
+            <p>$(“.test”) 选择所有class为test的元素</p>
+            <p>$(“.test1.test2”) 选择所有class为test1的元素下的所有class为test2的元素</p>
+        </div>
+        <div>
+            <h2>type 选择器</h2>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 异常</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript 错误 - Throw 和 Try to Catch</h1></div>
+    <div>
+      <pre>
+        try 语句使您能够测试代码块中的错误。
+
+        catch 语句允许您处理错误。
+
+        throw 语句允许您创建自定义错误。
+
+        finally 使您能够执行代码，在 try 和 catch 之后，无论结果如何
+      </pre>
+    </div>
+    <div>
+      <h3>1. try...catch</h3>
+      <span>
+        <p>try 定义代码块以便检查错误，catch 处理错误</p>
+        <button onclick="demo()">点我试试</button>
+        <p id="err_demo"></p>
+      </span>
+    </div>
+    <div>
+      <h3>2. throw</h3>
+      <span>
+        <p>throw 语句运行创建自定义错误，异常可以是字符串，数字，布尔或对象</p>
+        <p>请输入 5 - 10 之间的数字：</p>
+        <input id="demo" type="text">
+        <button type="button" onclick="myFunction()">测试输入</button>
+        <p id="message"></p>
+      </span>
+    </div>
+    <div>
+      <h3>3. finally 语句</h3>
+      <span>
+        <p> finally 语句运行您在try和catch之后执行代码，无论结果都会执行的代码块</p>
+        <p>请输入 5 - 10 之间的数字：</p>
+        <input id="demo1" type="text">
+        <button type="button" onclick="myFunction1()">测试输入</button>
+        <p id="message1"></p>
+      </span>
+    </div>
+    <div>
+      <h3>4. 内置Error 对象</h3>
+      <span>
+        <p>error 对象提供 name 和 message 属性</p>
+        <p> message 设置或返回错误消息</p>
+        <p> name 设置或返回错误名</p>
+        <pre>
+          EvalError       已在eval()函数中发生的错误
+          RangeError      已发生超出数字范围的错误
+          ReferenceError  已发生非法引用
+          SyntaxError     已发生语法错误
+          TypeError       已发生类型错误
+          URLError        在encodeURL()中已发生的错误
+        </pre>
+        <p>EvalError 后续更新版本用 SyntaxError</p>
+        <p>RangeError 会在您使用了合法值的范围之外的数字时抛出。</p>
+        <button id="demo_RangeError" onclick="demo1()">试一试</button>
+        <p>ReferenceError 引用尚未声明的变量则会报错</p>
+        <button id="demo_ReferenceError" onclick="demo2()">试一试</button>
+        <p>SyntaxError 代码编写有语法错误会报这个错误</p>
+        <button id="demo_SyntaxError" onclick="demo3()">试一试</button>
+        <p>TypeError 变量引用有类型错误会报这个错误</p>
+        <button id="demo_TypeError" onclick="demo4()">试一试</button>
+        <p>URLError 在 URI 函数中使用非法字符</p>
+        <button id="demo_URLError" onclick="demo5()">试一试</button>
+      </span>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+<script src="../../JsCodeBase/exception.js"></script>
+</html>

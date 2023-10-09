@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h1>Javascript 运算符</h1>
+    <h3>1. Javascript的算术运算符</h3>
+    <span>例：x = 15, y = 7。则：</span>
+    <p id="demo"></p>
+    <h3>2. Javascript的赋值运算符</h3>
+    <span>例：x = 7, y = 8。则：</span>
+    <p id="demo1"></p>
+    <h3>3. Javascript的字符串运算符</h3>
+    <span>例：text1 = ‘Bill’， text2 = ‘Gates’，则text1 + text2：</span>
+    <p id="demo2"></p>
+    <span>text1 += 'Gates'为：</span>
+    <p id="demo3"></p>
+    <h3>4. Javascript的比较运算符</h3>
+    <p id="demo4">
+    <pre>
+        == 等于
+        === 等值等型
+        != 不相等
+        !== 不等值或不等型
+        > 大于
+        < 小于
+        >= 大于或等于
+        <= 小于或等于
+        ? 三元运算符
+        </pre>
+    </p>
+    <h3>5. Javascript的逻辑运算符</h3>
+    <p id="demo5">
+        && 逻辑与<br />
+        || 逻辑或<br />
+        ! 逻辑非<br />
+    </p>
+    <h3>6. Javascript的类型运算符</h3>
+    <span>例： 声明变量x = 7，则：</span>
+    <p id="demo6"></p>
+    <span>例：定义一个Person的对象，申明变量 p 使其实例化Person对象。则：</span>
+    <p id="demo7"></p>
+    <script>
+        {
+            // 常见的算术运算符，
+            var x = 15;
+            var y = 7;
+
+            var z = x + y;  // 加
+            var m = x - y;  // 减
+            var n = x * y;  // 乘
+            var o = x / y;  // 除
+            var p = x % y;  // 余（模）
+            var a = x++;  // 递增
+            var b = x--;  // 递减
+            let str = 'x + y = ' + z + ', x - y = ' + m + ', x * y = ' + n + ', x / y = ' + o + ', x % y = ' + p + ', x递增：' + a + ', x递减：' + b;
+            document.getElementById('demo').innerHTML = str;
+        }
+
+        {
+            // 常见的赋值运算符
+            var x, y;
+            x = 7;
+            y = 8;
+
+            let str = 'x += y为 ' + (x += y) + '，x -= y为 ' + (x -= y) + '，x *= y为 ' + (x *= y) + '，x /= y为 ' + (x /= y) + '，x %= y为 ' + (x %= y);
+            document.getElementById('demo1').innerHTML = str;
+        }
+
+        {
+            // 字符串运算符
+            tex1 = 'Bill';
+            tex2 = 'Gates';
+            document.getElementById('demo2').innerHTML = tex1 + ' ' + tex2;  // 此处‘+‘起到拼接作用
+
+            tex1 += 'Gates';
+            document.getElementById('demo3').innerHTML = tex1;  // 级联运算符
+
+            // 字符串和数字结合是字符串
+            x = 7 + 8;  // 15
+            y = "7" + 8; // 78
+            z = "Hello" + 7; // Hello7
+        }
+
+        {
+            // 比较运算符
+            /*
+            ==	        等于
+            ===	        等值等型
+            !=	        不相等
+            !==	        不等值或不等型
+            >	        大于
+            <	        小于
+            >=	        大于或等于
+            <=	        小于或等于
+            ?	        三元运算符
+            */
+        }
+
+        {
+            //逻辑运算符
+            /*
+            &&	逻辑与
+            ||	逻辑或
+            !	逻辑非
+            */
+        }
+
+        {
+            // 类型运算符
+            /*
+            typeof	返回变量的类型。
+            instanceof	返回 true，如果对象是对象类型的实例。
+            */
+            var x = 7;
+            document.getElementById('demo6').innerHTML = '变量x的类型： ' + typeof x;
+
+            function Person() { };
+            var p = new Person();
+            document.getElementById('demo7').innerHTML = 'Person实例的原型在p对象的原型链中吗？ ' + (p instanceof Person);
+        }
+    </script>
+</body>
+
+</html

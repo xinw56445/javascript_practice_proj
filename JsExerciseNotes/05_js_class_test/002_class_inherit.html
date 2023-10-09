@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+  <title>JavaScript 类继承</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 类继承</h1></div>
+  <div>
+    <h3>1. 类继承</h3>
+    <span>
+      <p>使用 extends 关键字创建类继承</p>
+      <p>使用类继承创建的类继承了父类所有的方法</p>
+      <button onclick="demo2()">点我试试</button>
+      <p id="class_extends"></p>
+    </span>
+  </div>
+  <div>
+    <h3>2. supper() 方法引用父类</h3>
+    <span>
+      <p>通过在 constructor方法中调用 supper() 方法，我们调用了父级的 constructor 方法</p>
+      <p>从而我们获取的父类的属性和方法的访问权限</p>
+    </span>
+  </div>
+  <div>
+    <h3>3. Getter 和 Setter</h3>
+    <span>
+      <p>类允许使用get 和 set 方法</p>
+      <button onclick="demo3()">点我试试</button>
+      <p id="class_get"></p>
+    </span>
+  </div>
+  <div>
+    <h3>4. static 方法</h3>
+    <span>
+      <p>static 类方法是在类本身上定义的</p>
+      <p>只能通过 类去调用，而不能通过类对象去调用</p>
+      <button onclick="demo4()">点我试试</button>
+      <p id="static_method"></p>
+      <p>如果要在static方法使用类对象, 可以把类对象作为参数传到static 方法去</p>
+      <button onclick="demo5()">点我试试</button>
+      <p id="static_method1"></p>
+    </span>
+  </div>
+</div>
+</body>
+<script src="../../JsCodeBase/class_demo.js"></script>
+</html>

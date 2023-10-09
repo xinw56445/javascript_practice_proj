@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+  <title>JavaScript JSON</title>
+</head>
+
+<body>
+  <div>
+    <div>
+      <h1>JavaScript JSON</h1>
+    </div>
+    <div>
+      <h3>1. 什么是json</h3>
+      <p>JSON 是存储和传输数据的格式</p>
+      <p>JSON 经常在数据从服务器发送到网页使用</p>
+      <span>
+        <ul>
+          <li>JSON 指的是JavaScript Object Notation</li>
+          <li>JSON 是轻量级的数据交换模式</li>
+          <li>JSON 独立语言 *</li>
+          <li>JSON 是"自描述的"容易理解</li>
+        </ul>
+        <p>JSON 实例</p>
+        <pre>
+        {
+          "employees":[
+              {"firstName":"Bill", "lastName":"Gates"},
+              {"firstName":"Steve", "lastName":"Jobs"},
+              {"firstName":"Alan", "lastName":"Turing"}
+          ]
+        }
+      </pre>
+      </span>
+    </div>
+    <div>
+      <h3>2. JSON 语法规则</h3>
+      <span>
+        <ul>
+          <li>数据是名称/值对</li>
+          <li>数据是由逗号分隔</li>
+          <li>花括号保存对象</li>
+          <li>方括号保存数组</li>
+          <li>最好使用双引号</li>
+        </ul>
+      </span>
+    </div>
+    <div>
+      <h3>3. JSON 对象和数组</h3>
+      <span>
+        <p>对象可以包含多个名称/值对</p>
+        <p>数组可以包含多个对象</p>
+      </span>
+    </div>
+    <div>
+      <h3>4. JSON 文本转换为 JavaScript对象</h3>
+      <span>
+        <p>JSON 的通常用法是从 web 服务器读取数据，然后在网页中显示数据</p>
+        <p>使用parse()将字符串转换为JSON格式</p>
+        <button onclick="demo()">试试看</button>
+        <p id="demo"></p>
+        <p>用到的方法</p>
+        <table>
+          <tr class="gauge-outfit">
+            <th style="width: 25%;">函数</th>
+            <th>描述</th>
+          </tr>
+          <tr>
+            <td>JSON.parse()</td>
+            <td>将字符串转换为JSON格式</td>
+          </tr>
+          <tr>
+            <td>JSON.stringify()</td>
+            <td>将JSON格式转换为字符串</td>
+          </tr>
+        </table>
+      </span>
+    </div>
+    <div>
+      <h3>5. JSON 格式化</h3>
+      <span>
+        <p>JSON 格式在语法上与创建 JavaScript 对象代码是相同的。</p>
+        <p>由于它们很相似，所以 JavaScript 程序可以很容易的将 JSON 数据转换为 JavaScript 对象。</p>
+      </span>
+    </div>
+  </div>
+</body>
+<script src="../../JsCodeBase/json_demo.js"></script>
+</html>

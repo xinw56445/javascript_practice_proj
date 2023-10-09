@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+  <title>JavaScript 对象定义</title>
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript 对象定义</h1></div>
+    <div>
+      <h3>1. 所有 JavaScript 值，除了原始值，都是对象。</h3>
+      <span>
+          <ul>
+          <li>布尔是对象（如果用 new 关键词定义）</li>
+          <li>数字是对象（如果用 new 关键词定义）</li>
+          <li>字符串是对象（如果用 new 关键词定义）</li>
+          <li>日期永远都是对象</li>
+          <li>算术永远都是对象</li>
+          <li>正则表达式永远都是对象</li>
+          <li>数组永远都是对象</li>
+          <li>函数永远都是对象</li>
+          <li>对象永远都是对象</li>
+          </ul>
+      </span>
+    </div>
+    <div>
+      <h3>2. 对象属性</h3>
+      <span>
+        <p>对象属性可以是原始值，其他对象以及函数</p>
+        <p>变量能够包含单个的值 var person = "Bill Gates"</p>
+        <p>对象也是变量，但对象可以包含很多值 var person = {firstName: "Bill", lastName: "Gates"}</p>
+        <p>对象是命名值的集合（命名值也被称为属性，比如firstName）</p>
+      </span>
+    </div>
+    <div>
+      <h3>3. 对象方法</h3>
+      <span>
+        <p>方法是可以在对象上面执行的动作</p>
+        <p>对象方法是包含函数定义的对象属性 </p>
+        <p>var person = {firstName: "Bill", lastName: "Gates", fullName: function() {return this.firstName + " " this.lastName;}}</p>
+        <p>对象是被称为属性和方法的命名值容器</p>
+      </span>
+    </div>
+    <div>
+      <h3>4. 创建对象</h3>
+      <span>
+        <p>使用对象文字 var person = {};</p>
+        <p>使用关键字 new 创建 var person = new Object();</p>
+        <p>定义对象构造器，然后创建构造类型的对象</p>
+      </span>
+    </div>
+    <div>
+      <h3>5. 对象是易变的</h3>
+      <span>
+        <p>对象通过引用寻址，而非值</p>
+        <p>假设person是一个对象，var x = person;不会创建副本</p>
+        <p>对于x 他就是对象person 是同一个对象，对x的任何改变都会改变person</p>
+      </span>
+    </div>
+  </div>
+</body>
+</html>

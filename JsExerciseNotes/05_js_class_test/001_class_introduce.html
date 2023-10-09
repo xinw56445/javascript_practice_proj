@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 类</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript 类</h1></div>
+    <div>
+      <h3>1. 类的语法</h3>
+      <span>
+        <p>使用关键字 class 创建类</p>
+        <p>始终添加名为constructor() 方法</p>
+        <pre>
+          class ClassName {
+            constructor() { ... }
+          }
+        </pre>
+        <pre>类不是对象，只是javascript 对象模版</pre>
+      </span>
+    </div>
+    <div>
+      <h3>2. 类的使用方法</h3>
+      <span>
+        <p>创建类对象</p>
+        <button onclick="demo()">点我试试</button>
+        <p id="class_demo"></p>
+      </span>
+    </div>
+    <div>
+      <h3>3. constructor 方法</h3>
+      <span>
+        <p>构造方法是一种特殊的方法</p>
+        <ul>
+        <li>它必须拥有确切名称的"构造函数"</li>
+        <li>创建新对象时自动执行</li>
+        <li>用于初始化对象属性</li>
+        <li>如果未定义构造韩式方法，JavaScript 会添加新的构造函数方法</li>
+        </ul>
+        <p></p>
+      </span>
+    </div>
+    <div>
+      <h3>4. class 方法</h3>
+      <span>
+        <p>创建类方法语法</p>
+        <pre>
+          class ClassName {
+            constructor() { ... }
+            method_1() { ... }
+            method_2() { ... }
+            method_3() { ... }
+          }
+        </pre>
+        <p>创建名为age的方法，返回当前时间</p>
+        <button onclick="demo1()">点我试试</button>
+        <p id="class_method"></p>
+      </span>
+    </div>
+  </div>
+</body>
+<script src="../../JsCodeBase/class_demo.js"></script>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+  <title>JavaScript 显示对象</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 显示对象</h1></div>
+  <div>
+    <h3>1. 如何显示javascript 对象</h3>
+    <span>
+        <p>显示Javascript 对象将输出[object Object]</p>
+        <p id="demo"></p>
+      </span>
+  </div>
+  <div>
+    <h3>2. 显示对象的方法</h3>
+    <span>
+        <ul>
+          <li>按名称显示对象属性</li>
+          <li>循环显示对象属性</li>
+          <li>使用 Object.values() 显示对象</li>
+          <li>使用 JSON.stringify() 显示对象</li>
+        </ul>
+      </span>
+  </div>
+  <div>
+    <h3>3. 显示对象属性</h3>
+    <span>
+      <p>对象的属性可显示为字符串</p>
+      <p id="demo1"></p>
+    </span>
+  </div>
+  <div>
+    <h3>4. 在循环中显示对象</h3>
+    <span>
+      <p>for in 循环收集对象的属性</p>
+      <p id="demo2"></p>
+    </span>
+  </div>
+  <div>
+    <h3>5. 使用Object.values()</h3>
+    <span>
+      <p>使用这个方法，任何js对象都可以被转换为数组</p>
+      <p id="demo3"></p>
+    </span>
+  </div>
+  <div class="p_bold">
+    <h3>6. 使用JSON.stringify()</h3>
+    <span>
+      <p>任何js对象都可以使用这个方法转换为字符串</p>
+      <p id="demo4"></p>
+      <p>这个方法不会直接对对象中的函数字符串化</p>
+      <p id="demo5"></p>
+      <p>在对象字符串化之前将对象的中的函数字符串化</p>
+      <p id="demo6"></p>
+    </span>
+  </div>
+  <div>
+    <h3></h3>
+  </div>
+</div>
+</body>
+<script>
+    const person = {
+        name: "Bill",
+        age: 12,
+        city: "New York"
+    };
+    document.getElementById("demo").innerHTML = person;
+    document.getElementById("demo1").innerHTML = person.name + " " + person.age;
+    // for in 循环
+    let i, text;
+    text = ""
+    for (i in person) {
+        text += person[i] + " ";
+    }
+    document.getElementById("demo2").innerHTML = text;
+    // 使用Object.values()
+    let myArray = Object.values(person);
+    document.getElementById("demo3").innerHTML = myArray;
+    // 使用JSON.stringify()
+    let myString = JSON.stringify(person);
+    document.getElementById("demo4").innerHTML = myString;
+    // 函数不会直接字符串化
+    const person1 = {
+        firstName: "Bill",
+        lastName: "Gates",
+        fullName: function () {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+    document.getElementById('demo5').innerHTML = JSON.stringify(person1);
+    // 提前对对象方法转字符串
+    person1.fullName = person1.fullName().toString();
+    document.getElementById("demo6").innerHTML = JSON.stringify(person1);
+</script>
+</html>

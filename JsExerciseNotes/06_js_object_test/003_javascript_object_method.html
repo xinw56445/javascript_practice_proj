@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 对象方法</title>
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript 对象方法</h1></div>
+    <div>
+      <h3>1. 对象方法是能够在对象上执行的操作</h3>
+      <span>
+        <pre>
+          var person = {
+            firstName: "Bill",
+            lastName : "Gates",
+            id       : 648,
+            fullName : function() {
+              return this.firstName + " " + this.lastName;
+            }
+          };
+        </pre>
+        <p>方法是包含函数定义的属性</p>
+        <p>方法是储存对象属性的函数</p>
+      </span>
+    </div>
+    <div>
+      <h3>2. this 关键字</h3>
+      <span>
+        <p>在Javascript 中，被称为this的事物，指的是拥有该代码的对象</p>
+        <p>this的值，在函数中使用时，是拥有该函数的对象</p>
+        <p>this 不是变量，是关键字，无法改变this的值</p>
+      </span>
+    </div>
+    <div>
+      <h3>3. 访问对象方法</h3>
+      <span>
+        <p>创建对象方法的语法   // methodName: function() {}</p>
+        <p>访问对象方法的语法   // objectName.methodName()</p>
+      </span>
+    </div>
+    <div>
+      <h3>4. 添加新的方法</h3>
+      <span>
+        <p>向对象添加方法是在构造函数内部完成的</p>
+        <p id="demo"></p>
+      </span>
+    </div>
+  </div>
+</body>
+<script>
+  function Person(firstName, lastName, age, eyeColor) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.age = age;
+      this.eyeColor = eyeColor;
+      this.changeName = function (name) {
+          this.lastName = name;
+      }
+  }
+  // 创建person对象
+  let myMother = new Person("Helen", "", 42, "blue");
+  myMother.changeName("Keller");
+  // 添加全名方法
+  myMother.fullName = function () {
+      return this.firstName + " " + this.lastName;
+  }
+  document.getElementById("demo").innerHTML =
+      "my mother is " + myMother.fullName() + ", She has a pair of "+ myMother.eyeColor +" eyes";
+
+</script>
+</html>

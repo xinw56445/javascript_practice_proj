@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 箭头函数</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+  <div>
+    <div>
+      <h1>JavaScript 箭头函数</h1>
+    </div>
+    <div>
+      <h3>1. 箭头函数允许我们编写更简单的函数</h3>
+      <span>
+        <p>之前</p>
+        <button onclick="demo()">点我试试</button>
+        <p id="demo_arrow"></p>
+        <p>用箭头函数之后</p>
+        <button onclick="demo1()">点我试试</button>
+        <p id="demo_arrow1"></p>
+      </span>
+    </div>
+    <div>
+      <h3>2. 箭头函数中的this</h3>
+      <span>
+        <p>普通函数中，this指代的对象具体取决于函数的调用方式</p>
+        <button id="btn">点我试试</button>
+        <p id="this_for_ordinary"></p>
+        <p>对于箭头函数，this关键字始终表示定义箭头函数的对象</p>
+        <button id="btn1">点我试试</button>
+        <p id="this_for_arrow"></p>
+      </span>
+    </div>
+  </div>
+</body>
+<script src="../../JsCodeBase/arrow.js"></script>
+</html>

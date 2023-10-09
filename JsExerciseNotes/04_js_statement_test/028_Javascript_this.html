@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript this关键字</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript this关键字</h1></div>
+    <div>
+      <h3>1. this是什么</h3>
+      <span>
+        <p>this 关键词指的是它所属的对象</p>
+        <p>在对象方法中，this 指的是此方法的“拥有者”</p>
+        <button onclick="demo()">点我试试</button>
+        <p id="this_demo"></p>
+      </span>
+    </div>
+    <div>
+      <h3>单独的 this</h3>
+      <span>
+        <p>在单独使用的时候，拥有者是全局，this指的是全局对象[object Window]</p>
+        <button onclick="demo1()">点我试试</button>
+        <p id="this_demo1"></p>
+      </span>
+    </div>
+    <div>
+      <h3>2. 函数中的 this</h3>
+      <span>
+        <p>函数的拥有者默认绑定 this[object Window]</p>
+        <button onclick="demo2()">点我试试</button>
+        <p id="this_demo2"></p>
+      </span>
+    </div>
+    <div>
+      <h3>3. 事件处理程序中的this</h3>
+      <span>
+        <p>HTML 事件处理程序当中， this指的是接受此事件的HTML元素</p>
+        <button onclick="this.style.display='none'">点我试试删除</button>
+      </span>
+    </div>
+    <div>
+      <h3>4. 对象方法绑定</h3>
+      <span>
+        <p>this 对于对象来讲就是 就是对象自身</p>
+        <button onclick="demo3()">点我试试</button>
+        <p id="this_demo3"></p>
+      </span>
+    </div>
+    <div>
+      <h3>5. 显示函数绑定</h3>
+      <span>
+        <p>call() 和 apply() 方法都可以用于将另一个对象作为参数调用对象的方法</p>
+        <button onclick="demo4()">点我试试</button>
+        <p id="this_demo4"></p>
+      </span>
+    </div>
+    <div></div>
+  </div>
+</body>
+<script src="../../JsCodeBase/this.js"></script>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript Set</title>
+</head>
+<body>
+<div>
+  <div>
+    <h1>JavaScript Set</h1>
+  </div>
+  <div>
+    <h3>1. Set 是一组唯一值的集合，每个值只能在Set中出现一次/</h3>
+    <span>
+      <p>Set 可以容纳任何数据类型的值</p>
+      <pre>
+        new Set()     创建新的 Set。
+        add()         向 Set 中添加新元素。
+        delete()      从 Set 中移除元素。
+        has()         如果值存在则返回 true。
+        clear()       从 Set 中移除所有元素。
+        forEach()     为每个元素调用回调函数。
+        values()      返回包含 Set 中所有值的迭代器。
+        keys()        与 values() 相同。
+        entries()     返回迭代器，其中包含 Set 中的 [value,value] 值值对。
+        size          返回Set 中元素的数量
+      </pre>
+    </span>
+  </div>
+  <div>
+    <h3>2. 创建Set</h3>
+    <span>
+      <p>将数组传给new Set()</p>
+      <p id="demo"></p>
+      <p>创建一个新的Set， 使用add() 方法添加值或变量</p>
+      <p id="demo1"></p>
+      <p>如果add 添加了多个相同元素，则只会显示第一个</p>
+    </span>
+  </div>
+  <div>
+    <h3>3. forEach()方法</h3>
+    <span>
+      <p>为每个Set 元素调用函数</p>
+      <p id="demo2"></p>
+    </span>
+  </div>
+  <div>
+    <h3>4. values() 方法</h3>
+    <span>
+      <p>values() 方法返回包含Set中所有值的iterator对象</p>
+      <p id="demo3"></p>
+      <p>使用iterator 对象范围元素</p>
+      <p id="demo4"></p>
+    </span>
+  </div>
+  <div>
+    <h3>5. keys()方法</h3>
+    <span>
+      <p>Set 没有键 ，返回与values() 相同的结果</p>
+      <p id="demo5"></p>
+    </span>
+  </div>
+  <div>
+    <h3>6. entries() 方法</h3>
+    <span>
+      <p>entries() 方法返回的是[value, value]值值对</p>
+      <p id="demo6"></p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    // 将数组传给 new Set()
+    const letters = new Set(["a", "b", "c"]);
+    let text = "";
+    for(let x of letters) {
+        text += x + " ";
+    }
+    document.getElementById("demo").innerHTML = text + "<br>" + letters.size;
+    // 使用add()方法添加
+    const letters1 = new Set();
+    letters1.add("a");
+    letters1.add("b");
+    letters1.add("c");
+    text = "";
+    for(let m of letters1) {
+        text += m + " ";
+    }
+    document.getElementById("demo1").innerHTML = text + "<br>" + letters1.size;
+    // forEach() 方法
+    text = "";
+    letters.forEach(function (value) {
+        text += value + " ";
+    })
+    document.getElementById("demo2").innerHTML = text;
+    // 使用values()方法 创建迭代器
+    const myIterator = letters.values();
+    document.getElementById("demo3").innerHTML = myIterator;
+    // 列出所有值
+    text = "";
+    for (const n of myIterator) {
+        text += n + " ";
+    }
+    document.getElementById("demo4").innerHTML = text;
+    // 使用keys() 创建迭代器
+    const myIterator1 = letters.keys();
+    text = "";
+    for (const y of myIterator1) {
+        text += y + " ";
+    }
+    document.getElementById("demo5").innerHTML = myIterator1 + " " + text;
+    // entries() 方法创建迭代器
+    const myIterator2 = letters.entries();
+    text = "";
+    for (const myIteratorElement of myIterator2) {
+        text += myIteratorElement + " ";
+    }
+    document.getElementById("demo6").innerHTML = myIterator2 + " " + text;
+</script>
+</html>

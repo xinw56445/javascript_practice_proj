@@ -1,0 +1,59 @@
+body {
+    background-color: linen;
+}
+
+h1 {
+    color: maroon;
+    text-align: center;
+}
+
+button {
+    color: rgb(235, 213, 19);
+    background-color: rgb(9, 126, 169);
+    border: 3px;
+}
+
+#p1, #b1, #p2, #b2 {
+    /*float: right;*/
+    display: inline;
+}
+
+.weekly_name_display p{
+    float: left;
+}
+
+.for_method p{
+    text-indent: 2em;
+    background: #cccccc;
+}
+
+.p_bold p{
+    font-weight: bolder;
+    background-color: #cccccc;
+}
+
+table{
+    width: 600px;
+    table-layout: fixed;
+    border: 1px solid #ccc;
+    border-collapse: collapse; 
+}
+
+table td {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+table th {
+    height: 25px;
+}
+
+/* 表头标题*/
+.gauge-outfit {
+    background-color: darkslategrey; 
+    color: white;
+}
+
+code {
+    color: #b9196b92;
+}

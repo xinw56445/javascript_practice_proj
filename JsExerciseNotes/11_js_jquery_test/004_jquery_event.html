@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../11_js_jquery_test/node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>jQuery 事件</h1>
+        <p>事件指的是什么</p>
+        <p>实例</p>
+        <ul>
+            <li>在元素上移动鼠标</li>
+            <li>选取单选元素</li>
+            <li>点击元素</li>
+        </ul>
+        <div>
+            <h2>jquery事件方法语法</h2>
+            <p>$(selector).on(event,function(){})</p>
+            <p>例如：</p>
+            <pre>
+                <code>
+                    // 3.7.1 写法
+                    $("p").on("click",function(){
+                        alert("你点击了p标签");
+                    });
+                    // 1.10.2版本写法
+                    $("p").click(function(){
+                        alert("你点击了p标签");
+                    });
+                </code>
+            </pre>
+        </div>
+        <p style="color: red;">注意：引入jQuery 库版本不一样，库对应的方法也有所不一致，请使用固定版本</p>
+        <div>
+            <h2>常见jQuery 事件方法</h2>
+            <p>1. click()</p>
+            <p>click() 方法是按钮点击事件触发会执行的函数</p>
+            <pre>
+                <code>
+                    $("p").click(function(){
+                        alert("你点击了p标签");
+                        });
+                </code>
+            </pre>
+            <p>2.dblclick()</p>
+            <p>dblclick() 方法是双击事件触发会执行的函数</p>
+            <pre>
+                <code>
+                    $("p").dblclick(function(){
+                        alert("你双击了p标签");
+                        });
+                </code>
+                </pre>
+            <p>3.focus()</p>
+            <p>focus() 方法是元素获得焦点事件触发会执行的函数 blur()对应失去焦点事件触发的函数</p>
+            <pre>
+                <code>
+                    $("p").focus(function(){
+                        alert("你获得了焦点");
+                        });
+                </code>
+                </pre>
+            <p>4. mouseleave()</p>
+            <p>mouseleave() 方法是鼠标离开事件触发会执行的函数</p>
+            <pre>
+                <code>
+                    $("p").mouseleave(function(){
+                        alert("鼠标离开了p标签");
+                        });
+                </code>
+                </pre>
+            <p>5. mouseenter()</p>
+            <p>mouseenter() 方法是鼠标进入事件触发会执行的函数</p>
+            <pre>
+                <code>
+                    $("p").mouseenter(function(){
+                        alert("鼠标进入了p标签");
+                    });
+                </code>
+            </pre>
+            <p>6. mousemove()</p>
+            <p>mousemove() 方法是鼠标移动事件触发会执行的函数</p>
+            <pre>
+                <code>
+                    $("p").mousemove(function(){
+                        alert("鼠标移动了p标签");
+                        });
+                </code>
+                </pre>
+            <p>7. mouseover()</p>
+            <p>mouseover() 方法是鼠标移入事件触发会执行的函数</p>
+            <pre>
+                <code>
+                    $("p").mouseover(function(){
+                        alert("鼠标移入了p标签");
+                        });
+                </code>
+                </pre>
+            <p>8. mouseout()</p>
+            <p>mouseout() 方法是鼠标移出事件触发会执行的函数</p>
+            <pre>
+                <code>
+                    $("p").mouseout(function(){
+                        alert("鼠标移出了p标签");
+                        });
+
+                </code>
+            </pre>
+        </div>
+    </div>
+</body>
+
+</html>

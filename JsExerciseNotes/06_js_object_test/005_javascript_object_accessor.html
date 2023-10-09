@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 对象访问器</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 对象访问器</h1></div>
+  <div>
+    <h3>1. 访问器（Getter 和 Setter）</h3>
+    <span>
+      <p>Getter 和 Setter 允许定义对象访问器</p>
+    </span>
+  </div>
+  <div>
+    <h3>2. Getter（get关键词）</h3>
+    <span>
+      <p>使用lang属性获取属性值</p>
+      <p id="demo"></p>
+    </span>
+  </div>
+  <div>
+    <h3>3. Setter (set关键词)</h3>
+    <span>
+      <p>使用lang 属性设置属性值</p>
+      <p id="demo1"></p>
+    </span>
+  </div>
+  <div>
+    <h3>4. person 和 person1 显示对象的数据不同处</h3>
+    <span>
+      <p>person 是以属性的方式显示对象数据</p>
+      <p>person1 是以函数的方式显示对象数据</p>
+      <p id="demo2"></p>
+    </span>
+  </div>
+  <div>
+    <h3>5. 为什么使用 Getter 和 Setter</h3>
+    <span>
+      <ul>
+        <li>提供了更简洁的语法</li>
+        <li>允许属性和方法的语法相同</li>
+        <li>可以确保更好的数据质量</li>
+      </ul>
+    </span>
+  </div>
+  <div>
+    <h3>6. 计数器示例</h3>
+    <span>
+      <p id="demo3"></p>
+    </span>
+  </div>
+  <div>
+    <h3>7. Object.defineProperty() 方法</h3>
+    <span>
+      <p>Object.defineProperty() 方法也可用于添加 Getter 和 Setter</p>
+      <p id="demo4"></p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    const person = {
+        lastName: "Gates",
+        firstName: "Bill",
+        language: "en",
+        get lang() {
+            return this.language;
+        },
+        set lang(language) {
+            return this.language = language;
+        }
+    };
+    // 使用getter 来显示来自对象的数据
+    document.getElementById("demo").innerHTML = person.lang;
+    // 使用setter 来设置对象的属性
+    person.lang = "cn";
+    document.getElementById("demo1").innerHTML = person.language;
+
+    const person1 = {
+        lastName: "Gates",
+        firstName: "Bill",
+        language: "en",
+        lang: function () {
+            return this.language;
+        },
+    };
+
+    document.getElementById("demo2").innerHTML =
+        person.lang.constructor + " " + person1.lang().constructor;
+    // 定义计数器对象
+    const obj = {
+        counter: 0,
+        get reset() {
+            this.counter = 0;
+        },
+        get increment() {
+            this.counter++;
+        },
+        get decrement() {
+            this.counter--;
+        },
+        set add(value) {
+            this.counter += value;
+        },
+        set subtract(value) {
+            this.counter -= value;
+        }
+    };
+    // 操作计数器
+    obj.reset;
+    obj.add = 5;
+    obj.subtract = 1;
+    obj.increment;
+    obj.decrement;
+    document.getElementById("demo3").innerHTML = obj.counter;
+    // 添加 Getter 和 Setter：
+    const obj1 = {counter: 10};
+    Object.defineProperty(obj1, "reset", {
+        get: function () {
+            this.counter = 10;
+        }
+    });
+    Object.defineProperty(obj1, "subtract", {
+        set: function (value) {
+            this.counter -= value;
+        }
+    });
+    obj1.reset;
+    obj1.subtract = 4;
+    document.getElementById("demo4").innerHTML = obj1.counter;
+</script>
+</html>

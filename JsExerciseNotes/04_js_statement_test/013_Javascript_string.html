@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 字符串</title>
+</head>
+
+<body>
+    <h3>1. JavaScript 字符串支持单双引号</h3>
+    <p id="demo"></p>
+    <h3>2. 字符串长度 length</h3>
+    <p>内建属性 length 可以返回字符串的长度</p>
+    <p>例：var str = “abcdef”,则：</p>
+    <p id="demo1"></p>
+    <h3>3. 字符串的转义</h3>
+    <p><-- 反斜杠转义字符把特殊字符转换为字符串字符</p>
+    <p id="demo2"></p>
+    <p><-- 单引号转义</p>
+    <p id="demo3"></p>
+    <p><-- 反斜杠转义</p>
+    <p id="demo4"></p>
+    <h3>4. 字符串也可以是对象</h3>
+    <p>字符串是原始值，可通过变量定义，也可通过 new 关键字定义</p>
+    <p>两个等值的字符串类型的对象不可用‘==’或‘===’来判断，因为是不同的对象</p>
+    <p id="demo5"></p>
+    <script>
+        {
+            var answer = "It's good to see you again!";
+            document.getElementById('demo').innerHTML = answer;
+        }
+        {
+            let str = "abcdef";
+            document.getElementById('demo1').innerHTML = "str的长度：" + str.length;
+        }     
+        {
+            var x = "中国是瓷器的故乡，因此 china 与\"中国（china）\"同名";
+            document.getElementById('demo2').innerHTML = x;
+
+            var y = 'It\'s good to see you again!';
+            document.getElementById('demo3').innerHTML = y;
+
+            var z = "字符 \\ 被认为是反斜杠";
+            document.getElementById('demo4').innerHTML = z;
+        }
+        {
+            var firstName = "Bill";
+            var firstNames = new String('Bill');
+
+            document.getElementById('demo5').innerHTML = typeof firstName + "<br>" + typeof firstNames;
+        }
+    </script>
+</body>
+
+</html>

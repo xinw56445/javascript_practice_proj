@@ -1,0 +1,150 @@
+/* 计算器外形*/
+.calculator-appearance {
+    width: 300px;
+    height: 420px;
+    flood-color: black;
+    background-color: #5a9fbb;
+    box-shadow: 10px 10px 5px #888888;
+    border-radius: 18px;
+    background-image: linear-gradient(#d57ebe, #929ad9);
+    border: 1px solid transparent;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+/* 计算器显示 */
+.calculator-display {
+    width: 275px;
+    height: 65px;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    padding-right: 1px;
+    padding-bottom: 7px;
+    margin: 12px;
+}
+
+/*上次结果*/
+#last-result {
+    text-align: right;
+    width: 270px;
+    height: 25px;
+    font-size: 14px;
+    color: #cccccc;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 计算结果*/
+#calculation-results {
+    text-align: right;
+    width: 270px;
+    height: 25px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* 显示器结果和缓存值间距*/
+.calculator-display p {
+    margin-top: 0;
+}
+
+/* 计算器按钮区域*/
+.calculator-button-area {
+    width: 280px;
+    height: 310px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin: 10px 10px 5px;
+    box-shadow: 1px 1px 5px #888888;
+}
+
+/* 数字和运算符展示在同一行*/
+.number-area, .operator-area {
+    display: inline-block;
+}
+
+/* 清除区域，包含左右括号*/
+.clear-area {
+    width: 270px;
+    height: 55px;
+    margin-top: 5px;
+    margin-left: 5px;
+    border: 1px solid transparent;
+    padding: 5px;
+}
+
+/* 🆑 */
+.clear-area button {
+    width: 55px;
+    height: 45px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 22px;
+    box-shadow: 1px 1px 5px #888888;
+}
+
+/* 归零按钮*/
+#clear-btn {
+    float: right;
+    margin-right: 8px;
+    color: #ffffff;
+    background-color: coral;
+}
+
+/* 退格*/
+#backspace {
+    background-color: gold;
+}
+
+/* 数字按钮区域*/
+.number-area {
+    width: 200px;
+    height: 230px;
+    border: 1px solid #329a9a;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #888888;
+}
+
+.number-area button {
+    width: 55px;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 5px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 22px;
+    box-shadow: 1px 1px 5px #888888;
+}
+
+/* 等号*/
+#final-result {
+    background-color: dodgerblue;
+    color: #ffffff;
+}
+
+/* 加减乘除 */
+.operator-area {
+    width: 55px;
+    height: 230px;
+    float: right;
+    border: 1px solid #329a9a;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #888888;
+}
+
+/* 加减乘除单个按钮*/
+.operator-area button {
+    width: 55px;
+    height: 45px;
+    margin-top: 10px;
+    margin-right: 5px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 22px;
+    box-shadow: 1px 1px 5px #888888;
+}

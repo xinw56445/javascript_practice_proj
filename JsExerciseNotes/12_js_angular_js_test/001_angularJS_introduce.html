@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="">
+        <h1>AngularJS 简介</h1>
+        <p>AngularJS 是 Google 开发的前端 MVC 框架，它可以让我们在浏览器端开发单页应用。</p> 
+        <p>AngularJS 是一个Javascript 框架，通过指令扩展了HTML 。且通过表达式绑定数据到 HTML </p>
+        <p>AngularJS 是一个双向数据绑定框架，它可以自动检测数据变化，并更新 HTML 视图。</p>
+        <div>
+            <h2>AngularJS 表达式 与 JavaScript 表达式</h2>
+            <p>AngularJS 表达式是一个基于 JavaScript 表达式的简单模板语法。</p>
+            <p>AngularJS 表达式可以包含字母，操作符，变量</p>
+            <p>AngularJS 表达式可以写在HTML 中</p>
+            <p>AngularJS 表达式不支持条件判断，循环以及异常</p>
+            <p>AngularJS 表达式支持过滤器</p>
+        </div>
+        <div>
+            <h2>AngularJS 扩展了HTML</h2>
+            <ol>
+                <li>AngularJS 扩展了 HTML，通过指令来扩展 HTML 标签，并通过表达式绑定数据到 HTML 标签。</li>
+                <li>AngularJS 可以克隆和重复 HTML 元素。</li>
+                <li>AngularJS 可以隐藏和显示 HTML 元素。</li>
+                <li>AngularJS 可以动态添加 HTML 元素。</li>
+                <li>AngularJS 支持输入验证。</li>
+
+                <li>ng-app 指令定义一个AngularJS应用程序</li>
+                <li>ng-controller 指令定义一个AngularJS 控制器</li>
+                <li>ng-model 指令绑定数据到 HTML 元素</li>
+                <li>ng-bind 指令绑定数据到 HTML 元素</li>
+                <li>ng-repeat 指令循环遍历数据</li>
+                <li>ng-click 指令绑定事件到 HTML 元素</li>
+            </ol>
+            <p>实例：</p>
+            <p>Name: <input type="text" ng-model="name"></p>
+            <p>Hello {{name}}!</p>
+            <p ng-bind="name"></p>
+        </div>
+       <div>
+            <h2>AngularJS 表达式</h2>
+            <p>AngularJS 表达式可以绑定数据到 HTML 元素，AngularJS 会自动更新 HTML 元素。</p>
+            <p>AngularJS 表达式可以绑定事件到 HTML 元素，AngularJS 会自动调用事件处理函数。</p>
+            <ol>
+                <li>AngularJS 表达式写在双大括号里面: {{expression}}.</li>
+                <li>AngularJS 表达式可以绑定数据到 HTML 元素。与ng-bind相似</li>
+                <li>AngularJS 将在表达式书写的位置“输出数据”</li>
+            </ol>
+            <p>实例：</p>
+            <p>Name: <input type="text" ng-model="username"></p>
+            <p>Hello {{username}}!</p>
+
+            <h2>AngularJS 数字和字符串</h2>
+            <p>AngularJS 数字可以用十进制、十六进制、八进制、科学计数法表示。</p>
+            <ol>
+                <li>AngularJS 数字可以用十进制、十六进制、八进制、科学计数法表示。</li>
+                <li>AngularJS 数字可以用负数表示。</li>
+                <li>AngularJS 数字可以用小数表示。</li>
+                <li>AngularJS 数字可以用科学计数法表示。</li>
+            </ol>
+            <p>数字实例：</p>
+            <p ng-init="quantity=1;cost=5"></p>
+            <p>Quantity: <input type="text" ng-model="quantity"></p>
+            <p>Cost: <input type="text" ng-model="cost"></p>
+            <p>Total: {{quantity * cost}}</p>
+
+            <p>字符串实例：</p>
+            <p ng-init="firstName='Jhon';lastName='Bob'"></p>
+            <p>First Name: <input type="text" ng-model="firstName"></p>
+            <p>Last Name: <input type="text" ng-model="lastName"></p>
+            <p>Full Name: {{firstName + " " + lastName}}</p>
+
+            <h2>AngularJS 对象和数组</h2>
+            <p>AngularJS 对象也如同javascript 一样</p>
+            <p>对象实例：</p>
+            <p ng-init="person={name:'Jhon',age:25}"></p>
+            <p>Name: <input type="text" ng-model="person.name"></p>
+            <p>Age: <input type="text" ng-model="person.age"></p>
+            <p>Full Name: {{person.name + " " + person.age}}</p>
+
+            <p>数组实例：</p>
+            <p ng-init="points=[1, 15, 19, 2, 40]"></p>
+            <p>Points: <input type="text" ng-model="points[0]"></p>
+            <p>Points: <input type="text" ng-model="points[1]"></p>
+            <p>Points: <input type="text" ng-model="points[2]"></p>
+            <p>Points: <input type="text" ng-model="points[3]"></p>
+            <p>Points: <input type="text" ng-model="points[4]"></p>
+            <p>数组的值为: {{points[0] + " " + points[1] + " " + points[2] + " " + points[3] + " " + points[4]}}</p>
+
+
+       </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div><h1>JavaScript HTML DOM Collection</h1></div>
+        <div>
+            <h3>HTML Collection 对象</h3>
+            <p>HTMLCollection 对象是 HTML 元素的集合，比如 document.all 等，它是 NodeList 的子类。</p>
+            <p>getElementsByTagName() 方法返回HTML Collection对象，其类似于包含HTML 的一个数组</p>
+            <p>打开终端看看</p>
+            <script>
+                let para = document.getElementsByTagName("p");
+                for (let i = 0; i < para.length; i++) {
+                    console.log(para[i].innerHTML);
+                }    
+            </script>
+        </div>
+        <div>
+            <h3>HTML Collection对象的 length 属性</h3>
+
+            <p>HTMLCollection 对象有 length 属性，它返回集合中的元素数。</p>
+            <p>HTMLCollection对象有length属性, 但其绝非数组，不可使用数组方法</p>
+            <script>
+                //                let para = document.getElementsByTagName("p");
+                //                console.log(para.length);
+            </script>
+        </div>
+    </div>
+</body>
+</html>

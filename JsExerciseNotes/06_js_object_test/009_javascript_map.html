@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript Map</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript Map</h1></div>
+  <div>
+    <h3>1. Map </h3>
+    <span>
+      <p>Map 中保存键值对，其中键可以是任何数据类型</p>
+      <p>Map 会记住键的原始插入顺序</p>
+      <p>Map 提供表示映射大小的属性</p>
+      <pre>
+        new Map()       创建新的 Map 对象。
+        set()           为 Map 中的键设置值。
+        get()           获取 Map 对象中键的值。
+        clear()         从 Map 中移除所有元素。
+        delete()        删除由某个键指定的 Map 元素。
+        has()           如果键存在于 Map 中，则返回 true。
+        forEach()       为 Map 中的每个键/值对调用回调函数。
+        entries()       返回迭代器对象，其中包含 Map 中的 [key, value] 键值对。
+        keys()          返回迭代器对象，其中包含 Map 中的键。
+        values()        返回迭代器对象，其中包含 Map 中的值。
+        size            返回map的元素数量
+      </pre>
+    </span>
+  </div>
+  <div>
+    <h3>2. 创建 Map</h3>
+    <span>
+      <p>将数组传给new Map()</p>
+      <p id="demo"></p>
+      <p>创建映射，使用Map.set()</p>
+      <p id="demo1"></p>
+    </span>
+  </div>
+  <div>
+    <h3>3. Map 方法</h3>
+    <span>
+      <p>set() 方法还可以更改现有的Map值</p>
+      <p id="demo2"></p>
+      <p>size 属性可以获取Map 中的元素数量</p>
+      <p id="demo3"></p>
+      <p>delete() 方法删除Map 元素</p>
+      <p id="demo4"></p>
+      <p>clear() 方法从Map中删除所有元素</p>
+      <p id="demo5"></p>
+      <p>has() 方法判断Map是否存在键，返回true，false</p>
+      <p id="demo6"></p>
+    </span>
+  </div>
+  <div>
+    <h3>3. Map 是对象</h3>
+    <span>
+      <p>Object对象 和 Map对比</p>
+      <pre>
+        Object（对象）            Map（映射）
+        不可直接迭代              可直接迭代
+        无 size 属性             有 size 属性
+        键必须是字符串（或符号）    键可以是任何数据类型
+        键不排序	                键按插入排序
+        有默认键	                没有默认键
+      </pre>
+      <p>Map.forEach() 迭代</p>
+      <p id="demo7"></p>
+      <p>Map.entries() 方法返回一个带有 Map 中 [key,values] 的迭代器对象</p>
+      <p id="demo8"></p>
+      <p>Map.keys() 方法返回一个迭代器对象，其中包含 Map的键</p>
+      <p id="demo9"></p>
+      <p>Map.values() 方法返回一个迭代对象，其中包含 Map的值</p>
+      <p id="demo10"></p>
+    </span>
+  </div>
+  <div>
+    <h3>4. 将对象用作键</h3>
+    <span>
+      <p>Map 可以将对象用作键</p>
+      <p id="demo11"></p>
+      <p>键是对象，而不是字符串</p>
+      <p id="demo12"></p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    // 创建 Map
+    const fruits = new Map([
+        ["apples", 500],
+        ["bananas", 300],
+        ["oranges", 200],
+    ]);
+    // get() 方法获取Map 中键的值
+    document.getElementById("demo").innerHTML = fruits.get("apples");
+    // 使用Map.set()
+    const fruits1 = new Map();
+    fruits1.set("apple", 500);
+    fruits1.set("banana", 300);
+    fruits1.set("orange", 200);
+    document.getElementById("demo1").innerHTML = fruits1.get("banana");
+    // 更改现有的Map值
+    fruits.set("apples", 700);
+    document.getElementById("demo2").innerHTML = fruits.get("apples");
+    // size 属性获取Map 元素数量
+    document.getElementById("demo3").innerHTML = fruits.size;
+    // delete() 方法删除Map元素
+    fruits.delete("apples");
+    document.getElementById("demo4").innerHTML = fruits.size;
+    // clear() 方法清除Map 所有元素
+    fruits1.clear();
+    document.getElementById("demo5").innerHTML = fruits1.size;
+    // has() 方法判断map 中是否有对应的 key
+    document.getElementById("demo6").innerHTML = fruits1.has("apple");
+
+    // Map.forEach() 方法为Map中每个键值对调用回调
+    fruits.set("apples", 500);
+    let text = "";
+    fruits.forEach(
+        function (value, key, map) {
+            text += key + ": " + value + "<br>";
+        }
+    )
+    document.getElementById("demo7").innerHTML = text;
+    // entries()方法返回一个带有 Map 中 [key,values] 的迭代器对象
+    text = "";
+    for (const fruit of fruits.entries()) {
+        text += fruit + "<br>";
+    }
+    document.getElementById("demo8").innerHTML = text;
+    // keys()方法返回一个迭代对象，包含map的键
+    text = "";
+    for (const fruit1 of fruits.keys()) {
+        text += fruit1 + " ";
+    }
+    document.getElementById("demo9").innerHTML = text;
+    // values() 方法返回一个迭代对象，包含map的值
+    text = "";
+    for (const fruit2 of fruits.values()) {
+        text += fruit2 + " ";
+    }
+    document.getElementById("demo10").innerHTML = text;
+    // 创建对象
+    const apples = {name: "Apples"};
+    const bananas = {name: "Bananas"};
+    const oranges = {name: "Oranges"};
+    // 创建map
+    const fruits2 = new Map();
+    fruits2.set(apples, 800);
+    fruits2.set(bananas, 600);
+    fruits2.set(oranges, 200);
+    document.getElementById("demo11").innerHTML = fruits2.size;
+    // 键是对象，而不是字符串
+    // document.getElementById("demo12").innerHTML = fruits2.get("apples");  // undefined
+    document.getElementById("demo12").innerHTML = fruits2.get(apples);  // 800
+</script>
+</html>

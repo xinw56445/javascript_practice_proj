@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h1>HTML 中的全局变量</h1>
+    <!-- 在 HTML 中，全局作用域是window对象 -->
+    <p>通过 <b>var</b> 关键字定义的全局变量属于windwo对象</p>
+    <p id="demo"></p>
+    <script>
+        carName = 'Audi';  // 可以在声明变量之前使用
+        // 此处可以使用window.carName，通过 let 关键字定义的全局变量不属于window对象
+        document.getElementById('demo').innerHTML = '可以显示' + window.carName;
+        var carName;
+        /*通过 let 定义的变量不会被提升到顶端。
+        在声明 let 变量之前就使用它会导致 ReferenceError。
+        变量从块的开头一直处于“暂时死区”，直到声明为止*/
+    </script>
+</body>
+
+</html>

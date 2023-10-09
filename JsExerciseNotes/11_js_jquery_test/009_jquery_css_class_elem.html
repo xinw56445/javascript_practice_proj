@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        .important {
+            font-weight: bold;
+            font-size: xx-large;  /* XXL XXS XXM m L s */
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>jQuery 获取并设置CSS 类</h1>
+        <h2>jQuery 操作CSS</h2>
+        <ul>
+            <li>addClass(class) - 向被选元素中添加一个或多个类</li>
+            <li>removeClass(class) - 从被选元素中删除一个或多个类</li>
+            <li>toggleClass(class) - 切换被选元素的class类</li>
+            <li>css(property,value) - 设置或获取被选元素的CSS属性</li>
+        </ul>
+        <p style="font-size: 25px;"><b>addClass() 方法</b></p>
+        <p>addClass() 方法向被选元素中添加一个或多个类。</p>
+        <p>语法: $().addClass(class)</p>
+        <p>参数: class - 一个或多个要添加的类，用空格分隔</p>
+        <p>实例: </p>
+        <p>给div h1 h2 p 标签添加class 属性样式</p>
+        <button id="btn">点击设置</button>
+
+        <p style="font-size: 25px;"><b>removeClass() 方法</b></p>
+        <p>removeClass() 方法从被选元素中删除一个或多个类。</p>
+        <p>语法: $().removeClass(class)</p>
+        <p>参数: class - 一个或多个要删除的类，用空格分隔</p>
+        <p>实例: </p>
+        <p>给div h1 h2 p 标签删除class 属性样式</p>
+        <button id="btn1">点击删除</button>
+
+        <p style="font-size: 25px;"><b>toggleClass() 方法</b></p>
+        <p>toggleClass() 方法切换被选元素的class类。该方法对被选元素进行添加/删除类的切换操作</p>
+        <p>语法: $().toggleClass(class)</p>
+        <p>参数: class - 一个或多个要切换的类，用空格分隔</p>
+        <p>实例: </p>
+        <p>给div h1 h2 p 标签切换class 属性样式</p>
+        <button id="btn2">点击切换</button>
+
+        <p style="font-size: 25px;"><b>css() 方法</b></p>
+        <p>css() 方法设置或获取被选元素的CSS属性。</p>
+        <p>语法: $().css(property,value)</p>
+        <p>参数: property - 要设置的CSS属性的名称</p>
+        <p>参数: value - 要设置的CSS属性的值</p>
+        <p>实例: </p>
+        <p>给div h1 h2 p 标签设置font-size 属性样式</p>
+        <button id="btn3">点击设置</button>
+    </div>
+</body>
+<script>
+    $(function () {
+        $('#btn').click(function () {
+            // 给 div 规定多个类
+            $("body div:first").addClass("important blue");
+            // 可以选取多个元素进行添加
+            $('h1, h2, p').addClass('important');
+        });
+
+        $('#btn1').click(function () {
+            // 给 div 删除多个类
+            $("body div:first").removeClass("important blue");
+            // 可以选取多个元素进行添加
+            $('h1, h2, p').removeClass('important');
+        });
+
+        $('#btn2').click(function () {
+            // 给 div 切换类
+            $("body div:first").toggleClass("important red");
+        });
+
+        $('#btn3').click(function () {
+            // 给 div 设置font-size 属性样式
+            $("body div:first").css("font-size", "xx-small");
+            // 设置多个css 属性样式
+            $("body div:first").css({"font-size": "xx-small", "color": "red"});
+        });
+    });
+</script>
+
+</html>

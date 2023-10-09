@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h1>Javascript的循环作用域</h1>
+    <p id="demo1">在循环中使用 var</p>
+    <p id="demo2">在循环中使用 let</p>
+    <script>
+        var m = 5;
+        for (var m = 0; m < 10; m++) {
+            //
+            console.log(m)
+        }
+        // 在循环中使用的变量使用 var 重新声明了循环之外的变量。
+        document.getElementById("demo1").innerHTML = m;
+
+        let n = 7;
+        for (let n = 0; n < 10; n++) {
+            //
+        }
+        // 在循环之内使用 let 并不会重新声明循环外的变量
+        document.getElementById("demo2").innerHTML = n; 
+    </script>
+</body>
+
+</html>

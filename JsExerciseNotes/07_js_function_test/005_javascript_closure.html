@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript 闭包</title>
+</head>
+<body>
+<div>
+  <div><h1>JavaScript 闭包</h1></div>
+  <div>
+    <h3>1。 变量的作用域</h3>
+    <span>
+      <p>全局变量</p>
+      <p>函数能够访问函数内部定义的所有变量</p>
+      <pre>
+        function myFunction() {
+            var a = 4;
+            return a * a;
+        }
+      </pre>
+      <p>函数也能访问外部定义的变量</p>
+      <pre>
+        var a = 4;
+        function myFunction() {
+            return a * a;
+        }
+      </pre>
+      <p>在函数外声明的变量 a 就是全局变量</p>
+      <p>全局变量能够被页面中的所有脚本使用和修改</p>
+      <p>不通过关键词 var 创建的变量总是全局的，即使它们在函数中创建</p>
+    </span>
+  </div>
+  <div>
+    <h3>2。 变量的生命周期</h3>
+    <span>
+      <p>全局变量的生命周期和应用程序（网页，窗口）一样久</p>
+      <p>局部变量的生命周期从函数被调用时创建，函数完成后被删除</p>
+    </span>
+  </div>
+  <div>
+    <h3>3。 一个计数器的困境</h3>
+    <span>
+      <p>一般定义一个计数器函数</p>
+      <pre>
+        // 初始化计数器
+        var counter = 0;
+        
+        // 递增计数器的函数
+        function add() {
+          counter += 1;
+        }
+        
+        // 调用三次 add()
+        add();
+        add();
+        add();
+        
+        // 此时计数器应该是 3
+      </pre>
+      <p>但是有个问题：页面上的任何代码都可以更改计数器，而无需调用 add()。对于 add() 函数，计数器应该是局部的，以防止其他代码更改它：</p>
+    </span>
+  </div>
+  <div>
+    <h3>4。嵌套函数</h3>
+    <span>
+      <p>所有函数都有权访问全局作用域</p>
+      <p>函数有权访问上层作用域</p>
+      <p id="demo"></p>
+    </span>
+  </div>
+  <div>
+    <h3>5。闭包</h3>
+    <span>
+      <p>自调用函数实现计数器</p>
+      <p id="demo1"></p>
+      <p>闭包指的是有权访问父作用域的函数，即使在父函数关闭之后。</p>
+    </span>
+  </div>
+</div>
+</body>
+<script>
+    // 一个简单的计数器例子
+    function add() {
+        let counter = 0;
+
+        function plus() {
+            return counter += 1;
+        }
+
+        plus();
+        return counter;
+    }
+
+    add();
+    add();
+    document.getElementById('demo').innerHTML = add();  // 此时add为1，原因是每次调用counter都被初始化了
+
+    // 自调用函数(变量声明的函数无法自调用)
+    const add1 = (function () {
+        let counter = 0;
+        return function () {
+            return counter += 1;
+        }
+    })();
+    add1();
+    add1();
+    document.getElementById('demo1').innerHTML = add1();
+</script>
+</html>

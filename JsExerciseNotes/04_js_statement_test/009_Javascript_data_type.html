@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h1>Javascript 数据类型</h1>
+    <h3>1. 数值类型</h3>
+    <p>例：声明变量legth = 7，则length的类型：</p>
+    <p id="demo"></p>
+    <h3>2. 字符串类型</h3>
+    <p>例：声明变量lastName = 'Gates'，则lastName的类型为：</p>
+    <p id="demo1"></p>
+    <h3>3. 数组对象（Javascript中数组即对象）</h3>
+    <p>例：声明一组数据cars，则cars的类型为：</p>
+    <p id="demo2"></p>
+    <h3>4. 集合对象</h3>
+    <p>例：声明一个集合对象x，则x的类型为：</p>
+    <p id="demo3"></p>
+    <h3>5. undefined 和 null的数据类型</h3>
+    <p>5.1 在 JavaScript 中，没有值的变量，其值是 undefined。typeof 也返回 undefined。例：申明变量 var person，则person的类型为：</p>
+    <p id="demo4"></p>
+    <p>5.2 需要注意的是空字符串和undefined不一样的，例；声明变量 var car = ‘’，则car的类型还是String</p>
+    <p id="demo5"></p>
+    <p>5.3 在 JavaScript 中，null就是不存在的，但是它的数据类型确是对象，可以通过设置值为 null 来清空对象，例；声明person为null，则：</p>
+    <p id="demo6"></p>
+    <h3>6. undefined 和 null 的区别</h3>
+    <p id="demo7"></p>
+    <script>
+        {
+            // 数值类型
+            var length = 7;
+            // var length = 7.0; 只有一种数据类型 number, 一亿可用科学计数法 var x = 1e8;
+            document.getElementById('demo').innerHTML = typeof length;
+        }
+
+        {
+            // 字符串类型
+            var lastName = 'Gates';
+            document.getElementById('demo1').innerHTML = typeof lastName;
+        }
+
+        {
+            // 数组
+            var cars = ['Audi', 'BMW', 'Volvo'];
+            document.getElementById('demo2').innerHTML = typeof cars;
+        }
+
+        {
+            // 对象
+            var x = { firstName: 'Bill', lastName: 'Cates' };
+            document.getElementById('demo3').innerHTML = typeof x;
+        }
+
+        {
+            // undefined 和 null
+            var person;
+            document.getElementById('demo4').innerHTML = typeof person;
+            // 任何变量值均可设置 undefined 进行清空。其类型也将是 undefined
+            person = undefined;
+
+            // 需要注意的是空字符串和undefined不一样
+            var car = '';
+            document.getElementById('demo5').innerHTML = typeof car;
+        }
+
+        {
+            var person = null;
+            document.getElementById('demo6').innerHTML = 'typeof person ' + typeof person;
+        }
+
+        {
+            document.getElementById('demo7').innerHTML = 
+            'typeof undefined: '+ typeof undefined + '<br> typeof null: ' + typeof null + '<br> null == undefined: '+ (null == undefined) + '<br> null === undefined：' + (null === undefined);
+        }
+    </script>
+</body>
+
+</html>

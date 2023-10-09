@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body onload="checkCookie()">
+    <div><h1>JavaScript HTML DOM 事件</h1></div>
+    <div>
+        <h3>对事件做出反应</h3>
+        <p>HTML 事件例子：</p>
+        <ul>
+            <li>onclick 点击事件</li>
+            <li>onchange 改变input 输入内容</li>
+            <li>onmouseover 鼠标悬停</li>
+            <li>onmouseout 鼠标退出时</li>
+            <li>onmousemove  鼠标移入</li>
+            <li>onfocus 操作焦点在当前页面上</li>
+        </ul>
+        <button onclick="this.innerHTML='Hello!'">点击这里</button><br>
+        <p>onchange 事件常结合对输入字段的验证来使用</p>
+        输入小写字母：<input type="text" onchange="demo()">
+        <div style="background-color: #D94A38;width: 100px;height: 20px;padding: 40px;" onmouseover="this.innerHTML= '你好'">鼠标停在这看看</div>
+        <p>鼠标移动事件</p>
+        <div style="background-color: #D94A38;width: 100px;height: 20px;padding: 40px;" onmouseout="this.innerHTML='鼠标已移开'" onmousemove="this.innerHTML='鼠标已移入'">鼠放这里看看</div>
+        <script>
+            var obj = document.getElementsByTagName('input')[0];
+            function demo(){
+                obj.value = obj.value.toUpperCase(); 
+            }
+        </script>
+    </div>
+    <div class="footer">
+        <h3>事件属性 和 使用HTML DOM来分配事件</h3>
+        <p>直接在HTML 分配事件属性</p>
+        <textarea name="" id="" cols="80" rows="3" disabled="disabled">
+            <button onclick="this.innerHTML='Hello!'">点击这里</button>
+        </textarea>
+        <p>使用HTML DOM来分配事件</p>
+        <textarea name="" id="" cols="80" rows="4" disabled="disabled">
+            document.getElementsByTagName('button')[0].onclick = function(){
+                this.innerHTML = 'Hello!'
+            }
+        </textarea>
+    </div>  
+    <div>
+        <h3>onload 事件</h3>
+        <p>onload 和 onunload 事件会在用户进入或者离开页面时被触发</p>
+        <p>onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本</p>
+        <p>onunload 和 onunload事件可用于处理cookie</p>
+        <p>检查浏览器支不支持cookie</p>
+        <script>
+            function checkCookie(){
+                if (navigator.cookieEnabled == true){
+                    alert('你的浏览器支持cookie');
+                } 
+                else {
+                    alert('你的浏览器不支持cookie');
+                }
+            }
+        </script>
+    </div>
+    <div>
+        <h3>onmousedown、onmouseup 以及 onclick 事件</h3>
+        <p>onmousedown, onmouseup 以及 onclick 构成了鼠标点击事件的所有部分。</p>
+        <p>首先当点击鼠标按钮时，会触发 onmousedown 事件，当释放鼠标按钮时，会触发 onmouseup 事件，最后，当完成鼠标点击时，会触发 onclick 事件</p>
+        <div style="background-color: #D94A38;width: 100px;height: 20px;padding: 40px;" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)">点这里看看</div>
+        <script>
+            function mouseDown(obj){
+                obj.style.backgroundColor ='red';
+                obj.innerHTML = '鼠标按下';
+            }    
+            function mouseUp(obj){
+                obj.style.backgroundColor ='green';
+                obj.innerHTML = '鼠标释放';
+            }
+        </script>
+    </div>
+</body>
+</html>

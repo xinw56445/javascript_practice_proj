@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/prototype/1.7.3/prototype.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>JavaScript 测试-Prototype</h1>
+        <div>
+            <h3>引用 Prototype</h3>
+            <!-- <script src="https://cdn.staticfile.org/prototype/1.7.3/prototype.min.js"></script> -->
+        </div>
+        <div>
+            <h3>Prototype 描述</h3>
+            <p>与 jQuery 类似，Prototype 也有自己的 $() 函数。</p>
+            <p>$() 函数接受 HTML DOM 元素的 id 值（或 DOM 元素），并会向 DOM 对象添加新的功能。</p>
+            <p>Prototype 还提供了很多其他的功能，例如：Object.extend()、Array.each() 等等。</p>
+            <p>JavaScript 方式</p>
+            <p id="p01"></p>
+            <p>Prototype 方式</p>
+            <p id="p02"></p>
+            <p>与 jQuery 不同，Prototype 没有用以取代 window.onload() 的 ready() 方法。相反，Prototype 会向浏览器及 HTML DOM 添加扩展。</p>
+            <p>Event.observer() 接收的参数：</p>
+            <ul>
+                <li>obj：需要处理的DOM 或 BOM 对象</li>
+                <li>event：需要处理的事件名称</li>
+                <li>callback：事件发生时执行的回调函数</li>
+            </ul>
+        </div>
+        <div>
+            <h3>测试-Prototype</h3>
+            <p>Prototype 也是允许链式语法的</p>
+            <p id="p03"></p>
+        </div>
+    </div>
+</body>
+<script>
+    // JavaScript 方式
+    function myFunc () {
+        var p01 = document.getElementById('p01');
+        p01.innerHTML = 'JavaScript 方式';
+    }
+    
+    // Prototype 方式
+    function myFunc2 () {
+        $('p02').insert('Prototype 方式');
+    }
+    Event.observe(window, 'load', myFunc2);
+
+    // 
+    function myFunc3 () {
+        $('p03').writeAttribute("style","color:red").insert('Prototype 方式');
+    }
+</script>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript typeof</title>
+</head>
+<body>
+  <div>
+    <div><h1>JavaScript typeof</h1></div>
+    <div>
+      <div>
+        <h3>五种不同可以包含值的数据类型</h3>
+        <ul>
+          <li>string</li>
+          <li>number</li>
+          <li>boolean</li>
+          <li>function</li>
+          <li>object</li>
+        </ul>
+      </div>
+      <div>
+        <h3>六种类型的对象</h3>
+        <ul>
+          <li>Object</li>
+          <li>Date</li>
+          <li>Array</li>
+          <li>String</li>
+          <li>Number</li>
+          <li>Boolean</li>
+        </ul>
+      </div>
+      <div>
+        <h3>两种不能包含值的数据类型</h3>
+        <ul>
+          <li>null</li>
+          <li>undefined</li>
+        </ul>
+      </div>
+      <div>
+        <h3>type of 运算符</h3>
+        <p id="typeof_demo"></p>
+      </div>
+      <div>
+        <h3>原始日期</h3>
+        <p>没有附加属性和方法的但个数据值</p>
+        <ul>
+          <li>String</li>
+          <li>number</li>
+          <li>boolean</li>
+          <li>undefined</li>
+        </ul>
+      </div>
+      <div>
+        <h3>复杂数据</h3>
+        <p>typeof 运算符会为对象、数组和 null 返回 "object"。</p>
+        <p>typeof 运算符不会为函数返回 "object"。</p>
+      </div>
+      <div>
+        <h3>constructor 属性</h3>
+        <span>
+          <p>返回所有javascript 变量的构造函数</p>
+          <p id="constructor_demo"></p>
+          <p>检查对象是否是数组函数</p>
+          <p id="constructor_demo1">myArray是数组吗？</p>
+          <button onclick="isArray1()">点我试试</button>
+          <p id="constructor_demo2">myArray是数组吗？</p>
+          <button onclick="isArray2()">点我试试</button>
+        </span>
+      </div>
+      <div>
+        <h3>undefined 与 null的区别</h3>
+        <span>
+          <p>没有值的变量的值是 undefined。类型也是 undefined</p>
+          <p>通过将其值设置为undefined 可以清空任何变量，类型也将是 undefined</p>
+          <button onclick="demo2()">点我试试</button>
+          <p id="undefined_demo"></p>
+          <p>null 的数据类型是一个对象</p>
+          <p>通过将对象设置为 null 来清空对象</p>
+          <button onclick="demo3()">点我试试</button>
+          <p id="null_demo">undefined 和 null 值相等但类型不同</p>
+          <pre>
+            null === undefined  // false
+            null == undefined   // ture
+          </pre>
+          <p></p>
+        </span>
+      </div>
+      <div>
+        <h3>JavaScript 类型转换</h3>
+        <span>
+          <p>数值,字符串之间的转换</p>
+          <pre>
+            toString()  // 基本上可以把任何数据类型转换为字符串
+            String()
+            Number()
+          </pre>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="../../JsCodeBase/typeof.js"></script>
+</html>

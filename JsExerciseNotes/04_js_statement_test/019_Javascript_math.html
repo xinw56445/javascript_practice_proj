@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript 数学</title>
+  <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+<body>
+<div>
+  <div>
+    <h1>JavaScript 数学方法</h1>
+  </div>
+  <div>
+    <p>可以在不首先创建Math对象的情况下使用所有方法和属性（常量)</p>
+  </div>
+  <div>
+    <div>
+      <h3>1.圆周率 Math.PI</h3>
+      <span>
+      <p>Math.PI 返回圆周率</p>
+      <button onclick="demo()">点我试试</button>
+      <p id="math_method"></p>
+    </span>
+    </div>
+    <div>
+      <h3>2.Math.round()</h3>
+      <span>
+        <p>Math.round(x)方法返回x四舍五入的结果，int</p>
+        <button onclick="demo1()">点我试试</button>
+        <p id="math_method1"></p>
+      </span>
+    </div>
+    <div>
+      <h3>3. Math.pow()</h3>
+      <span>
+        <p>Math.pow(x， y) 返回x的第y次幂</p>
+        <button onclick="demo2()">点我试试</button>
+        <p id="math_method2"></p>
+      </span>
+    </div>
+    <div>
+      <h3>4. Math.sqrt()</h3>
+      <span>
+        <p>Math.sqrt(x) 返会x的平方根</p>
+        <button onclick="demo3()">点我试试</button>
+        <p id="math_method3"></p>
+      </span>
+    </div>
+    <div>
+      <h3>5. Math.abs()</h3>
+      <span>
+        <p>Math.abs(x)返回x的绝对值</p>
+        <button onclick="demo4()">点我试试</button>
+        <p id="math_method4"></p>
+      </span>
+    </div>
+    <div>
+      <h3>5. Math.ceil()</h3>
+      <span>
+        <p>Math.ceil(x) 返回x的向上舍入最接近的整数</p>
+        <button onclick="demo5()">点我试试</button>
+        <p id="math_method5"></p>
+      </span>
+    </div>
+    <div>
+      <h3>6. Math.floor()</h3>
+      <span>
+        <p>Math.floor(x) 返回x的向下舍入最接近的整数</p>
+        <button onclick="demo6()">点我试试</button>
+        <p id="math_method6"></p>
+      </span>
+    </div>
+    <div>
+      <h3>7. Math.sin()</h3>
+      <span>
+        <p>Math.sin(x) 返回x的正弦值（角度）</p>
+        <button onclick="demo7('角度', 90)">角度</button>
+        <button onclick="demo7('弧度', 90)">弧度</button>
+        <p id="math_method7"></p>
+      </span>
+    </div>
+    <div>
+      <h3>8. Math.cos()</h3>
+      <span>
+        <p>Math.cos(x) 返回x的余弦值(角度)</p>
+        <button onclick="demo8('角度', 0)">角度</button>
+        <button onclick="demo8('弧度', 0)">弧度</button>
+        <p id="math_method8"></p>
+      </span>
+    </div>
+    <div>
+      <h3>9.Math.min() 和 Math.max()</h3>
+      <span>
+        <p>返回数列对象的最低值和最高值</p>
+        <button onclick="demo9(7, '最大')">点我查看最大值</button>
+        <button onclick="demo9(7, '最小')">点我查看最小值</button>
+        <p id="math_method9"></p>
+      </span>
+    </div>
+    <div>
+      <h3>10. 随机数</h3>
+      <span>
+        <p>Math.random() 返回介于0-1之间的随机小数</p>
+        <button id="math_method10" onclick="demo10()">点我试试</button>
+        <p>Math.random() 与 Math.floor() 一起使用用于返回随机整数</p>
+        <button id="math_method11" onclick="demo11()">点我试试</button>
+        <p>定义一个用于返回指定范围的随机整数函数(含头不含尾)</p>
+        <button id="math_method12" onclick="demo12()">点我试试</button>
+      </span>
+    </div>
+    <div>
+      <h3>Math 属性常量</h3>
+      <span>
+        <pre>
+          Math.E          // 返回欧拉指数（Euler's number）
+          Math.PI         // 返回圆周率（PI）
+          Math.SQRT2      // 返回 2 的平方根
+          Math.SQRT1_2    // 返回 1/2 的平方根
+          Math.LN2        // 返回 2 的自然对数
+          Math.LN10       // 返回 10 的自然对数
+          Math.LOG2E      // 返回以 2 为底的 e 的对数（约等于 1.414）
+          Math.LOG10E     // 返回以 10 为底的 e 的对数（约等于 0.434）
+        </pre>
+      </span>
+    </div>
+    <div>
+      <h3></h3>
+      <span>
+        <p></p>
+      </span>
+    </div>
+  </div>
+</div>
+</body>
+<script src="../../JsCodeBase/math.js"></script>
+</html>

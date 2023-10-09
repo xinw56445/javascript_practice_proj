@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>jQuery添加元素</h1>
+        <p>添加新的 HTML 内容</p>
+        <ul>
+            <li>append() - 在被选元素的结尾处插入内容</li>
+            <li>prepend() - 在被选元素的开头处插入内容</li>
+            <li>after() - 在被选元素之后插入内容</li>
+            <li>before() - 在被选元素之前插入内容</li>
+        </ul>
+        <p style="font-size: 25px;"><b>append() 方法</b></p>
+        <p>append() 方法在被选元素的结尾处插入内容。（仍然在该元素的内部）</p>
+        <p>语法：$(selector).append(content)</p>
+        <p>参数：</p>
+        <ul>
+            <li>content - 要插入到元素中的内容。</li>
+        </ul>
+        <p>实例：</p>
+        <p>在 &lt;ul&gt; 元素的结尾处插入一个新的 &lt;li&gt; 元素。</p>
+        <ul id="demo">
+            <li>这是第一个要点</li>
+        </ul>
+        <button id="btn1">点我添加一个新元素</button>
+
+        <p style="font-size: 25px;"><b>prepend() 方法</b></p>
+        <p>prepend() 方法在被选元素的开头处插入内容。（仍然在该元素的内部）</p>
+        <p>语法：$(selector).prepend(content)</p>
+        <p>参数：</p>
+        <ul>
+            <li>content - 要插入到元素中的内容。</li>
+        </ul>
+        <p>实例：</p>
+        <p>在 &lt;ul&gt; 元素的开头处插入一个新的 &lt;li&gt; 元素。</p>
+        <ul id="demo2">
+            <li>这是第一个要点</li>
+        </ul>
+        <button id="btn2">点我添加一个新元素</button>
+
+        <p style="font-size: 25px;"><b>after() 方法</b></p>
+        <p>after() 方法在被选元素之后插入内容。</p>
+        <p>语法：$(selector).after(content)</p>
+        <p>参数：</p>
+        <ul>
+            <li>content - 要插入到元素中的内容。</li>
+        </ul>
+        <p>实例：</p>
+        <p>在 第一个&lt;li&gt; 元素内容之后插入一个新的&lt;li&gt;</p>
+        <ul id="demo3">
+            <li>这是第一个要点</li>
+        </ul>
+        <button id="btn3">点我添加一个新元素</button>
+
+        <p style="font-size: 25px;"><b>before() 方法</b></p>
+        <p>before() 方法在被选元素之前插入内容。</p>
+        <p>语法：$(selector).before(content)</p>
+        <p>参数：</p>
+        <ul>
+            <li>content - 要插入到元素中的内容。</li>
+        </ul>
+        <p>实例：</p>
+        <p>在 第一个&lt;li&gt; 元素之前插入一个新的&lt;li&gt;</p>
+        <ul id="demo4">
+            <li>这是第一个要点</li>
+        </ul>
+        <button id="btn4">点我添加一个新元素</button>
+    </div>
+    <div>
+        <h1>jQuery删除元素</h1>
+        <p>删除元素和内容</p>
+        <ul>
+            <li>remove() - 删除被选元素（及其子元素）</li>
+            <li>empty() - 删除被选元素的所有子元素</li>
+        </ul>
+        <p style="font-size: 25px;"><b>remove() 方法</b></p>
+        <p>remove() 方法删除被选元素（及其子元素）。</p>
+        <p>语法：$(selector).remove()</p>
+        <p>实例：</p>
+        <p>删除所有 &lt;li&gt; 元素。</p>
+        <ul id="demo5">
+            <li>这是第一个要点</li>
+            <li>这是第二个要点</li>
+            <li>这是第三个要点</li>
+        </ul>
+        <button id="btn5">点我删除元素</button>
+    </div>
+</body>
+<script>
+    $(function(){
+        $('#btn1').click(function(){
+            // ul尾部添加一个新的<li>元素
+            for (var i = 0; i < 10; i++) {
+                $('#demo').append('<li>这是第'+i+'个要点</li>');
+            }
+            // $('#demo').append('<li>这是第二个要点</li>');
+        });
+
+        $('#btn2').click(function(){
+            // ul顶部添加一个新的<li>元素
+            $('#demo2').prepend('<li>这是第二个要点</li>');
+            // $('<li>这是第三个要点</li>').prependTo('#demo2');
+        });
+
+        $('#btn3').click(function(){
+            $('#demo3 li:last').after('<li>这是第三个要点</li>');
+        });
+
+        $('#btn4').click(function(){
+            $('#demo4 li:first').before('<li>这是第三个要点</li>');
+        });
+
+        $('#btn5').click(function(){
+            // 删除 id 为demo5的ul元素（子元素也会跟随删除）
+            $('#demo5').remove();
+        });
+    });   
+</script>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="../11_js_jquery_test/node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>jQuery 效果</h1>
+        <p>基础效果：隐藏、显示、切换，滑动，淡入淡出，以及动画</p>
+        <div>
+            <h3>隐藏、显示</h3>
+            <p style="color: red;">hide() 和 show()</p>
+            <p>语法：</p>
+            <p>$(selector).hide(speed,callback)</p>
+            <p>$(selector).show(speed,callback)</p>
+            <p>speed: 速度，可选，默认是400ms</p>
+            <p>callback: 回调函数，可选</p>
+            <pre>
+                <code>
+                    $("p").on('click', function(){
+                        $(this).hide();
+                    });
+                    $("p").on('click', function(){
+                        $(this).show();
+                    });
+            </pre>
+        </div>
+        <div>
+            <h2>切换</h2>
+            <p style="color: red;">toggle() 和 toggleClass()</p>
+            <p>语法：</p>
+            <p>$(selector).toggle(speed,callback)</p>
+            <p>$(selector).toggleClass(className,speed,callback)</p>
+            <p>speed: 速度，可选，默认是400ms</p>
+            <p>callback: 回调函数，可选</p>
+            <pre>
+                <code>
+                    $("p").on('click', function(){
+                        $(this).toggle();
+                    });
+                    $("p").on('click', function(){
+                        $(this).toggleClass("highlight");
+                    });
+                </code>
+            </pre>
+            <div>
+                <h2>滑动</h2>
+                <p style="color: red;">slideUp() 和 slideDown()</p>
+                <p>语法：</p>
+                <p>$(selector).slideUp(speed,callback)</p>
+                <p>$(selector).slideDown(speed,callback)</p>
+                <p>speed: 速度，可选，默认是400ms</p>
+                <p>callback: 回调函数，可选</p>
+                <pre>
+                <code>
+                    $("p").on('click', function(){
+                        $(this).slideUp();
+                        });
+                </code>
+            </pre>
+                <p>slideToogle() 双向切换上下滑动</p>
+                <p id="p01" style="background-color: aquamarine; width: 130px; height: 20px;">点击这里显示隐藏内容</p>
+                <p id="hide01"
+                    style="background-color: rgb(255, 187, 127); width: 100px; height: 20px; padding: 15px; display: none">
+                    hello！！！</p>
+            </div>
+            <div>
+                <h2>淡入淡出</h2>
+                <p style="color: red;">fadeIn() 和 fadeOut()</p>
+                <p>语法：</p>
+                <p>$(selector).fadeIn(speed,callback)</p>
+                <p>$(selector).fadeOut(speed,callback)</p>
+                <p>speed: 速度，可选，默认是400ms</p>
+                <p>callback: 回调函数，可选</p>
+                <pre>
+                <code>
+                    $("p").on('click', function(){
+                        $(this).fadeIn();
+                        });
+                    $("p").on('click', function(){
+                        $(this).fadeOut();
+                        });
+                </code>
+            </pre>
+                <p style="color: red;">fadeToggle() 双向切换淡入淡出</p>
+                <p id="p02" style="background-color: aquamarine; width: 130px; height: 20px;">点击这里淡入隐藏内容</p>
+                <p id="hide02"
+                    style="background-color: rgb(255, 187, 127); width: 100px; height: 20px; padding: 15px; display: none">
+                    hello！！！</p>
+                <p style="color: red;">slideTo() 方法允许渐变为给定不透明度</p>
+                <p>语法：</p>
+                <p>$(selector).slideTo(speed,opacity,callback)</p>
+                <p>speed: 速度，可选，默认是400ms</p>
+                <p>opacity: 不透明度，可选，默认是1</p>
+                <p>callback: 回调函数，可选</p>
+                <p id="p03" style="background-color: rgb(46, 1, 244); width: 130px; height: 120px;">点击这里颜色变淡</p>
+            </div>
+            <div>
+                <h2>动画</h2>
+                <p>animate() 方法允许您创建自定义的动画。</p>
+                <p>语法：</p>
+                <p>$(selector).animate(params,speed,callback)</p>
+                <p>params: 动画属性和值，可选</p>
+                <p>speed: 速度，可选，默认是400ms</p>
+                <p>callback: 回调函数，可选</p>
+                <pre>
+                <code>
+                    $("p").on('click', function(){
+                        $('p').animate({
+                            left:'250px',  // p 标签内容向左偏移250像素
+                        }, 1000);
+                    });
+
+                    // 可以操作多个属性
+                    $("p").on('click', function(){
+                        $('p').animate({
+                            left:'250px',  // p 标签内容向左偏移250像素
+                            fontSize: '24px',  // 注意这里必须使用Camel 标记法书写属性名，而不是font-size
+                            width: '100px',
+                            height: '100px'
+                        }, 1000);
+                    });
+
+                    // 可以使用相对值
+                    $("p").on('click', function(){
+                        $('p').animate({
+                            left:'+=250px',  // p 标签内容向左偏移250像素
+                            fontSize: '-=24px',  // 注意这里必须使用Camel 标记法书写属性名，而不是font-size
+                        });
+                    });
+                    
+                    // 使用预定义的值
+                    $("p").on('click', function(){
+                        $('p').animate({
+                            height: 'toggle',  // toggle 关键字表示高度从当前值切换到 0 或当前值， 还有show hide
+                        });
+                    });
+
+                    // 队列功能操作连续动画
+                    $("p").on('click', function(){
+                        $('p').animate({
+                                height: '300px', opacity: '0.4'
+                            }, 1000).animate({
+                                width: '100px', opacity: '0.8'
+                            }, 1000).animate({
+                                height: '300px', opacity: '0.4'
+                            }, 100).animate({
+                                width: '100px', opacity: '0.8'
+                            });
+                    });
+                </code>
+                </pre>
+                <button id="btn">点击查看动画效果</button>
+                <p id="p04" style="background-color: rgb(32, 203, 44); width: 200px; height: 100px;">jQuery</p>
+                <button id="btn1">点击查看动画效果</button>
+                <p id="p05" style="background-color: rgb(32, 203, 44); width: 100px; height: 100px;"></p>
+            </div>
+            <div>
+                <h2>停止动画</h2>
+                <p>stop() 方法停止当前动画，并且将当前动画的位置重置为开始位置。</p>
+                <p>语法：</p>
+                <p>$(selector).stop(stopAll,goToEnd)</p>
+                <p>stopAll: 是否停止所有动画，可选，默认是false</p>
+                <p>goToEnd: 是否跳转到动画的结束位置，可选，默认是false</p>
+                <pre>
+                    <code>
+                        $("p").on('click', function(){
+                            // 停止动画
+                            $("p").animate({
+
+                            });
+                        });
+                    </code>
+                </pre>
+                <button id="btn2">点击停止</button>
+                <p id="p06" style="background-color: rgb(32, 203, 44); width: 130px; height: 20px;">点击向下滑动面板</p>
+                <p id="p07" style="background-color: rgb(32, 203, 44); width: 100px; height: 100px; padding: 15px; display: none;">hello！！！</p>
+            </div>
+            <div>
+                <p>动画属性和值，可选</p>
+            </div>
+        </div>
+</body>
+<script>
+    // $('#hide01').hide();
+    $("#p01").on('click', function () {
+        $('#hide01').slideToggle("slow");
+    });
+
+    $("#p02").on('click', function () {
+        $('#hide02').fadeToggle(2000);
+    });
+
+    $("#p03").on('click', function () {
+        $('#p03').fadeTo(2000, 0.38);
+    });
+    // 动画实例
+    $(function () {
+        $("#btn").on('click', function () {
+            $("#p04").animate({
+                fontSize: '30px',
+                opacity: '0.58' // 类似于$('#p04').fadeTo(1000, 0.58); 
+            }, 1000);
+        });
+    });
+    // 队列功能实例
+    $(function () {
+        $("#btn1").on('click', function () {
+            $("#p05").animate({
+                height: '300px',
+                opacity: '0.4'
+            }, 1000).animate({
+                width: '300px',
+                opacity: '0.8'
+            }, 1000).animate({
+                height: '100px',
+                opacity: '0.4'
+            }, 1000).animate({
+                width: '100px',
+                opacity: '0.8'
+            }, 1000);
+        });
+    }); 
+    // 停止滑动实例
+    $(function () {
+        $('#p06').on("click", () => {
+            $('#p07').slideToggle(5000);
+        });
+        $('#btn2').on('click', function () {
+            $('#p07').stop(true, false);
+        });
+    });   
+</script>
+
+</html>
