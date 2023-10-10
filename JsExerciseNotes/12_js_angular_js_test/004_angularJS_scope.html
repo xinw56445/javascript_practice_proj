@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AngularJS</title>
+<!-- <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>  -->
+<script src="https://cdn.bootcdn.net/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>AngularJS Scope(作用域)</h1>
+        <p>Scope(作用域) 是应用在HTML（视图） 和 JavaScript（控制器） 之间的纽带</p>
+        <p>Scope是一个Javascript对象，有可用的方法和属性，可以在试图和控制器中使用</p>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <h2>Scope 的使用</h2>
+            <p>在AngularJS 创建控制器时，你可以将 $scope 对象作为一个参数传递</p>
+            <p>实例：控制器中的属性对应了视图上的属性</p>
+            <p>{{carname}}</p>
+
+            <h2>Scope 概述</h2>
+            <p>AngularJS 应用组成如下：</p>
+            <ul>
+                <li>View(视图) ，即HTML</li>
+                <li>Model(模型) ，视图中可以的数据， 即JavaScript数据</li>
+                <li>Controller(控制器) ，处理视图中的事件 即 JavaScript函数，可以添加或修改属性</li>
+            </ul>
+            <p>scope 是模型</p>
+            <p>实例：如果修改了视图，模型和控制器也会相应更新</p>
+            <p>Name：<input ng-model="name"></p>
+            <p>{{getting}}</p>
+            <button ng-click="sayHelo()">点击这里</button>
+
+            <h2>Scope 的作用范围</h2>
+            <p>当HTML DOM 中有多个作用域，这时就要明确scope 的作用范围</p>
+            <p>实例：使用ng-repeat 指令时。每个重复项都访问量当前的重复对象</p>
+            <ul>
+                <!-- 每个 <li> 元素可以访问当前的重复对象，这里对应的是一个字符串， 并使用变量 x 表示。 -->
+                <li ng-repeat="x in names">{{x}}</li>
+            </ul>
+
+            <h2>根作用域</h2>
+            <p>所有的用都有一个$rootScope， 它可以作用在ng-app 包含的所有HTML 标签中</p>
+            <p>$rootScope 可作用于整个应用中，是各个controller 中scope 的桥梁</p>
+            <p>实例：创建控制器时，将$rootScope 作为参数传递，可在应用中使用</p>
+            <p>{{lastName}}氏 家族成员：</p>
+            <ul>
+                <li ng-repeat="x in family">{{x}} 姓{{lastName}}</li>
+            </ul>
+            
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $rootScope) {
+        // 控制器属性和视图属性是对应的
+        $scope.carname = "宝马";
+
+        // 修改视图，模型控制器也会相应更新
+        $scope.name = "张三";
+        $scope.sayHelo = function() {
+            $scope.getting = "你好，" + $scope.name;
+        };
+
+        // 每个重复项都访问量当前的重复对象
+        $scope.names = ["张三", "李四", "王五"];
+
+        // 根作用域
+        $scope.family = ["张三", "张飞", "张云龙"];
+        $rootScope.lastName = "张";
+    });
+</script>
+</html>
