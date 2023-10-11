@@ -46,6 +46,8 @@ table td {
 
 table th {
     height: 25px;
+    background-color: darkslategrey; 
+    color: white;
 }
 
 /* 表头标题*/

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>AngularJS 控制器</h1>
+        <p>AngularJS 控制器是用来处理应用程序逻辑的 JavaScript 函数。控制器通常包含应用程序的业务逻辑。</p>
+        <p>AngularJS 应用程序被控制器控制</p>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <h2>控制器 ng-controller</h2>
+            <p>在 HTML 中使用 ng-controller 属性来指定控制器。</p>
+            <p>在 ng-controller 属性中，指定要应用于元素的控制器的名称。</p>
+            <p>控制器是JavaScript 对象，由标准的 JS 对象的构造器创建</p>
+            <p>实例：</p>
+            <p>名：<input type="text" ng-model="firstName"></p>
+            <p>姓：<input type="text" ng-model="lastName"></p>
+            <p>全名：{{firstName + " " + lastName}}</p>
+
+            <h2>控制器方法</h2>
+            <p>控制器方法是控制器的公共函数。</p>
+            <p>在控制器中定义的方法可以访问控制器的属性和方法。</p>
+            <p>实例：</p>
+            <p>全名：{{fullName()}}</p>
+
+            <h2>外部文件中的控制器</h2>
+            <p>在大型的应用程序中，通常把控制器储存在外部文件中</p>
+            <p>通过script 标签引入到HTML 文件中</p>
+        </div>
+    </div>
+</body>
+<script>
+    // AngularJS 应用程序由 ng-app 定义。应用程序在 <div> 内运行。
+    var app = angular.module('myApp', []);
+    // ng-controller="myCtrl" 属性是一个 AngularJS 指令。用于定义一个控制器。myCtrl 函数是一个 JavaScript 函数。
+    app.controller('myCtrl', function($scope) {
+        // AngularJS 使用$scope 对象来调用控制器。$scope 是一个应用对象(属于应用变量和函数)。
+        // 控制器在作用域中创建了两个属性 (firstName 和 lastName)。ng-model 指令绑定输入域到控制器的属性（firstName 和 lastName）。
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+        // 控制器方法,定义全名
+        $scope.fullName = function() {
+            return $scope.firstName + " " + $scope.lastName;
+        };
+    });
+</script>
+</html>

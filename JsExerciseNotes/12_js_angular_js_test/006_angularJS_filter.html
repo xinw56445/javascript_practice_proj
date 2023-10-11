@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <h1>AngularJS 过滤器</h1>
+        <p>AngularJS 过滤器是一种在视图中格式化数据的函数。</p>
+        <p>AngularJS 过滤器可以是内置的，也可以是自定义的。</p>
+        <table>
+            <tr>
+                <th>过滤器</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>currency</td>
+                <td>格式化数字为货币</td>
+            </tr>
+            <tr>
+                <td>filter</td>
+                <td>从数组项中选择一个子集</td>
+            </tr>
+            <tr>
+                <td>lowercase</td>
+                <td>将字符串转换为小写</td>
+            </tr>
+            <tr>
+                <td>ordeBy</td>
+                <td>对数组进行排序</td>
+            </tr>
+            <tr>
+                <td>uppercase</td>
+                <td>将字符串转换为大写</td>
+            </tr>
+        </table>
+        <div ng-controller="personCtrl">
+            <h2>表达式中添加过滤器</h2>
+            <p>AngularJS 过滤器可以添加到表达式中，以便在视图中格式化数据。</p>
+            <p>语法：</p>
+            <pre>{ {expression|filter} }</pre>
+            <p>例如：将姓氏转大写</p>
+            <p>{{lastName | uppercase}}</p>
+
+            <p>将名转小写</p>
+            <p>{{firstName | lowercase}}</p>
+
+            <h2>currency 过滤器</h2>
+            <p>currency 过滤器用于格式化数字为货币。</p>
+            <p>语法：</p>
+            <pre>{ {param | currency} }</pre>
+            <p>例如：将数字转为货币</p>
+            <p>{{price | currency}}</p>
+
+            <h2>filter 过滤器</h2>
+            <p>filter 过滤器用于从数组项中选择一个子集。</p>
+            <p>语法：</p>
+            <pre>{ {array | filter:expression} }</pre>
+            <p>例如：从数组中选择一个子集</p>
+            <p>{{array | filter:array.name='Jeff'}}</p>
+
+            <h2>orderBy 过滤器</h2>
+            <p>orderBy 过滤器用于对数组进行排序。</p>
+            <p>语法：</p>
+            <pre>{ {array | orderBy:expression} }</pre>
+            <p>例如：对象数组进行name排序</p>
+            <p>{{array | orderBy:sortObjectType}}</p>
+        </div>
+        <div ng-controller="nameCtrl">
+            <h2>向指令中添加过滤器</h2>
+            <p>AngularJS 过滤器可以添加到指令中，以便在视图中格式化数据。</p>
+            <p>实例：</p>
+            <ul>
+                <li ng-repeat="x in names | orderBy: 'country'">{{x.name + ',' + x.country | uppercase}}</li>
+            </ul>
+
+            <h2>过滤输入</h2>
+            <p>AngularJS 过滤器可以用于过滤输入。</p>
+            <p>实例：</p>
+            <p>搜索：<input type="text" ng-model="searchText" /></p>
+            <ul>
+                <li ng-repeat="x in names | filter:searchText">{{(x.name | uppercase) + ',' + x.country}}</li>
+            </ul>
+
+            <h2>自定义过滤器</h2>
+            <p>AngularJS 过滤器可以是自定义的。</p>
+            <p>自定义一个过滤器 reverse，将字符串反转</p>
+            <p>示例</p>
+            <p>输入：<input type="text" ng-model="msg"></p>
+            <p>{{msg | reverse}}</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('personCtrl', function($scope) {
+        $scope.firstName = "JANE";
+        $scope.lastName = "doe";
+        $scope.price = 1234.56;
+        $scope.array = [
+            {name: 'Tobias', age: 28},
+            {name: 'Jeff', age: 34},
+            {name: 'Wladimir', age: 12},
+            {name: 'Sebastian', age: 51}
+        ];
+        // orderBy 对象数组name字段排序,或者直接传 ‘name’ 到表达式
+        $scope.sortObjectType = function(obj){
+            return obj['name']
+         };
+
+    });
+    app.controller('nameCtrl', function($scope) {
+        $scope.names = [
+            {name: 'Tobias', country: 'Sweden'},
+            {name: 'Jeff', country: 'Germany'},
+            {name: 'Wladimir', country: 'Poland'},
+            {name: 'Sebastian', country: 'Germany'}
+        ];
+
+        $scope.msg = 'Hello';
+    });
+    // 自定义一个过滤器 reverse，将字符串反转 
+    app.filter('reverse', function() {
+        return function(text) {
+            return text.split('').reverse().join('');
+        }
+    });
+</script>
+
+</html>
