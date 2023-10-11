@@ -1,4 +1,6 @@
 # javascript_practice_proj
+这是一个学习javaScript 的项目工程
+
 # 本地仓库连接git
 初始化本地仓库          git init
 将本地仓库与远程仓库关联  git remote add origin 远程仓库链接
