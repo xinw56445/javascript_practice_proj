@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h1>AngularJS 选择框</h1>
+        <h2>使用 ng-options 创建选择框</h2>
+        <p>AngularJS 中可以使用ng-option 指令来创建一个下拉列表，列表项通过对象和数组循环输出</p>
+        <p>在下面的例子中，我们将创建一个下拉列表，列表项通过对象循环输出</p>
+        <p>请选择一个颜色：</p>
+        <select ng-model="color" ng-options="c.name for c in colors">
+            <option value="">--请选择--</option>
+        </select>
+        <p>你选择的颜色是: {{color.name}}</p>
+
+        <h2>ng-options 与 ng-repeat</h2>
+        <p>ng-repeat 也可以创建下拉列表</p>
+        <p>请选择一个颜色：</p>
+        <select ng-model="cor" ng-init="cor = colors[0]['name']">
+            <option ng-repeat="c in colors">{{c.name}}</option>
+        </select>
+        <p>你选择的颜色是: {{cor}}</p>
+        <h3>对比方式：</h3>
+        <p>ng-repeat 指令是通过数组来循环 HTML 代码来创建下拉列表，但 ng-options 指令更适合创建下拉列表</p>
+        <p>ng-repeat 有局限性，选择的值是一个字符串</p>
+        <p>ng-options 指令可以将对象中的属性作为值，并将对象的属性作为显示值</p>
+
+        <h2>数据源为对象</h2>
+        <p>使用对象作为数据源的实例；</p>
+        <p>你选择的值为在 key-value 对中的 value</p>
+        <p>请选择一个颜色：</p>
+        <select ng-model="cors" ng-options="x for (x, y) in colors_obj">
+            <option value="">--请选择--</option>
+        </select>
+        <p>你选择的颜色是: {{cors}}</p>
+        <p> --value为对象进行选择的方法</p>
+        <p>请选择一个颜色：</p>
+        <select ng-model="c" ng-options="x for (x, y) in colors_objs">
+            <option value="">--请选择--</option>
+        </select>
+        <p>你选择的颜色是: {{c.name}}</p>
+        <p>你选择的色号是: {{c.color}}</p>
+        <p>--value直接进行选择的方法</p>
+        <p>请选择一个颜色：</p>
+        <select ng-model="c" ng-options="y.name for (x, y) in colors_objs">
+            <option value="">--请选择--</option>
+        </select>
+        <p>你选择的色号是: {{c.color}}</p>
+    </div>
+</body>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.colors = [
+            { name: 'red' },
+            { name: 'green' },
+            { name: 'blue' },
+            { name: 'yellow' },
+            { name: 'black' },
+            { name: 'white' }
+        ];
+
+        // 使用对象作为数据源
+        $scope.colors_obj = {
+            'red': '红色',
+            'grenn': '绿色',
+            'blue': '蓝色',
+            'yellow': '黄色',
+            'black': '黑色',
+            'white': '白色'
+        };
+        // 使用value为对象作为数据源
+        $scope.colors_objs = {
+            '01': { name: 'red', color: '#ff0000' },
+            '02': { name: 'green', color: '#00ff00' },
+            '03': { name: 'blue', color: '#0000ff' },
+            '04': { name: 'yellow', color: '#ffff00' },
+            '05': { name: 'black', color: '#000000' },
+            '06': { name: 'white', color: '#ffffff' }
+        }
+    });
+
+
+</script>
+
+</html>

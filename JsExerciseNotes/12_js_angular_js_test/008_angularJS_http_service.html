@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>AngularJS Http Service</h1>
+        <p>$http 是angularJS中的一个核心服务，用于读取远程服务器中的数据</p>
+        <p>POST 与 GET 简写方法：</p>
+        <p>
+            $http.get(url)
+            <br>
+            $http.post(url)
+        </p>
+        <p>此外还有以下简单写法：</p>
+        <ul>
+            <li>$http.get(url, [config])</li>
+            <li>$http.post(url, data, [config])</li>
+        </ul>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <h2>AngularJS $http</h2>
+            <p>$http 是一个用于读取web 服务器上数据的服务</p>
+            <p>$http.get(url) 是用于读取服务器数据的函数</p>
+            <p>例子：本地部署一个json-server服务器请求里面的数据</p>
+            <span>
+                <p>部署方法：</p>
+                <ol>
+                    <li>在安装node.js的情况下，安装json-server：npm install -g json-server</li>
+                    <li>创建db.json文件</li>
+                    <li>在json-server的目录下，执行json-server --watch db.json 启动json服务</li>
+                    <li>获取请求url 测试结束 ctrl c 终止服务</li>
+                </ol>
+            </span>
+            <button ng-click="getData()">获取GET请求数据</button>
+            <ul>
+                <li ng-repeat="x in names">{{x.Name + ', ' + x.Country}}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+        $scope.getData = function () {
+            $http.get('http://localhost:3000/sites').then(function (response) {
+                $scope.names = response.data;
+            });
+        };
+    });
+</script>
+
+</html>
