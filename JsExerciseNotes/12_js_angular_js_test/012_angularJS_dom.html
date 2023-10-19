@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <h1>AngularJS HTML DOM</h1>
+        <p>AngularJS 为HTML DOM 元素的属性提供了绑定应用数据的指令</p>
+        <div ng-controller="myCtrl" ng-init="myCheck='true'">
+            <h2>ng-disable 指令</h2>
+            <p>ng-disable 指令直接绑定应用程序数据到 HTML 的disabled 属性上</p>
+            <p></p>
+            <p>例如：当我们勾选 disabled 属性之后，我们发现与其绑定的button 无法点击了</p>
+            <button ng-disabled="myCheck">点击</button>
+            <p><input type="checkbox" ng-model="myCheck">disabled</p>
+            <p>myCheck: {{myCheck}}</p>
+            <p>myCheck: {{!myCheck}}</p>
+            <p>myCheck: {{myCheck? 'true' : 'false'}}</p>
+
+            <h2>ng-show 和 ng-hide 指令</h2>
+            <p>ng-show 指令隐藏或显示一个 HTML 元素。</p>
+            <p>ng-show 指令直接绑定应用程序数据到 HTML 的style.display 属性上，其值为布尔值</p>
+            <p>ng-show 实例：上午12点以后下面这句话是不可见的</p>
+            <p ng-model="localTime">当前时间：{{localTime}}</p>
+            <h1 ng-show="hour">12点以后我就消失</h1>
+            <p>ng-hide 实例：</p>
+            <h1 ng-hide="hour">12点以前我就消失</h1>
+            <p>hour: {{hour}}</p>
+            <p>hour: {{!hour}}</p>
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        var hour = new Date().getHours();
+        $scope.localTime = new Date().toLocaleString();
+        console.log(hour);
+        if (hour > 12) {
+            $scope.hour = false;
+        } else {
+            $scope.hour = true;
+        }
+    });
+
+</script>
+
+</html>

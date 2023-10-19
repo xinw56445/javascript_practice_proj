@@ -35,12 +35,13 @@ button {
 table{
     width: 600px;
     table-layout: fixed;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-collapse: collapse; 
 }
 
 table td {
-    border: 1px solid #ccc;
+    height: 25px;
+    border: 1px solid #000000;
     padding: 5px;
 }
 

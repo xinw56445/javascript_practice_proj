@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="../../CSSCodeBase/array.css">
+</head>
+
+<body>
+    <div>
+        <h1>AngularJS 表格</h1>
+        <p>ng-repeat 指令可以完美显示表格</p>
+        <div ng-app="myApp" ng-controller="customersController">
+            <h2>在表格中显示数据</h2>
+            <table>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                </tr>
+                <tr ng-repeat="x in customers">
+                    <td>&nbsp;{{x.name}}</td>
+                    <td>&nbsp;{{x.gender}}</td>
+                    <td>&nbsp;{{x.age}}</td>
+                </tr>
+            </table>
+            <button ng-click="getMsg()">获取数据</button>
+
+            <h2>使用orderBy 过滤器</h2>
+            <p>orderBy 过滤器用于对数组进行排序。</p>
+            <table>
+                <tr>
+                    <th>名称</th>
+                    <th>URL</th>
+                    <th>国家</th>
+                </tr>
+                <tr ng-repeat="x in sites | orderBy: 'Name'">
+                    <td>&nbsp;{{x.Name}}</td>
+                    <td>&nbsp;{{x.Url}}</td>
+                    <!-- 国家简称转小写 -->
+                    <td>&nbsp;{{x.Country | lowercase}}</td>
+                </tr>
+            </table>
+            <button ng-click="getOrderByMsg()">获取数据</button>
+
+            <h2>显示序号</h2>
+            <p>使用 $index 变量可以显示序号</p>
+            <table>
+                <tr ng-repeat="x in records">
+                    <td>{{$index + 1}}</td>
+                    <td>{{x.Name}}</td>
+                    <td>{{x.Country}}</td>
+                </tr>
+            </table>
+            <button ng-click="showNum()">显示序号</button>
+
+            <h2>使用 $even 和 $odd</h2>
+            <p>使用 $even 和 $odd 可以显示奇偶行</p>
+            <table>
+                <tr ng-repeat="x in records">
+                    <td ng-if="$odd" style="background-color: antiquewhite;">{{x.Name}}</td>
+                    <td ng-if="$even">{{x.Name}}</td>
+                    <td ng-if="$odd" style="background-color: antiquewhite;">{{x.Country}}</td>
+                    <td ng-if="$even">{{x.Country}}</td>
+                </tr>  
+            </table>
+            <button ng-click="showNum()">点我试试</button>
+
+            <h2>使用ng-class</h2>
+            <p>使用ng-class可以根据条件显示不同的样式</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customersController', function ($scope, $http) {
+        var url = 'http://localhost:3000/customers';
+        $scope.getMsg = function() {
+            $http.get(url).then(function(response) {
+                $scope.customers = response.data;
+            });  
+        };
+        // orderBy过滤器对表格字段进行排序
+        var url1 = 'http://localhost:3000/sites';
+        $scope.getOrderByMsg = function() {
+            $http.get(url1).then(function(response) {
+                $scope.sites = response.data;
+            });    
+        };
+        // 显示序号
+        var url2 = 'http://localhost:3000/records';
+        $scope.showNum = function() {
+            $http.get(url2).then(function(response) {
+                $scope.records = response.data;
+            });    
+        };    
+    });
+</script>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <h1>AngularJS 事件</h1>
+        <p>AngularJS 提供了事件处理的功能，我们可以使用指令来处理事件</p>
+        <div ng-controller="myCtrl">
+            <h2>ng-click 指令</h2>
+            <p>ng-click 指令直接绑定 click 事件到HTML 上，类似于onclick 事件</p>
+            <p>Click me to toggle: <input type="checkbox" ng-model="checked"></p>
+            <button ng-click="myFunction()" ng-model="button" ng-disabled="checked">Toggle</button>
+            <p>当你点击这个button，myCheck的值会改变，然后 disabled 状态也会改变</p>
+            <p>myCheck: {{checked}}</p>
+            <p>disabled: {{!checked}}</p>
+
+            <h2>显示 HTML 元素</h2>
+            <p>ng-show 指令可以设置应用隐藏或显示app内容</p>
+            <p>ng-show 接收的参数是布尔值，true 显示元素，false 隐藏元素</p>
+            <button ng-click="toggle()">隐藏/显示</button>
+            <p>
+                名: <input type="text" ng-model="firstName">
+                姓: <input type="text" ng-model="lastName">
+            </p>
+            <p ng-show="myValue">姓名: {{lastName + " " + firstName}}</p>
+
+            <h2>ng-hide 指令</h2>
+            <p>ng-hide 指令隐藏或显示一个 HTML 元素。</p>
+            <p>ng-hide 指令直接绑定应用程序数据到 HTML 的style.display 属性上，其值为布尔值</p>
+            <button ng-click="toggle()">隐藏/显示</button>
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+        $scope.myFunction = function() {
+            $scope.checked = true;
+        };
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+        $scope.myValue = true;
+        $scope.toggle = function() {
+            $scope.myValue =!$scope.myValue;
+        }
+    });
+</script>
+</html>
