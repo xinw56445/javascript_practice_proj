@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <h1>AngularJS 模块</h1>
+        <p>AngularJS 模块是一个包含了应用程序中所有指令、过滤器、服务、模块的命名空间</p>
+        <div ng-controller="myCtrl">
+            <h2>模块创建</h2>
+            <p>angular.module('myApp', []);</p>
+
+            <h2>模块配置</h2>
+            <p>angular.module('myApp', []).config(['$httpProvider', function($httpProvider
+                ) {
+                $httpProvider.interceptors.push('myInterceptor');
+                }]);</p>
+            <h2>模块指令</h2>
+            <p>angular.module('myApp', []).directive('myDirective',
+                function() {
+                return {
+                restrict: 'A',
+                template: '
+            <div>Directive works!</div>'
+            };
+            });
+            </p>
+
+            <h2>模块过滤器</h2>
+            <p>angular.module('myApp', []).filter('myFilter', function() {
+                return function(input) {
+                return 'filtered:'+ input;
+                };
+                });
+            </p>
+
+            <h2>模块控制器</h2>
+            <p>angular.module('myApp', []).controller('myCtrl', function($scope) {
+                $scope.message = 'Hello World';
+                });
+            </p>
+
+        </div>
+    </div>
+</body>
+
+</html>

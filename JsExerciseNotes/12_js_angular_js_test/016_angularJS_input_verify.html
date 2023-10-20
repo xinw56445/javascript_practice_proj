@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+<style>
+    div {
+        margin: 10px;
+    }
+
+    div.form {
+        border: 1px solid black;
+        width: 350px;
+        height: 200px;
+        padding: 20px;
+        margin: 20px;
+        background-color: antiquewhite;
+    }
+
+    label,
+    input {
+        margin-left: 10px;
+    }
+
+    .btn {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+   .btn button {
+        width: 100px;
+        height: 30px;
+    }
+
+    span {
+        color: red;
+    }
+</style>
+
+<body>
+    <div ng-app="myApp">
+        <h1>AngulaJS 输入验证</h1>
+        <p>AngularJS 表单和控件 可以验证输入的数据</p>
+        <p>AngularJS 表单和控件可以提供验证功能，并对用户输入的非法数据进行警告</p>
+        <div class="form" style=>
+            <form ng-controller="validateCtrl" name="myForm" novalidate>
+                <p>
+                    <label>用户名:</label>
+                    <input type="text" name="myInput" ng-model="myInput" placeholder="user name" required>
+                    <span ng-show="myForm.myInput.$error.required">名字是必填的!!!</span>
+                </p>
+                <p>
+                    <label>邮__箱:</label>
+                    <input type="email" name="myEmail" ng-model="myEmail" placeholder="xxx@xx.com" required>
+                    <span ng-show="myForm.myEmail.$error.required">邮箱是必填的!!!</span>
+                    <span ng-show="myForm.myEmail.$error.email">邮箱格式错误!!!</span>
+                </p>
+                <p class="btn">
+                    <button ng-click="submitForm()">提交</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('validateCtrl', function ($scope, $location) {
+        //$scope.myInput = '';
+        //$scope.myEmail = '';
+        $scope.submitForm = function () {
+            if ($scope.myForm.$valid) {
+                alert('提交成功');
+            } else {
+                alert('提交失败');
+            }
+        };
+    });
+</script>
+
+</html>

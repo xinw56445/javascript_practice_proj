@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <h1>AngularJS 表单</h1>
+        <p>AngularJS 表单是输入控件的集合</p>
+        <p>HTML 控件：</p>
+        <ul>
+            <li>input</li>
+            <li>button</li>
+            <li>select</li>
+            <li>textarea</li>
+        </ul>
+
+        <div ng-controller="myCtrl">
+            <form name="myForm" action="">
+                <h2>输入框（input）</h2>
+                <p>ng-model 指令将应用数据与 HTML 控件进行了数据绑定</p>
+                <p>例如：当我们输入数据，我们会在页面上看到输入的数据</p>
+                <input type="text" ng-model="myInput">
+                <p>entered: {{myInput}}</p>
+
+                <h3>ng-required 指令</h3>
+                <p>ng-required 指令直接绑定应用数据到 HTML 的required 属性上</p>
+                <p>例如：当我们提交一个没有填的数据，我们会看到一个错误提示</p>
+                <input type="text" name="myInput0" ng-model="myInput0" ng-required="isRequired">
+                <span ng-show="myForm.myInput0.$error.required">输入不能为空!!!</span>
+                <p><input type="submit" ng-click="isRequired =!isRequired"></p>
+                <p>isRequired : {{isRequired}}</p>
+                <p>myInput : {{myInput0}}</p>
+
+                <h3>ng-pattern 指令</h3>
+                <p>ng-pattern 指令直接绑定应用数据到 HTML 的pattern 属性上</p>
+                <p>例如：当我们输入的数据不符合要求，我们会看到一个错误提示</p>
+                <input type="text" name="myInput1" ng-model="myInput1" ng-pattern="/^[a-zA-Z]*$/" placeholder="请输入字母">
+                <span ng-show="myForm.myInput1.$error.pattern">输入的不是字母!!!</span>
+
+                <h2>复选框（checkbox）</h2>
+                <p>checkbox 的值为true 或 false</p>
+                <p>Toggle: <input type="checkbox" ng-model="myCheck"></p>
+                <p>myCheck: {{myCheck}}</p>
+                <p ng-show="myCheck">我是隐藏的那段话</p>
+
+                <h2>单选框（redio）</h2>
+                <p>单选框的值只能是一个</p>
+                <p>单选框的值:
+                    <input type="radio" ng-model="myValue" value="male">男
+                    <input type="radio" ng-model="myValue" value="female">女
+                </p>
+                <p>myValue: {{myValue}}</p>
+
+                <h2>下拉菜单</h2>
+                <p>使用ng-model 指令可以将下拉菜单绑定到应用中，其属性值为下拉菜单的选项</p>
+                <select ng-model="mySelect">
+                    <option value="">--请选择--</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+                <p>ng-switch 指令根据下拉菜单的选择结果显示或隐藏 HTML 区域。</p>
+                <div ng-switch="mySelect" style="background-color: bisque; width: 170px; height: 100px; padding-left: 10px;">
+                    <div ng-switch-when="option1">
+                        <h1>option1</h1>
+                        <p>This's an first option</p>
+                    </div>
+                    <div ng-switch-when="option2">
+                        <h1>Tutorials</h1>
+                        <p>This's an second option</p>
+                    </div>
+                    <div ng-switch-when="option3">
+                        <h1>Cars</h1>
+                        <p>This's an third option</p>
+                    </div>
+                </div>
+
+                <h2>AngularJS 表单实例</h2>
+                <p>	novalidate 属性是在 HTML5 中新增的。禁用了使用浏览器的默认验证。</p>
+                <!-- <form novalidate> -->
+                <p>FirstName：</p>
+                <input type="text" ng-model="user.firstName" required>
+                <p>LastName:</p>
+                <input type="text" ng-model="user.lastName" required>
+                <button ng-click="reset()">RESET</button>
+                <p>form: {{user}}</p>
+                <p>master: {{master}}</p>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.myInput = 'AngularJS';
+        $scope.myCheck = false;
+        // 
+        $scope.master = {firstName: 'John', lastName: 'Doe'};
+        // 设置user 对象等于master 对象
+        $scope.reset = function () {
+            $scope.user = angular.copy($scope.master);
+        };
+        $scope.reset();
+    });
+</script>
+
+</html>
