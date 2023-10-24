@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="./node_modules/angular/angular.min.js"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+    <!-- <link rel="stylesheet" href="../../CSSCodeBase/array.css"> -->
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <h1>AngularJS 包括</h1>
+        <p>AngularJS 使用ng-include 指令来包含HTML 内容</p>
+        <div ng-include="'./angularJS_api.html'"></div>
+        <p>包含 AngularJS 代码</p>
+        <p>跨域包含</p>
+        <p>默认情况下，ng-include 指令是不允许包含其他域名的文件</p>
+        <p>但是，可以通过设置 ng-include 指令的属性为 allow-cross-origin 来允许跨域</p>
+        <p>此外还要设置服务器允许跨端访问</p>
+    </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+
+    });
+    app.config(function ($sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist([
+            // Allow same origin resource loads.
+            'self',
+            // Allow loading from our assets domain. 通過 allow-cross-origin 可以允许跨域
+            ''
+        ]);
+    });
+</script>
+
+</html>
